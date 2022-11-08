@@ -19,7 +19,7 @@ body{
 #chk{
 	display: none;
 }
-.registro{
+.login{
 	position: relative;
 	width:100%;
 	height: 100%;
@@ -29,7 +29,7 @@ label{
 	font-size: 2.3em;
 	justify-content: center;
 	display: flex;
-	margin: 60px;
+	margin: 40px auto 10px;
 	font-weight: bold;
 	cursor: pointer;
 	transition: .5s ease-in-out;
@@ -66,25 +66,26 @@ button{
 button:hover{
 	background: #ABA194;
 }
-.login{
+.registro{
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
 	transform: translateY(-180px);
 	transition: .8s ease-in-out;
 }
-.login label{
+.registro label{
 	color: #BDB6AF;
 	transform: scale(.6);
+	margin: 50px;
 }
 
-#chk:checked ~ .login{
+#chk:checked ~ .registro{
 	transform: translateY(-500px);
 }
-#chk:checked ~ .login label{
+#chk:checked ~ .registro label{
 	transform: scale(1);
     padding-top: 20px;	
 }
-#chk:checked ~ .registro label{
+#chk:checked ~ .login label{
 	transform: scale(.6);
 }
