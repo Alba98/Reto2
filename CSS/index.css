@@ -5,12 +5,9 @@
     --gainsBoro: #D8DDDE;
     --darkBlueGray:#7871AA;
     --darkBlue: #5f56a5;
-    --turquesa: rgb(48, 107, 172);
+    --turquesa: rgb(133, 174, 218);
     
 }
-
-
-
 
 * {
     box-sizing: border-box;
@@ -21,7 +18,6 @@
     transition: all 0.4s;
 }
 
-/* ──────────────────────────────────────────────────────────────────── */
 
 #menu a {
     text-decoration: none;
@@ -34,8 +30,6 @@ a:visited {
 body {
     width: 100vw;
     height: 100vh;
-    display: flex;
-    justify-content: space-evenly;
     z-index: -1;
 }
 
@@ -151,7 +145,7 @@ body * {
 }
 
 #menu-h-principal a,
- #menu-h-principal a:visited {
+#menu-h-principal a:visited {
     text-decoration: none;
     color: var(--lightGray);
 }
@@ -162,7 +156,7 @@ footer {
     grid-column: 1/13;
     grid-row: 10/11;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(4, auto);
     grid-template-areas:"servicios"
                         "redes"
@@ -176,12 +170,20 @@ footer {
     place-items: center;
     z-index: 1;
 }
+
 #redessociales{
+    width: 200px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
+
+/*   
+#fb,#tw,#in,#ws,#wp{
+ 
+}
+*/
 
 footer #direccion {
     grid-area: direccion;
