@@ -1,0 +1,83 @@
+* {
+    padding: 0;
+    margin: 0 auto;
+    box-sizing: border-box;
+    font-family: Helvetica;
+}
+
+body {
+    background: #BDB6AF;
+}
+
+.datos>*{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "izq der";
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    padding: 3%;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
+}
+
+.izq {
+    grid-area: izq;
+}
+
+.der {
+    grid-area: der;
+}
+
+label {
+    display: inline-block;
+    width: 90px;
+}
+
+.inputs {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+input[type='file'] {
+    width: 80%;
+    cursor: pointer;
+    background-color: #ABA194;
+    color: white;
+}
+
+input[type='submit'], input[type='button'] {
+    background-color: #7871AA;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+.perfil {
+    width: 140px;
+}
+
+@media screen and (max-width: 760px) {
+    .datos>* {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .der {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    input[type='submit'] {
+        margin-bottom: 15px;
+    }
+
+    input[type='button'], input[type='file'] {
+        margin-top: -20px;
+    }
+}
