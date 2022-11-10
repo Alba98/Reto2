@@ -44,11 +44,11 @@ body * {
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto 100vh auto 100vh;
     grid-template-areas:"menu menu menu menu"
-                        "head head head head"
+                        "main main main main"
                         "foot foot foot foot";
 }
-#header {
-    grid-area: head;
+#main {
+    grid-area: main;
     height: 100vh;
     width: 100%;
     display: flex;
@@ -151,6 +151,7 @@ body * {
 }
 
 footer {
+    grid-area: foot;
     background-color: var(--darkBlueGray);
     color: var(--lightGray);
     grid-column: 1/13;
