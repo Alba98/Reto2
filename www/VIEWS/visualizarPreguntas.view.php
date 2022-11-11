@@ -1,16 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="https://kit.fontawesome.com/430fba9c80.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preguntas</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/visualizarPreguntas.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-</head>
-<body>
-  
+
+<div class="visualizacion">
     <div class="datos">
         <form method="get">
                 <input class="buscar" type="search" name="buscar" id="buscar" placeholder="Buscar..." autofocus>
@@ -74,5 +63,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+</div>
