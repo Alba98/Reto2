@@ -1,8 +1,4 @@
 /* SQL USUARIO */
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
 CREATE TABLE `USUARIO` (
   `id_usu` int NOT NULL,
   `nombre` varchar(50) NOT NULL,
@@ -22,10 +18,6 @@ ALTER TABLE `USUARIO`
 COMMIT;
 
 /* SQL CATEGORIA */
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
 CREATE TABLE `CATEGORIA` (
   `id_cat` int NOT NULL,
   `nombre` varchar(20) NOT NULL
@@ -58,10 +50,6 @@ ALTER TABLE `PREGUNTA`
   ADD CONSTRAINT `PREGUNTA_ibfk_1` FOREIGN KEY (`id_cat`) REFERENCES `CATEGORIA` (`id_cat`);
 
 /* SQL RESPUESTA */
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
 CREATE TABLE `RESPUESTA` (
   `id_res` int NOT NULL,
   `descripcion` varchar(50) NOT NULL
@@ -76,23 +64,30 @@ COMMIT;
 
 /* SQL PREGUNTAR */
 CREATE TABLE PREGUNTAR (
- 	id_usu    int(10) PRIMARY KEY ,
- 	id_preg   int(10) PRIMARY KEY ,
+  id_preguntar int(10),
+ 	id_usu    int(10),
+ 	id_preg   int(10),
 
-    CONSTRAINT id_usu_fk FOREIGN KEY (id_usu)
-				REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
+  CONSTRAINT id_usu_fk FOREIGN KEY (id_usu)
+	REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
 	CONSTRAINT  id_preg_fk FOREIGN KEY (id_preg)
-				REFERENCES PREGUNTA(id_preg) ON DELETE CASCADE
-                
+	REFERENCES PREGUNTA(id_preg) ON DELETE CASCADE
 );
+
+ALTER TABLE `PREGUNTAR`
+  ADD PRIMARY KEY (`id_preguntar`);
 
 /* SQL RESPONDER */
 CREATE TABLE RESPONDER (
   cod_res   int(10) PRIMARY KEY ,
  	id_usu    int(10) ,
  	id_res   int(10) ,
-  CONSTRAINT id_usu_fk FOREIGN KEY (id_usu)
+  CONSTRAINT res_usu_fk FOREIGN KEY (id_usu)
 				REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
 	CONSTRAINT  id_res_fk FOREIGN KEY (id_res)
-				REFERENCES RESPUESTA( id_res) ON DELETE CASCADE     
+				REFERENCES RESPUESTA( id_res) ON DELETE CASCADE
 );
+
+ALTER TABLE `RESPONDER`
+  MODIFY `cod_res` int NOT NULL AUTO_INCREMENT;
+COMMIT;
