@@ -35,14 +35,14 @@ body {
 
 body * {
     overflow-x: hidden;
-    max-width: 1920px;
+    /* max-width: 100vw; */
 }
 
 #global {
-    max-width: 1920px;
+    max-width: 100vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: auto 100vh auto 100vh;
+    grid-template-rows: auto 100vh auto 1fr;
     grid-template-areas:"menu menu menu menu"
                         "main main main main"
                         "foot foot foot foot";
@@ -55,7 +55,7 @@ body * {
     flex-direction: column;
     justify-content: center;
     place-items: center;
-    background: var(--darkBlueGray) fixed;
+    background: var(--darkBlue) fixed;
 }
 
 #menu {
@@ -170,6 +170,7 @@ footer {
     padding: 20px;
     place-items: center;
     z-index: 1;
+    box-shadow: -10px -5px 10px rgba(0, 0, 0, 0.5);
 }
 
 #redessociales{
