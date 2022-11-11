@@ -40,4 +40,4 @@
             </div>
                 
         
-        <div class="main">
+        <div id="main">
