@@ -1,13 +1,9 @@
 <?php
 /**
- *
- *
  * @author    GRUPO 1 <wat2022.wordpress.com>
  * @version   2022-11-22
  * 
- * 
 */
-
 function connect(){
     $dbname = "reto2";
     $host = "db";
