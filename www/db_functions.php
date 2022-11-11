@@ -124,7 +124,9 @@ function userLogin($email,$pass){
         $datos = $stmt->fetch(PDO::FETCH_OBJ);
         $db = null;
         if($count){
-            $_SESSION['id_usu']=$datos->id_usu; // Storing user session value
+            $_SESSION['id_usu']=$datos->id_usu; // Guardamos en sesión el id del usuario
+            $_SESSION['logged']=true;
+            $_COOKIE['prueba'] = 'HOLA';
             return true;
         }
         else {
@@ -133,5 +135,38 @@ function userLogin($email,$pass){
     }
     catch(PDOException $e) {
         echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
+}
+
+// REGISTRAR
+function userRegistration($nombre,$email,$pass){
+    try{
+        $db = connect();
+        $stmt = $db->prepare("SELECT id_usu FROM USUARIO WHERE email=:email AND contrasenia=:pass"); 
+        $data = array(
+            "email" => $email,
+            "pass" => $pass
+        );
+        $stmt->execute($data);
+        $count=$stmt->rowCount();
+        if($count<1) {
+            $stmt = $db->prepare("INSERT INTO USUARIO(nombre,contrasenia,email) VALUES (:nombre,:pass,:email)");
+            $data = array(
+                "email" => $email,
+                "pass" => $pass,
+                "nombre" => $nombre
+            );
+            $stmt->execute($data);
+            $uid=$db->lastInsertId(); // Ultimo id insertado
+            $_SESSION['uid']=$uid;
+            return true;
+        }
+        else {
+            $db = null;
+            return false;
+        }
+    } 
+    catch(PDOException $e) {
+    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 }

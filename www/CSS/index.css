@@ -42,7 +42,7 @@ body * {
     max-width: 100vw;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: 1fr 100vh 1fr;
+    grid-template-rows: auto auto auto;
     grid-template-areas:"menu menu menu menu"
                         "main main main main"
                         "foot foot foot foot";
@@ -76,6 +76,7 @@ body * {
     height: 40px;
     margin: 10px 20px;
 }
+
 
 #menu-principal {
     display: flex;
@@ -378,6 +379,12 @@ button:hover{
     }
 }
 @media only screen and (min-width: 361px) and (max-width: 768px) {
+
+    footer{
+        display: flex;
+        flex-direction: column;
+    }
+
     #titulo {
         font-size: 8vw;
     }

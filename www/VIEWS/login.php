@@ -2,7 +2,7 @@
                 <div class="contenido">  
                     <input type="checkbox" id="chk" aria-hidden="true">	
                     <div class="login">
-                        <form>
+                        <form method="POST">
                             <label for="chk" aria-hidden="true">Login</label>
                             <div class="svgContainer">
                                 <div>
@@ -117,11 +117,11 @@
                     </div>
 
                     <div class="registro">
-                        <form>
+                        <form method="POST">
                             <label for="chk" aria-hidden="true">Registro</label>
-                            <input type="text" name="txt" placeholder="Nombre de usuario" required="">
-                            <input type="email" name="email" placeholder="Email" required="">
-                            <input type="password" name="pswd" placeholder="Contraseña" required="">
+                            <input type="text" name="rnombre" placeholder="Nombre de usuario" required="">
+                            <input type="email" name="remail" placeholder="Email" required="">
+                            <input type="password" name="rpswd" placeholder="Contraseña" required="">
                             <button>Registrarse</button>
                         </form>
                     </div>
