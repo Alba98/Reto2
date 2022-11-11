@@ -100,3 +100,13 @@ function insertCategoria($dbh,$datosCategoria){
     }
 }
 
+
+//SELECT DE CADA TABLA
+//de la relacion tambien?
+function deletePreguntaById($dbh, $id){
+    $data = array(
+        'id' => $id
+    );
+    $stmt = $dbh->prepare("DELETE FROM pregunta WHERE id_preg= :id");
+    $stmt->execute($data);
+}
