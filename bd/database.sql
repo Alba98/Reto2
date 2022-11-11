@@ -2,7 +2,7 @@
 CREATE TABLE `USUARIO` (
   `id_usu` int NOT NULL,
   `nombre` varchar(50) NOT NULL,
-  `apellidos` varchar(50) NOT NULL,
+  `apellidos` varchar(50)NULL,
   `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
   `contrasenia` varchar(20) NOT NULL,
   `imagen` longblob
