@@ -1,5 +1,4 @@
 <?php require('VIEWS/PARTIALS/header.php') ?>
-
 <?php  
         echo "<h1>¡Hola, Bienvenido!</h1>";
 
