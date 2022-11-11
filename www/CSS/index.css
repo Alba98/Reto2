@@ -1,0 +1,314 @@
+:root {
+    --grullo: #ABA194;
+    --paleSilver: #BDB6AF;
+    --lightGray: #CFCBCA;
+    --gainsBoro: #D8DDDE;
+    --darkBlueGray:#7871AA;
+    --darkBlue: #5f56a5;
+    --turquesa: rgb(133, 174, 218);
+    
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: helvetica;
+    gap: 0;
+    transition: all 0.4s;
+}
+
+
+#menu a {
+    text-decoration: none;
+    color: var(--lightGray);
+}
+a:visited {
+    color: var(--lightGray);
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
+
+body * {
+    overflow-x: hidden;
+    max-width: 1920px;
+}
+
+#global {
+    max-width: 1920px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto 100vh auto 100vh;
+    grid-template-areas:"menu menu menu menu"
+                        "main main main main"
+                        "foot foot foot foot";
+}
+#main {
+    grid-area: main;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    place-items: center;
+    background: var(--darkBlueGray) fixed;
+}
+
+#menu {
+    grid-area: menu;
+    background-color: var(--darkBlueGray);
+    display: none;
+    height: min-content;
+    min-height: 50px;
+    justify-content: space-between;
+    position: sticky;
+    top: 0px;
+    z-index: 5;
+    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+#logo-menu {
+    display: flex;
+    height: 40px;
+    margin: 10px 20px;
+}
+
+#menu-principal {
+    display: flex;
+    align-items: center;
+    width: 55%;
+    margin: 0px 10px;
+    max-width: 450px;
+    min-width: 250px;
+    justify-content: space-between;
+}
+
+#menu-principal li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    flex-grow: 1;
+}
+
+#menu-principal li a {
+    padding: 10px 20px;
+}
+#menu-principal li:hover {
+    background-color: var(--turquesa);
+    flex-grow: 3;
+    cursor: pointer;
+}
+#menu-principal li a {
+    font-size: 2vmax;
+}
+#menu-h{
+    position: sticky;
+    top: 0px;
+    grid-area: menu;
+    width: 100%;
+    height: min-content;
+    background-color: var(--darkBlueGray);
+    color: var(--lightGray);
+    z-index: 5;
+}
+
+#menu-h span {
+    font-size: 2.5rem;
+    padding: 5px 10px;
+    background-color: var(--darkBlueGray);
+    color: var(--lightGray);
+}
+#menu-h-principal {
+    display: none;
+    position: absolute;
+    width: 100vw;
+    height:0px;
+    transition: 1s ease;
+    background-color: var(--darkBlueGray);
+    color: var(--lightGray);
+    z-index: 5;
+}
+#menu-h-principal:target {
+    display:flex;
+    height: min-content;
+    top: 45px;
+}
+
+#menu-h-principal li {
+    padding: 10px 30px;
+    font-size: 1.5rem;
+}
+
+#menu-h-principal a,
+#menu-h-principal a:visited {
+    text-decoration: none;
+    color: var(--lightGray);
+}
+
+footer {
+    grid-area: foot;
+    background-color: var(--darkBlueGray);
+    color: var(--lightGray);
+    grid-column: 1/13;
+    grid-row: 10/11;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas:"servicios"
+                        "redes"
+                        "direccion"
+                        "mapa";
+    gap: 10px;
+    height: min-content;
+    justify-content: space-around;
+    margin: 0;
+    padding: 20px;
+    place-items: center;
+    z-index: 1;
+}
+
+#redessociales{
+    width: 200px;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*   
+#fb,#tw,#in,#ws,#wp{
+ 
+}
+*/
+
+footer #direccion {
+    grid-area: direccion;
+}
+footer #servicios {
+    grid-area: servicios;
+    display: flex;
+    flex-direction: column;
+}
+
+#servicios a {
+    text-decoration: none;
+    background-color: var(--darkBlueGray);
+    color: var(--claro);
+}
+#servicios a:visited {
+    background-color: var(--darkBlueGray);
+    color: var(--lightGray);
+}
+footer #mapa {
+    grid-area: mapa;
+}
+#servicios h3 {
+    text-align: center;
+    padding: 10px;
+}
+
+#servicios .enlace,
+#direccion .enlace {
+    padding: 5px 20px;
+    border-radius: 5px;
+    border: 1px var(--turquesa) solid;
+    margin: 3px;
+}
+
+#servicios a,
+#direccion a {
+    padding: 3px 20px;
+}
+
+#servicios .enlace:hover,
+#direccion .enlace:hover {
+    color: var(--claro);
+    background-color: var(--turquesa);
+    cursor: pointer;
+}
+/* MEDIA */
+@media only screen and (min-width: 1920px) {
+    #menu-principal li a {
+        font-size: 1.1rem;
+    }
+   footer {
+        display: grid;
+        justify-content: center;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: auto auto;
+        grid-template-areas:
+            "servicios redes mapa"
+            "servicios direccion mapa";
+     
+    }
+    #menu-h,
+    #menu-h-principal {
+        display: none;
+    }
+    #menu {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1920px) {
+    #menu-principal li a {
+        font-size: 1.1rem;
+    }
+  
+    footer {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: 55px auto;
+        grid-template-areas:
+            "servicios rrss mapa"
+            "servicios direccion mapa";
+        justify-content: center;
+        align-items: flex-start;
+    }
+    #menu-h,
+    #menu-h-principal{
+        display: none;
+    }
+    #menu {
+        display: flex;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 950px) {
+    footer #mapa {
+        max-width: 200px;
+    }
+    #menu-h,
+    #menu-h-principal {
+        display: none;
+    }
+    #menu {
+        display: flex;
+    }
+}
+@media only screen and (min-width: 361px) and (max-width: 768px) {
+    #titulo {
+        font-size: 8vw;
+    }
+    #menu-h,
+    #menu-h-principal {
+        display: flex;
+    }
+    #menu {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 360px) {
+    #menu-h,
+    #menu-h-principal{
+        display: flex;
+    }
+    #menu {
+        display: none;
+    }
+}
