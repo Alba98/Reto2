@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!--<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,12 +8,14 @@
     <link rel="stylesheet" type="text/css" href="../CSS/login.css">
     <link rel="stylesheet" type="text/css" href="../CSS/yeti.css">
 </head>
-<body>
+<body> -->
+
     <div class="main">  	
+	
 		<input type="checkbox" id="chk" aria-hidden="true">
 
 			<div class="login">
-				<form>
+				<form method="POST">
 					<label for="chk" aria-hidden="true">Login</label>
 					<div class="svgContainer">
 						<div>
@@ -140,8 +142,8 @@
 				</form>
 			</div>
 	</div>
-	
 	<script src="../JS/TweenMax.min.js"></script>
 	<script src="../JS/yeti.js"></script>
-</body>
-</html>
+	
+<!--</body>
+</html> -->
