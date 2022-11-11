@@ -15,7 +15,7 @@ CREATE TABLE USUARIO (
   nombre varchar(50),
   apellidos varchar(50),
   email varchar(30) UNIQUE NOT NULL,
-  contraseña varchar(20),
+  contrasenia varchar(20),
   imagen longblob NULL
     
 );
