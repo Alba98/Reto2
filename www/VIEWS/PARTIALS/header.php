@@ -16,7 +16,7 @@
         <div class="container grid-1" id="global">
             <nav id="menu">
                 <div>
-                    <a href="#main" id="logo-menu"><img src="../../RECURSOS/IMAGES/logo_provisional.png" alt="logotipo"/></a>
+                <a href="#" id="logo-menu"><img src="../RECURSOS/IMAGES/search_book.png" alt="logotipo"/></a>
                 </div>
                 <ul id="menu-principal">
                     <li><a href="#">Preguntas frecuentes</a></li>
