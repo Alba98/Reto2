@@ -52,7 +52,6 @@ function insertUsuario ($dbh,$datosUsuario){
     try {
         $stmt = $dbh->prepare("INSERT INTO usuario (nombre,apellidos,email,contraseña,imagen)
                                VALUES (:nombre, :apellidos, :email, :contraseña, :imagen)");
-
         $stmt->execute($datosUsuario);
     } catch(Exception $e) {
         echo 'Exception -> ';
@@ -109,4 +108,30 @@ function deletePreguntaById($dbh, $id){
     );
     $stmt = $dbh->prepare("DELETE FROM pregunta WHERE id_preg= :id");
     $stmt->execute($data);
+}
+
+// LOGIN
+function userLogin($email,$pass){
+    try{
+        $db = connect();
+        $stmt = $db->prepare("SELECT id_usu FROM USUARIO WHERE email=:email AND contrasenia=:pass"); 
+        $data = array(
+            "email" => $email,
+            "pass" => $pass
+        );
+        $stmt->execute($data);
+        $count = $stmt->rowCount();
+        $datos = $stmt->fetch(PDO::FETCH_OBJ);
+        $db = null;
+        if($count){
+            $_SESSION['id_usu']=$datos->id_usu; // Storing user session value
+            return true;
+        }
+        else {
+            return false;
+        } 
+    }
+    catch(PDOException $e) {
+        echo '{"error":{"text":'. $e->getMessage() .'}}';
+    }
 }

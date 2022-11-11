@@ -4,11 +4,9 @@ CREATE TABLE `USUARIO` (
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(50) NOT NULL,
   `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NULL,
-  `contraseña` varchar(20) NOT NULL,
+  `contrasenia` varchar(20) NOT NULL,
   `imagen` longblob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-
-
 
 /* SQL RESPONDER */
 CREATE TABLE USUARIO (
@@ -21,11 +19,6 @@ CREATE TABLE USUARIO (
   imagen longblob NULL
     
 );
-
-
-
-
-
 
 ALTER TABLE USUARIO
   ADD PRIMARY KEY (id_usu),
