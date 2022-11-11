@@ -137,3 +137,36 @@ function userLogin($email,$pass){
         echo '{"error":{"text":'. $e->getMessage() .'}}';
     }
 }
+
+// REGISTRAR
+function userRegistration($nombre,$email,$pass){
+    try{
+        $db = connect();
+        $stmt = $db->prepare("SELECT id_usu FROM USUARIO WHERE email=:email AND contrasenia=:pass"); 
+        $data = array(
+            "email" => $email,
+            "pass" => $pass
+        );
+        $stmt->execute($data);
+        $count=$stmt->rowCount();
+        if($count<1) {
+            $stmt = $db->prepare("INSERT INTO USUARIO(nombre,contrasenia,email) VALUES (:nombre,:pass,:email)");
+            $data = array(
+                "email" => $email,
+                "pass" => $pass,
+                "nombre" => $nombre
+            );
+            $stmt->execute($data);
+            $uid=$db->lastInsertId(); // Ultimo id insertado
+            $_SESSION['uid']=$uid;
+            return true;
+        }
+        else {
+            $db = null;
+            return false;
+        }
+    } 
+    catch(PDOException $e) {
+    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+    }
+}
