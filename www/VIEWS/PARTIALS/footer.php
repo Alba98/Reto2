@@ -22,7 +22,7 @@
                     <p> 945 01 01 10</p>
                     <p>http://www.egibide.org/</p>
                 </div>
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.2535345377255!2d-2.6792405491385014!3d42.86749257905362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc24a2f4d4c95%3A0x7cded83857c813f4!2sEgibide%20-%20Arriaga!5e0!3m2!1ses!2ses!4v1667937975170!5m2!1ses!2ses" width="300" height="200" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" id="mapa"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2924.2535345377255!2d-2.6792405491385014!3d42.86749257905362!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd4fc24a2f4d4c95%3A0x7cded83857c813f4!2sEgibide%20-%20Arriaga!5e0!3m2!1ses!2ses!4v1667937975170!5m2!1ses!2ses" width="300" height="200" style="border:0;" allowfullscreen="" id="mapa"></iframe>
             </footer>
         </div>
     </body>
