@@ -15,7 +15,7 @@
                     <option value="recientes">Recientes</option>
                 </select>
                 <button class="lupa"><i class="fa fa-search"></i></button>
-                <input class="inputs" type="submit" id="guardar" hidden>
+                <input type="submit" id="guardar" hidden>
 
         </form>
     </div>

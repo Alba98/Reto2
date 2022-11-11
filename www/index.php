@@ -4,7 +4,7 @@
    // Si el usuario ha accedido correctamente, mostramos el mensaje de bienvenida:
     if (isset($_SESSION["login"]) && $_SESSION["login"] == 0) {
         $nombre = $usuarios[$_SESSION['usuario']]['nombre'];
-        $apellidos = $usuarios[$_SESSION['usuario']]['apellidos'];
+        $password = $usuarios[$_SESSION['usuario']]['password'];
         // Cargar la vista
         require('VIEWS/visualizarPreguntas.view.php');
     } else {
