@@ -1,0 +1,12 @@
+
+CREATE TABLE PREGUNTAR (
+ 	id_usu    NUMBER(10) PRIMARY KEY ,
+ 	id_preg   NUMBER(10) PRIMARY KEY ,
+
+    CONSTRAINT id_usu_fk FOREIGN KEY (id_usu)
+				REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
+	CONSTRAINT  id_preg_fk FOREIGN KEY (id_preg)
+				REFERENCES PREGUNTA(id_preg) ON DELETE CASCADE
+                
+    );
+
