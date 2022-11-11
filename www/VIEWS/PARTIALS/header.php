@@ -13,7 +13,6 @@
         <title>GRUPO 1</title>
     </head>
     <body>
-    
         <div class="container grid-1" id="global">
             <nav id="menu">
                 <div>

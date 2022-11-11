@@ -2,7 +2,7 @@
                 <div class="contenido">  
                     <input type="checkbox" id="chk" aria-hidden="true">	
                     <div class="login">
-                        <form>
+                        <form method="POST">
                             <label for="chk" aria-hidden="true">Login</label>
                             <div class="svgContainer">
                                 <div>

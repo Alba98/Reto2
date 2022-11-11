@@ -124,7 +124,9 @@ function userLogin($email,$pass){
         $datos = $stmt->fetch(PDO::FETCH_OBJ);
         $db = null;
         if($count){
-            $_SESSION['id_usu']=$datos->id_usu; // Storing user session value
+            $_SESSION['id_usu']=$datos->id_usu; // Guardamos en sesión el id del usuario
+            $_SESSION['logged']=true;
+            $_COOKIE['prueba'] = 'HOLA';
             return true;
         }
         else {
