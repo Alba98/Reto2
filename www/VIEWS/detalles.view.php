@@ -1,22 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <script src="https://kit.fontawesome.com/430fba9c80.js" crossorigin="anonymous"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="../CSS/detalle.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Detalles</title>
-</head>
-<body>
+
     <div class="detalles">
         <div class="votacion">
             <a class="like" href="#1"><i class="fa-solid fa-sort-up"></i></a>
             <b id="votos" class="votos">VOTOS</b>
             <a class="like" href="#2"><i class="fa-solid fa-sort-down"></i></a>
         </div>
-        <div class="usuario">
+        <div class="user">
             <h3 id="titulousuario">Usuario</h3>
             <img class="perfil" src="../RECURSOS/IMAGES/user.png" alt="Foto de pergil">
             <form>
@@ -44,5 +33,3 @@
             </div>
         </div>
     </div>
-</body>
-</html>
