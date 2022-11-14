@@ -158,7 +158,7 @@ function userRegistration($nombre,$email,$pass){
             );
             $stmt->execute($data);
             $uid=$db->lastInsertId(); // Ultimo id insertado
-            $_SESSION['uid']=$uid;
+            $_SESSION['id_usu']=$uid;
             return true;
         }
         else {
@@ -170,3 +170,16 @@ function userRegistration($nombre,$email,$pass){
     echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 }
+
+// CERRAR SESIÓN
+function cerrarSesion() {
+    unset($_SESSION[ "id_usu"]);
+}
+
+if (isset($_GET['accion'])) {
+    if ($_GET['accion'] == 'cerrarsesion') {
+        cerrarSesion();
+        fopen('index.php','r');
+    }
+}
+
