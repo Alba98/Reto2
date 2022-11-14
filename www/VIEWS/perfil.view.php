@@ -21,7 +21,7 @@
                     <label>Confirmar contraseña </label>
                     <input type = "password" id = "contra2"><br>
                     
-                    <button type = "submit" onclick="matchPassword()">Submit</button>
+                    <button type="submit"   onclick="matchPassword()">Cambiar</button>
                     <button type = "reset"  value = "Reset">Reset</button><br><br>
 
                 </div>
