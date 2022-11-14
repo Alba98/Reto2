@@ -1,5 +1,5 @@
 
-                <div class="inicioSesion">  
+                <div id="inicioSesion">  
                     <input type="checkbox" id="chk" aria-hidden="true">	
                     <div class="login">
                         <form>
