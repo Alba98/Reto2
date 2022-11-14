@@ -1,14 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Perfil</title>
-    <link rel="stylesheet" type="text/css" href="../CSS/perfil.css">
-</head>
-<body>
-    <div class="datos">
+<div id="perfil">
+    <div class="datos recuadroFormu">
         <form method="post">
             <div class="izq">
                 <h2>DETALLES</h2><br>
@@ -16,7 +7,6 @@
                 <input class="inputs" type="text" name="nombre" id="nombre" disabled><br><br>
                 <label for="apellidos">Apellidos: </label>
                 <input class="inputs" type="text" name="apellidos" id="apellidos" disabled><br><br>
-            
                 <label for="contraseña">Contraseña: </label>
                 <input class="inputs" type="text" name="contraseña" id="contraseña" onfocusout="nuevaContrasenia()" disabled><br><br>
                 <div id="pswd_info">
@@ -25,7 +15,7 @@
                     <p>Repite la nueva contraseña: <input type="password" name="passwordNew2"></p>
                     <input type="submit" value="Modificar Password">
                 </div>
-           
+
                 <label for="email">Email: </label>
                 <input class="inputs" type="text" name="email" id="email" disabled><br><br>
                 <input class="inputs" type="submit" value="GUARDAR CAMBIOS" id="guardar" disabled>
@@ -38,17 +28,4 @@
         </form>
     </div>
     <script src="../JS/perfil.js"></script>
-    <script src="../JS/perfilValidacion.js"></script>
-</body>
-<!--   <h4>La contraseña debe cumplir los siguientes requerimientos:</h4>
-                    <ul>
-                      <li id="letter" class="invalid">Al menos <strong>una letra</strong></li>
-                      <li id="capital" class="invalid">Al menos <strong>una letra mayúscula</strong></li>
-                      <li id="number" class="invalid">Al menos <strong>un número</strong></li>
-                      <li id="length" class="invalid">Al menos <strong>8 carácteres</strong></li>
-                      <li id="null" class="invalid">Debe <strong>confirmar la contraseña</strong></li>
-                      <li id="match" class="invalid">Las contraseñas <strong>deben cohincidir</strong></li>
-                      <li id="blank" class="invalid">Las contraseñas <strong>no deben tener espacios</strong></li>
-                    </ul>-->
-</html>
-
+</div>

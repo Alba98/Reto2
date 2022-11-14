@@ -35,7 +35,6 @@ body {
 
 body * {
     overflow-x: hidden;
-    /* max-width: 100vw; */
 }
 /*
 
@@ -58,8 +57,8 @@ body * {
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    place-items: center;
+    /* justify-content: center;
+    place-items: center; */
     background: var(--darkBlue) fixed;
 }
 
@@ -241,15 +240,17 @@ footer #mapa {
 
 /******************************** LOGIN *************************************/
 
-.inicioSesion{
+#inicioSesion{
 	width: 350px;
 	height: 500px;
 	overflow: hidden;
 	background: #BDB6AF;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
+    /* align-self: center; */
+    margin: auto auto;
 }
-#chk{
+#inicioSesion #chk{
 	display: none;
 }
 .login{
@@ -257,7 +258,7 @@ footer #mapa {
 	width:100%;
 	height: 100%;
 }
-.inicioSesion label{
+#inicioSesion label{
 	color: #fff;
 	font-size: 2.3em;
 	justify-content: center;
@@ -267,7 +268,7 @@ footer #mapa {
 	cursor: pointer;
 	transition: .5s ease-in-out;
 }
-.inicioSesion input{
+#inicioSesion input{
 	width: 60%;
 	height: 20px;
 	background: #e0dede;
@@ -279,7 +280,7 @@ footer #mapa {
 	outline: none;
 	border-radius: 5px;
 }
-.inicioSesion button{
+#inicioSesion button{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -303,7 +304,7 @@ footer #mapa {
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-25%);
+	transform: translateY(-20%);
 	transition: .8s ease-in-out;
 }
 .registro label{
@@ -328,7 +329,6 @@ footer #mapa {
 .visualizacion {
     width: 100vw;
 }
-
 
 .lupa {
     padding: 1.5%;
@@ -392,18 +392,22 @@ footer #mapa {
     grid-template-columns: repeat(3,1fr);
     grid-template-areas:
     "user info atributos";
+    
 }
 
 .user {
     grid-area: user;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    color: #ABA194;
 }
 
 .info {
     grid-area: info;
     display: flex;
     flex-direction: column;
+    align-items: center;
 }
 
 .atributos {
@@ -420,7 +424,7 @@ footer #mapa {
     grid-template-areas: 
     ". . ."
     "res res res";
-    gap: 23%;
+    gap: 15%;
 }
 
 .iconos {
@@ -431,18 +435,16 @@ footer #mapa {
 }
 
 .res {
-    margin-left: -10px;
+    margin-left: 10px;
     grid-area: res;
-    padding-top: 10%;
-    padding-bottom: 10%;
-    padding-left: 36%;
-    padding-right: 36%;
+    padding: 5% 10%;
     background: #7871AA;
     border: 1px solid white;
     border-radius: 5px;
     color: white;
     cursor: pointer;
     text-decoration: none;
+    justify-self: center;
 }
 
 .nums {
@@ -451,8 +453,8 @@ footer #mapa {
 }
 
 .botones {
-    margin-left: -10px;
-    font-size: 40px;
+    
+    font-size: 2.5rem;
     padding: 20%;
     padding-left: 25%;
     padding-right: 25%;
@@ -464,30 +466,87 @@ footer #mapa {
 
 /* Estilo valoraciones */
   
-.visualizacion > input[type="radio"] {
+.visualizacion input[type="radio"] {
     display: none;
 }
   
-.visualizacion > label {
+.visualizacion label {
     color: grey;
-    font-size: 30px;
+    font-size: 1.875rem;
 }
   
-.visualizacion > .clasificacion {
+.visualizacion .clasificacion {
     direction: rtl;
     unicode-bidi: bidi-override;
 }
   
-.visualizacion > label:hover,
-.visualizacion > label:hover ~ label {
+.visualizacion label:hover,
+.visualizacion label:hover ~ label {
     color: orange;
     cursor: pointer;
 }
   
-.visualizacion > input[type="radio"]:checked ~ label {
+.visualizacion input[type="radio"]:checked ~ label {
     color: orange;
 }
 
+/****************************** PERFIL ****************************************/
+
+.recuadroFormu.datos>*{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: 1fr;
+    grid-template-areas:
+    "izq der";
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 2%;
+    padding: 3%;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
+    justify-content: space-around;
+}
+
+.recuadroFormu .izq {
+    grid-area: izq;
+}
+
+.recuadroFormu .der {
+    grid-area: der;
+}
+
+.recuadroFormu .end {
+    align-self: end;
+}
+
+.recuadroFormu label {
+    display: inline-block;
+    width: 90px;
+}
+
+.recuadroFormu .inputs {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+
+.recuadroFormu input[type='file'] {
+    width: 80%;
+    cursor: pointer;
+    background-color: #ABA194;
+    color: white;
+}
+
+.recuadroFormu input[type='submit'], input[type='button'] {
+    background-color: #7871AA;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+.recuadroFormu .perfil {
+    width: 140px;
+}
 
 /****************************** MEDIA ****************************************/
 
@@ -579,3 +638,80 @@ footer #mapa {
     }
 }
 
+@media screen and (max-width: 760px) {
+    .preguntas {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .stats {
+        display: grid;
+        grid-template-columns: repeat(3,auto);
+        grid-template-areas: 
+        ". . ."
+        "res res res";
+        gap: 12%;
+    }
+
+    .iconos {
+        margin-top: 15%;
+    }
+    
+    .res {
+        grid-area: res;
+        padding-top: 5%;
+        padding-bottom: 5%;
+        padding-left: 18%;
+        padding-right: 18%;
+        background: #7871AA;
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .nums {
+        color: white;
+        font-size:0.9em;
+
+    }
+    
+    .botones {
+        font-size: 20px;
+        padding: 10%;
+        padding-left: 25%;
+        padding-right: 25%;
+        background: #ABA194;
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white;
+    }
+
+
+}
+
+
+@media screen and (max-width: 760px) {
+    .datos>* {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .recuadroFormu .der {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .recuadroFormu input[type='submit'] {
+        margin-bottom: 15px;
+    }
+
+    .recuadroFormu input[type='button'], input[type='file'] {
+        margin-top: -20px;
+    }
+}

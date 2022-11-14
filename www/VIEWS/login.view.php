@@ -1,5 +1,5 @@
 
-                <div class="inicioSesion">  
+                <div id="inicioSesion">  
                     <input type="checkbox" id="chk" aria-hidden="true">	
                     <div class="login">
                         <form>
@@ -115,10 +115,10 @@
 
                     <div class="registro">
                         <form>
-                            <label for="chk" aria-hidden="true">Registro</label>
-                            <input class="inputs" type="text" name="txt" placeholder="Nombre de usuario" required="">
-                            <input class="inputs" type="email" name="email" placeholder="Email" required="">
-                            <input class="inputs" type="password" name="pswd" placeholder="Contraseña" required="">
+                            <label class="inputs" for="chk" aria-hidden="true">Registro</label>
+                            <input class="inputs" type="text" name="rnombre" placeholder="Nombre de usuario" required="">
+                            <input class="inputs" type="email" name="remail" placeholder="Email" required="">
+                            <input class="inputs" type="password" name="rpswd" placeholder="Contraseña" required="">
                             <button>Registrarse</button>
                         </form>
                     </div>
