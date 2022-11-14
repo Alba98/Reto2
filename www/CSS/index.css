@@ -242,8 +242,10 @@ footer #mapa {
 	background: #BDB6AF;
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
+    /* align-self: center; */
+    margin: auto auto;
 }
-#chk{
+#inicioSesion #chk{
 	display: none;
 }
 .login{
@@ -297,7 +299,7 @@ footer #mapa {
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-25%);
+	transform: translateY(-20%);
 	transition: .8s ease-in-out;
 }
 .registro label{
