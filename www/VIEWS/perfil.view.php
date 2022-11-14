@@ -1,5 +1,5 @@
 <div id="perfil">
-    <div class="datos">
+    <div class="datos recuadroFormu">
         <form method="post">
             <div class="izq">
                 <h2>DETALLES</h2><br>

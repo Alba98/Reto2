@@ -484,7 +484,7 @@ footer #mapa {
 
 /****************************** PERFIL ****************************************/
 
-.datos>*{
+.recuadroFormu.datos>*{
     display: grid;
     grid-template-columns: auto auto;
     grid-template-rows: 1fr;
@@ -499,36 +499,36 @@ footer #mapa {
     justify-content: space-around;
 }
 
-.izq {
+.recuadroFormu .izq {
     grid-area: izq;
 }
 
-.der {
+.recuadroFormu .der {
     grid-area: der;
 }
 
-.end {
+.recuadroFormu .end {
     align-self: end;
 }
 
-label {
+.recuadroFormu label {
     display: inline-block;
     width: 90px;
 }
 
-.inputs {
+.recuadroFormu .inputs {
     border: 1px solid white;
     border-radius: 5px;
 }
 
-input[type='file'] {
+.recuadroFormu input[type='file'] {
     width: 80%;
     cursor: pointer;
     background-color: #ABA194;
     color: white;
 }
 
-input[type='submit'], input[type='button'] {
+.recuadroFormu input[type='submit'], input[type='button'] {
     background-color: #7871AA;
     border: 1px solid white;
     border-radius: 5px;
@@ -536,30 +536,8 @@ input[type='submit'], input[type='button'] {
     padding: 10px;
 }
 
-.perfil {
+.recuadroFormu .perfil {
     width: 140px;
-}
-
-@media screen and (max-width: 760px) {
-    .datos>* {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .der {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    input[type='submit'] {
-        margin-bottom: 15px;
-    }
-
-    input[type='button'], input[type='file'] {
-        margin-top: -20px;
-    }
 }
 
 /****************************** MEDIA ****************************************/
@@ -705,4 +683,27 @@ input[type='submit'], input[type='button'] {
     }
 
 
+}
+
+
+@media screen and (max-width: 760px) {
+    .datos>* {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .recuadroFormu .der {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+
+    .recuadroFormu input[type='submit'] {
+        margin-bottom: 15px;
+    }
+
+    .recuadroFormu input[type='button'], input[type='file'] {
+        margin-top: -20px;
+    }
 }
