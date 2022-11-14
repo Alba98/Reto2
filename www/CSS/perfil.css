@@ -64,6 +64,11 @@ input[type='submit'], input[type='button'] {
     width: 140px;
 }
 
+#pswd_info>*{
+    display: none;
+}
+
+
 @media screen and (max-width: 760px) {
     .datos>* {
         display: flex;

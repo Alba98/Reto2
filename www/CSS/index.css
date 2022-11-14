@@ -37,11 +37,16 @@ body * {
     overflow-x: hidden;
     /* max-width: 100vw; */
 }
+/*
+
+#google-translate{
+}
+*/
 
 #global {
     max-width: 100vw;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); 
     grid-template-rows: repeat(3, auto);
     grid-template-areas:"menu menu menu menu"
                         "main main main main"
@@ -318,6 +323,7 @@ footer #mapa {
 	transform: scale(.6);
 }
 /****************************** VISUALIZACION PREGUNTAS ****************************************/
+
 
 .visualizacion {
     width: 100vw;

@@ -10,15 +10,19 @@
         <link  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link  rel="shortcut icon" href="../../RECURSOS/ASSETS/favicon.png"/>
         <script src="https://kit.fontawesome.com/492d3aa907.js" crossorigin="anonymous"></script>
+         <!--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
         <title>GRUPO 1</title>
     </head>
     <body>
+     
         <div class="container grid-1" id="global">
             <nav id="menu">
                 <div>
                 <a href="#" id="logo-menu"><img src="../RECURSOS/IMAGES/search_book.png" alt="logotipo"/></a>
                 </div>
                 <ul id="menu-principal">
+              
+                    <!--li id="google-translate"><a href="#"></a></li-->
                     <li><a href="#">Preguntas frecuentes</a></li>
                     <li><a href="#">Ajustes</a></li>
                     <li><a href="#">LOG OUT</a></li>
@@ -38,6 +42,5 @@
                     <li><a href="#">Cerrar</a></li>
                 </ul>
             </div>
-                
-        
-            <div id="main">
+        <div id="main">
+   
