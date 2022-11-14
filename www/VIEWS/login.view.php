@@ -2,7 +2,7 @@
                 <div id="inicioSesion">  
                     <input type="checkbox" id="chk" aria-hidden="true">	
                     <div class="login">
-                        <form>
+                        <form method="POST" action="../index.php">
                             <label for="chk" aria-hidden="true">Login</label>
                             <div class="svgContainer">
                                 <div>
@@ -117,7 +117,7 @@
                     </div>
 
                     <div class="registro">
-                        <form>
+                    <form method="POST" action="../index.php">
                             <label class="inputs" for="chk" aria-hidden="true">Registro</label>
                             <input class="inputs" type="text" name="rnombre" placeholder="Nombre de usuario" required="">
                             <input class="inputs" type="email" name="remail" placeholder="Email" required="">

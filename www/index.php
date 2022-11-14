@@ -26,8 +26,23 @@ if (!isset($_SESSION['id_usu'])) {
         } else echo '<p style="color:red">Fallo al registrar</p>';
     }
 } else { // SI TIENE UNA SESIÓN INICIADA
-    echo '<p>El id del usuario es: ' . $_SESSION['id_usu'] .'</p>';
-    require('VIEWS/visualizarPreguntas.view.php');
+    if (isset($_GET['accion'])) {
+        switch ($_GET['accion']) {
+            case 'preguntas':
+                require('VIEWS/visualizarPreguntas.view.php');
+                break;
+            case 'perfil':
+                require('VIEWS/perfil.view.php');
+                break;
+            case 'cerrarsesion':
+                cerrarSesion();
+                require('VIEWS/login.view.php');
+                break;
+            default:
+                require('VIEWS/visualizarPreguntas.view.php');
+                break;
+        }
+    }
 }
 ?>
 
