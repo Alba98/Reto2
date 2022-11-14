@@ -1,26 +1,26 @@
+<?php require('VIEWS/PARTIALS/header.php') ?>
+ 
 <?php 
-session_start();
-require('VIEWS/PARTIALS/header.php') ?>
-        
-<?php 
-require('VIEWS/login.php');
-require ('./db_functions.php');
-
-// Inicio de sesión
-if (isset($_POST['email']) && isset($_POST['pswd'])) {
-    $inicio = userLogin($_POST['email'],$_POST['pswd']); // Si es TRUE es correcto
-    if ($inicio) {
-        echo '<p style="color:green">Inicio de sesión hecho correctamente</p>';
-    } else echo '<p style="color:red">Contraseña o email no validos</p>';
-}
-
-// Registrarse
-if (isset($_POST['remail']) && isset($_POST['rpswd']) && isset($_POST['rnombre'])) {
-    $registro = userRegistration($_POST['rnombre'],$_POST['remail'],$_POST['rpswd']); // Si es TRUE es correcto
-    if ($registro) {
-        echo '<p style="color:green">Registro hecho correctamente</p>';
-    } else echo '<p style="color:red">Fallo al registrar</p>';
-}
+   // Si el usuario ha accedido correctamente, mostramos el mensaje de bienvenida:
+    if (isset($_SESSION["login"]) && $_SESSION["login"] == 0) {
+        $nombre = $usuarios[$_SESSION['usuario']]['nombre'];
+        $password = $usuarios[$_SESSION['usuario']]['password'];
+        // Cargar la vista
+        require('VIEWS/visualizarPreguntas.view.php');
+    } else {
+        // if($_SESSION["login"] != -1) {
+        //     // Si ha habido un error, guardamos el mensaje de error para mostrarlo en la vista.
+        //     $mensaje_error = $ERROR_TYPES[$_SESSION["login"]];
+        //     // Cargar la vista
+        //     require('VIEWS/login.view.php') 
+        // }
+        // else {
+        //     // Cargar la vista con el formulario por primera vez
+        //     require('VIEWS/login.view.php') 
+        // }
+        require('VIEWS/login.view.php');
+        //require('VIEWS/visualizarPreguntas.view.php');
+    }
 
 ?>
 
