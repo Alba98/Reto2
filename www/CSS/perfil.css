@@ -9,6 +9,8 @@ body {
     background: #BDB6AF;
 }
 
+
+
 .datos>*{
     display: grid;
     grid-template-columns: auto auto;
@@ -64,10 +66,6 @@ input[type='submit'], input[type='button'] {
     width: 140px;
 }
 
-#pswd_info>*{
-    display: block;
-    border: 10px solid black;
-}
 
 
 @media screen and (max-width: 760px) {

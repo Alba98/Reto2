@@ -9,6 +9,27 @@
     
 }
 
+/*Formulario cambio de contraseña*/
+
+#cambiarPASS {
+    display: none;
+ 
+}
+
+#cambiarPASS.shown {
+    display: block;
+    border: 1px solid rgb(16, 15, 15);
+    border-radius: 5px;
+}
+
+
+
+
+
+/**********************/
+
+
+
 * {
     box-sizing: border-box;
     margin: 0;
