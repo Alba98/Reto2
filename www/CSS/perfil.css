@@ -65,7 +65,8 @@ input[type='submit'], input[type='button'] {
 }
 
 #pswd_info>*{
-    display: none;
+    display: block;
+    border: 10px solid black;
 }
 
 

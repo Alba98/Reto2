@@ -4,6 +4,5 @@
 
 //Eventos:
 
-document.getElementById("guardar").addEventListener('submit', validar);
 
 

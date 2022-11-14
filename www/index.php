@@ -18,7 +18,7 @@
         //     // Cargar la vista con el formulario por primera vez
         //     require('VIEWS/login.view.php') 
         // }
-        require('VIEWS/login.view.php');
+        require('VIEWS/perfil.view.php');
         //require('VIEWS/visualizarPreguntas.view.php');
     }
 
