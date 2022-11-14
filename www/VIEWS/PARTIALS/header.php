@@ -21,7 +21,7 @@
                 <ul id="menu-principal">
                     <li><a href="#">Preguntas frecuentes <i class="fa-solid fa-circle-question"></i></a></li>
                     <li><a href="#">Perfil <i class="fa-solid fa-user-graduate"></i></a></li>
-                    <li><a href="#"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+                    <li><a href="?accion=cerrarsesion"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                 </ul>
             </nav>
           
