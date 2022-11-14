@@ -23,7 +23,7 @@
     <div class="preguntas">
         <div class="user">
             <h3 id="titulousuario">Usuario</h3>
-            <img class="perfil" src="../RECURSOS/IMAGES/user.png" alt="Foto de pergil">
+            <img class="perfil" src="../RECURSOS/IMAGES/user.png" alt="Foto de perfil">
             <form>
                 <p class="clasificacion">
                   <input id="radio1" type="radio" name="estrellas" value="5">
@@ -37,7 +37,7 @@
                   <input id="radio5" type="radio" name="estrellas" value="1">
                   <label for="radio5">★</label>
                 </p>
-              </form>
+            </form>
         </div>
         <div class="info">
             <h2>¿Pregunta?</h2>
