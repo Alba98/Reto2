@@ -496,7 +496,7 @@ footer #mapa {
     display: grid;
     grid-template-columns: 20% 30% 50%;
     grid-template-areas:
-    "votos usuario info";
+    "votos user info";
 }
 
 .clasificacion {
@@ -527,8 +527,7 @@ footer #mapa {
 
 .detalles .votos {
     color: #7871AA;
-    margin-top: -55%;
-    margin-bottom: -55%;
+    margin: 5%;
 }
 
 .detalles .info {
@@ -743,8 +742,6 @@ footer #mapa {
         border-radius: 5px;
         color: white;
     }
-
-
 }
 
 
@@ -767,5 +764,17 @@ footer #mapa {
 
     .recuadroFormu input[type='button'], input[type='file'] {
         margin-top: -20px;
+    }
+}
+
+@media screen and (max-width: 760px) {
+    .detalles {
+        grid-template-columns: 30% 70%;
+        grid-template-rows: repeat(2, auto);
+        grid-template-areas:
+        "votos user"
+        "info info";
+        /* flex-direction: column;
+        justify-content: center; */
     }
 }

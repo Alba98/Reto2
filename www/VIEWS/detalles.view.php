@@ -5,7 +5,7 @@
             <b id="votos" class="votos">VOTOS</b>
             <a class="like" href="#2"><i class="fa-solid fa-sort-down"></i></a>
         </div>
-        <div class="usuario">
+        <div class="user">
             <h3 id="titulousuario">Usuario</h3>
             <img class="perfil" src="../RECURSOS/IMAGES/user.png" alt="Foto de pergil">
             <form>
