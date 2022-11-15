@@ -29,6 +29,8 @@ if (!isset($_SESSION['id_usu'])) {
     if (isset($_GET['accion'])) {
         switch ($_GET['accion']) {
             case 'preguntas':
+                $dbh = connect();
+                $infousuario = getUsuario($dbh);
                 require('VIEWS/publicarPregunta.view.php');
                 break;
             case 'perfil':
@@ -44,6 +46,9 @@ if (!isset($_SESSION['id_usu'])) {
                 require('VIEWS/visualizarPreguntas.view.php');
                 break;
         }
+    }
+    else {
+        require('VIEWS/visualizarPreguntas.view.php');
     }
 }
 ?>

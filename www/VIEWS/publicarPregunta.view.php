@@ -5,7 +5,7 @@
             <div class="izq">
                 <h2>PREGUNTAR A OTROS USUARIOS</h2><br>
                 <label for="usuario">Usuario</label>
-                <input class="inputs" type="text" name="usuario" id="usuario">
+                <input class="inputs" type="text" name="usuario" id="usuario" value="<?php echo $infousuario['nombre'] ?>" disabled required="">
                 <br><br>
                 <label for="titulo">Titulo</label>
                 <input class="inputs" type="text" name="titulo" id="titulo">
