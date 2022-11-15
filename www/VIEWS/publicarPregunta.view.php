@@ -1,4 +1,5 @@
 
+    <?php include_once './publicarPregunta.php' ?>
     <div class="datos recuadroFormu">
         <form action="post">
             <div class="izq">
@@ -11,10 +12,7 @@
                 <br><br>
                 <label for="categoria">Categoria</label>
                 <select class="inputs" name="categoria" id="categoria">
-                    <option value="C01">Categoria 1</option>
-                    <option value="C02">Categoria 2</option>
-                    <option value="C03">Categoria 4</option>
-                    <option value="C04">Categoria 4</option>
+                    <?php optionsCategoria() ?>
                 </select>
                 <br><br>
                 <label for="detalle">Detalle</label>

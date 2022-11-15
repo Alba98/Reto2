@@ -30,7 +30,7 @@ if (!isset($_SESSION['id_usu'])) {
     if (isset($_GET['accion'])) {
         switch ($_GET['accion']) {
             case 'preguntas':
-                require('VIEWS/visualizarPreguntas.view.php');
+                require('VIEWS/publicarPregunta.view.php');
                 break;
             case 'perfil':
                 $dbh = connect();

@@ -23,11 +23,33 @@ function connect(){
 }
 
 function getAll($dbh,$tabla){
+    $tabla = strtoupper($tabla);
+    switch($tabla)
+    {
+        case 'CATEGORIA':
+            $stmt = $dbh->prepare("SELECT * FROM CATEGORIA");
+            break;
+        case 'PREGUNTA':
+            $stmt = $dbh->prepare("SELECT * FROM PREGUNTA");
+            break;
+        case 'PREGUNTAR':
+            $stmt = $dbh->prepare("SELECT * FROM PREGUNTAR");
+            break;
+        case 'RESPONDER':
+            $stmt = $dbh->prepare("SELECT * FROM RESPONDER");
+            break;
+        case 'RESPUESTA':
+            $stmt = $dbh->prepare("SELECT * FROM RESPUESTA");
+            break;
+        case 'USUARIO':
+            $stmt = $dbh->prepare("SELECT * FROM USUARIO");
+            break;
+        default:
+            throw "Tabla no encontrada";
+    }
     
-    $stmt = $dbh->prepare("SELECT * FROM :tabla");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
-    $data = array("tabla"=>$tabla);
-    $stmt->execute($data);
+    $stmt->execute();
 
     return $stmt->fetchAll();
 }
@@ -178,7 +200,7 @@ function userRegistration($nombre,$email,$pass){
         }
     } 
     catch(PDOException $e) {
-    echo '{"error":{"text":'. $e->getMessage() .'}}'; 
+        echo '{"error":{"text":'. $e->getMessage() .'}}'; 
     }
 }
 
