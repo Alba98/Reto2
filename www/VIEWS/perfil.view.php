@@ -16,13 +16,13 @@
                     <h3>Confirmación nueva contraseña</h3><br>
 
                     <label>Cambiar contraseña</label>
-                    <input type = "password" id = "contra1"><br>
+                    <input  class="inputs" type = "password" id = "contra1"><br>
             
                     <label>Confirmar contraseña </label>
-                    <input type = "password" id = "contra2"><br>
+                    <input  class="inputs" type = "password" id = "contra2"><br>
                     
-                    <button type="submit"   onclick="matchPassword()">Cambiar</button>
-                    <button type = "reset"  value = "Reset">Reset</button><br><br>
+                    <input type="button"   onclick="matchPassword()" value="Cambiar">
+                    <input type ="reset"  value = "Reset"><br><br>
 
                 </div>
 

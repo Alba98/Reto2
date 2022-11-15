@@ -5,7 +5,7 @@
 //Eventos
 document.getElementById("editar").addEventListener("click",edit);
 document.getElementById("contraseniaBtn").addEventListener("click", mostrarMenu);
-document.getElementById("guardarPerfil").addEventListener("submit", validarFormulario);
+document.getElementById("guardarPerfil").addEventListener("click", validarFormulario);
 
 function edit() {
 let inputs = document.getElementsByClassName("inputs");
@@ -20,8 +20,8 @@ let menu = document.getElementById("cambiarPASS");
 }
 
 function matchPassword(){
-let pass1 = document.getElementById("contra1");
-let pass2 = document.getElementById("contra2");
+let pass1 = document.getElementById("contra1").value;
+let pass2 = document.getElementById("contra2").value;
     if(pass1 != pass2){	
         alert("Las contraseñas no coinciden");
     } else {
@@ -35,9 +35,9 @@ function validarFormulario(evento){
 
     try {
         //Datos de entrada:
-        let nom = document.getElementById('nombre');
-        let apellido = document.getElementById('apellidos');       
-        let email = document.getElementById('loginEmail');
+        let nom = document.getElementById('nombre').value;
+        let apellido = document.getElementById('apellidos').value;
+        let email = document.getElementById('email').value;
    
         //Expresiones regulares:
         let exRegName  =  new RegExp (/^[A-Z]{1}[a-z]+$/);
@@ -56,7 +56,7 @@ function validarFormulario(evento){
         }
         
         if (!exRegEmail.test(email)){
-            document.getElementById("loginEmail").focus();
+            document.getElementById("email").focus();
             throw "Email incorrecto";
         }
         matchPassword();
@@ -65,8 +65,8 @@ function validarFormulario(evento){
                     apellido:apellido,
                     email:email};
 
-        alert("Tu nombre es: " +      objeto.nom
-             + "\n Tu apellido es: "+ objeto.apellido
+        alert("Tu nombre es: "      + objeto.nom
+             + "\n Tu apellido es:" + objeto.apellido
              + "\n Tu correo es: "  + objeto.email);
               
         

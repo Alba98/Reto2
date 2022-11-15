@@ -41,15 +41,7 @@ function validarFormulario(evento) {
         return;
     }
        
-     
-
-     
-
-        
-
-    
-        
-    }
+}
 
 
 

@@ -13,15 +13,34 @@
 
 #cambiarPASS {
     display: none;
- 
 }
 
 #cambiarPASS.shown {
-    display: block;
+    display:block;
     border: 1px solid rgb(16, 15, 15);
     border-radius: 5px;
+    font-family:helvetica;
 }
 
+
+
+#cambiarPASS input[type='password'] {
+    width: 80%;
+    cursor: pointer;
+    background-color: #7871AA;
+    padding: 1px;
+    border: 1px solid white;
+    border-radius: 5px;
+
+}
+
+#cambiarPASS input[type='submit'], #cambiarPASS input[type='button'] {
+    background-color: #7871AA;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
 
 
 
