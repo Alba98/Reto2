@@ -108,10 +108,20 @@ function insertRespuesta($dbh,$datosRespuesta){
 
 function insertPregunta($dbh, $datosPregunta){
     try {
+        //insertar pregunta 
         $stmt = $dbh->prepare("INSERT INTO PREGUNTA(titulo,detalle,archivo,id_cat)
                                VALUES (:titulo, :detalle, :archivo, :categoria)");
 
         $stmt->execute($datosPregunta);
+
+        //insertar en preguntar 
+        $stmt_ = $dbh->prepare("INSERT INTO PREGUNTAR(id_usu,id_preg)
+        VALUES (:usuario, :pregunta)");
+        $data = array (
+            "usuario" => $_SESSION['id_usu'],
+            "pregunta" => $dbh->lastInsertId()
+        );
+        $stmt_->execute($data);
     } catch(Exception $e) {
         echo 'Exception -> ';
         var_dump($e->getMessage());
