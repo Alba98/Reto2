@@ -8,8 +8,7 @@
 <?php
 // SI NO TIENE CREADA UNA SESIÓN...
 if (!isset($_SESSION['id_usu'])) {
-    //require('VIEWS/login.view.php');
-    require('VIEWS/perfil.view.php');
+    require('VIEWS/login.view.php');
     
     // Inicio de sesión
     if (isset($_POST['email']) && isset($_POST['pswd'])) {

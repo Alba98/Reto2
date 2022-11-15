@@ -111,6 +111,28 @@ function insertCategoria($dbh,$datosCategoria){
 }
 
 
+// UPDATES
+function updateUsuario($dbh) { // UPDATE SIN LA CONTRASEÑA
+    try {
+        $stmt = $dbh->prepare("UPDATE USUARIO SET nombre = :nombre, apellidos = :apellidos, email = :email WHERE id_usu = :id_usu");
+        $data = array (
+            "nombre" => $_POST['pnombre'],
+            "apellidos" => $_POST['papellidos'],
+            "email" => $_POST['pemail'],
+            "id_usu" => $_SESSION['id_usu']
+        );
+        $stmt->execute($data);
+    } catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
+
+if (isset($_POST['pnombre']) ||  isset($_POST['papellidos']) || isset($_POST['pemail'])) {
+    $dbh = connect();
+    updateUsuario($dbh);
+}
+
 //SELECT DE CADA TABLA
 //de la relacion tambien?
 function deletePreguntaById($dbh, $id){
@@ -136,8 +158,6 @@ function userLogin($email,$pass){
         $db = null;
         if($count){
             $_SESSION['id_usu']=$datos->id_usu; // Guardamos en sesión el id del usuario
-            $_SESSION['logged']=true;
-            $_COOKIE['prueba'] = 'HOLA';
             return true;
         }
         else {
