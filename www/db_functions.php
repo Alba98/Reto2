@@ -35,14 +35,28 @@ function getAll($dbh,$tabla){
 }
 
 function getUsuario($dbh){
-    $stmt = $dbh->prepare("SELECT * FROM usuario WHERE id_usu =:id_usu");
+    $stmt = $dbh->prepare("SELECT nombre, apellidos, email, contrasenia, imagen FROM USUARIO WHERE id_usu =:id_usu");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $id_usuario = $_SESSION['id_usu'];
     $data = array(
-        "id_usu" =>$_SESSION['id_usu']
+        "id_usu" => $id_usuario
     );
     $stmt->execute($data);
-
-    return $stmt->fetchAll();
+    while($row = $stmt->fetch()) {
+        $pnombre = $row->nombre;
+        $papellidos = $row->apellidos;
+        $pemail = $row->email;
+        $pcontrasenia = $row->contrasenia;
+        $pimagen = $row->imagen;
+       }
+    $datosusuario = array (
+        "nombre" => $pnombre,
+        "apellidos" => $papellidos,
+        "email" => $pemail,
+        "contrasenia" => $pcontrasenia,
+        "imagen" => $pimagen
+    );
+    return $datosusuario;
 }
 
 //INSERT DE CADA TABLA

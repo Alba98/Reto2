@@ -4,13 +4,13 @@
             <div class="izq">
                 <h2>DETALLES</h2><br>
                 <label for="nombre">Nombre: </label>
-                <input class="inputs" type="text" name="nombre" id="nombre" disabled><br><br>
+                <input class="inputs" type="text" name="nombre" id="nombre" placeholder="<?php echo $infousuario['nombre'] ?>" disabled><br><br>
                 <label for="apellidos">Apellidos: </label>
-                <input class="inputs" type="text" name="apellidos" id="apellidos" disabled><br><br>
+                <input class="inputs" type="text" name="apellidos" id="apellidos" placeholder="<?php echo $infousuario['apellidos'] ?>" disabled><br><br>
                 <label for="contraseña">Contraseña: </label>
-                <input class="inputs" type="text" name="contraseña" id="contraseña" disabled><br><br>
+                <input class="inputs" type="text" name="contraseña" id="contraseña" placeholder="<?php echo $infousuario['contrasenia'] ?>"  disabled><br><br>
                 <label for="email">Email: </label>
-                <input class="inputs" type="text" name="email" id="email" disabled><br><br>
+                <input class="inputs" type="text" name="email" id="email" placeholder="<?php echo $infousuario['email'] ?>" disabled><br><br>
                 <input class="inputs" type="submit" value="GUARDAR CAMBIOS" id="guardar" disabled>
             </div>
             <div class="der">

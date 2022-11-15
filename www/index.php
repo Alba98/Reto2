@@ -32,6 +32,8 @@ if (!isset($_SESSION['id_usu'])) {
                 require('VIEWS/visualizarPreguntas.view.php');
                 break;
             case 'perfil':
+                $dbh = connect();
+                $infousuario = getUsuario($dbh);
                 require('VIEWS/perfil.view.php');
                 break;
             case 'cerrarsesion':
