@@ -109,7 +109,7 @@
                             <input class="inputs" type="email" name="email" placeholder="Email" required="">
                             
                             <input class="inputs" type="password" name="pswd" placeholder="Contraseña" required="">
-                            <button>Login</button>
+                            <button id="btn-login">Login</button>
                         </form>
                     </div>
 
