@@ -9,6 +9,46 @@
     
 }
 
+/*Formulario cambio de contraseña*/
+
+#cambiarPASS {
+    display: none;
+}
+
+#cambiarPASS.shown {
+    display:block;
+    border: 1px solid rgb(16, 15, 15);
+    border-radius: 5px;
+    font-family:helvetica;
+}
+
+
+
+#cambiarPASS input[type='password'] {
+    width: 80%;
+    cursor: pointer;
+    background-color: #7871AA;
+    padding: 1px;
+    border: 1px solid white;
+    border-radius: 5px;
+
+}
+
+#cambiarPASS input[type='submit'], #cambiarPASS input[type='button'] {
+    background-color: #7871AA;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+}
+
+
+
+
+/**********************/
+
+
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -36,11 +76,16 @@ body {
 body * {
     overflow-x: hidden;
 }
+/*
+
+#google-translate{
+}
+*/
 
 #global {
     max-width: 100vw;
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(4, 1fr); 
     grid-template-rows: repeat(3, auto);
     grid-template-areas:"menu menu menu menu"
                         "main main main main"
@@ -319,6 +364,7 @@ footer #mapa {
 	transform: scale(.6);
 }
 /****************************** VISUALIZACION PREGUNTAS ****************************************/
+
 
 .visualizacion {
     width: 100vw;

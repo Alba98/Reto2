@@ -6,13 +6,16 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="../../CSS/index.css" />
         <link rel="stylesheet" href="../CSS/yeti.css"/>
+        
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"/>
         <link  href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
         <link  rel="shortcut icon" href="../../RECURSOS/ASSETS/favicon.png"/>
         <script src="https://kit.fontawesome.com/492d3aa907.js" crossorigin="anonymous"></script>
+         <!--<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>-->
         <title>GRUPO 1</title>
     </head>
     <body>
+     
         <div class="container grid-1" id="global">
             <nav id="menu">
                 <div>
@@ -38,6 +41,5 @@
                     <li><a href="#">Cerrar</a></li>
                 </ul>
             </div>
-                
-        
-            <div id="main">
+        <div id="main">
+   

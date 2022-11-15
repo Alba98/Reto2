@@ -9,6 +9,8 @@ body {
     background: #BDB6AF;
 }
 
+
+
 .datos>*{
     display: grid;
     grid-template-columns: auto auto;
@@ -63,6 +65,8 @@ input[type='submit'], input[type='button'] {
 .perfil {
     width: 140px;
 }
+
+
 
 @media screen and (max-width: 760px) {
     .datos>* {
