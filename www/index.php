@@ -27,7 +27,7 @@
     } else { // SI TIENE UNA SESIÓN INICIADA
         if (isset($_GET['accion'])) {
             switch ($_GET['accion']) {
-                case 'preguntas':
+                case 'preguntar':
                     $dbh = connect();
                     $infousuario = getUsuario($dbh);
                     require('VIEWS/publicarPregunta.view.php');

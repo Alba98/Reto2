@@ -12,20 +12,20 @@ document.getElementById("email").addEventListener("focusout", validarEmail);
 //document.getElementById("guardarPerfil").addEventListener("click", validarFormulario);
 
 function edit() {
-let inputs = document.getElementsByClassName("inputs");
+    let inputs = document.getElementsByClassName("inputs");
     for (let x = 0; x < inputs.length; x++) {
         inputs[x].disabled = false;
     }
 }
 
 function mostrarMenu(){
-let menu = document.getElementById("cambiarPASS");
+    let menu = document.getElementById("cambiarPASS");
     menu.classList.toggle("shown");
 }
 
 function matchPassword(){
-let pass1 = document.getElementById("contra1").value;
-let pass2 = document.getElementById("contra2").value;
+    let pass1 = document.getElementById("contra1").value;
+    let pass2 = document.getElementById("contra2").value;
     if(pass1 != pass2){	
         document.getElementById("passIncorrecta").hidden = false;
     } else {

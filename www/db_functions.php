@@ -106,13 +106,12 @@ function insertRespuesta($dbh,$datosRespuesta){
     }
 }
 
-function insertPregunta($dbh,$datosPregunta){
-   
+function insertPregunta($dbh, $datosPregunta){
     try {
-        $stmt = $dbh->prepare("INSERT INTO pregunta(titulo,detalle,archivo,)
-                               VALUES (:descripcion)");
+        $stmt = $dbh->prepare("INSERT INTO PREGUNTA(titulo,detalle,archivo,id_cat)
+                               VALUES (:titulo, :detalle, :archivo, :categoria)");
 
-        $stmt->execute($datosRespuesta);
+        $stmt->execute($datosPregunta);
     } catch(Exception $e) {
         echo 'Exception -> ';
         var_dump($e->getMessage());
@@ -122,7 +121,7 @@ function insertPregunta($dbh,$datosPregunta){
 function insertCategoria($dbh,$datosCategoria){
    
     try {
-        $stmt = $dbh->prepare("INSERT INTO pregunta(nombre)
+        $stmt = $dbh->prepare("INSERT INTO categoria(nombre)
                                VALUES (:nombre)");
 
         $stmt->execute($datosCategoria);
