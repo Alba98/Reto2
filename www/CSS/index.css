@@ -565,9 +565,9 @@ footer #mapa {
 .recuadroFormu.datos>*{
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-rows: 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas:
-    "izq der";
+        "izq der";
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2%;
