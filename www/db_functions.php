@@ -150,9 +150,30 @@ function updateUsuario($dbh) { // UPDATE SIN LA CONTRASEÑA
     }
 }
 
+// Se ejecuta updateUsuario al rellenar los campos necesarios
 if (isset($_POST['pnombre']) ||  isset($_POST['papellidos']) || isset($_POST['pemail'])) {
     $dbh = connect();
     updateUsuario($dbh);
+}
+
+function updatePass($dbh) {
+    try {
+        $stmt = $dbh->prepare("UPDATE USUARIO SET contrasenia = :pass WHERE id_usu = :id_usu");
+        $data = array (
+            "pass" => $_POST['cambiarpass'],
+            "id_usu" => $_SESSION['id_usu']
+        );
+        $stmt->execute($data);
+    } catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
+
+// Se ejecuta updateUsuario al rellenar los campos necesarios
+if (isset($_POST['cambiarpass']) && $_POST['cambiarpass'] != "") {
+    $dbh = connect();
+    updatePass($dbh);
 }
 
 //SELECT DE CADA TABLA
