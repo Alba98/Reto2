@@ -5,7 +5,7 @@
 //Eventos
 document.getElementById("editar").addEventListener("click",edit);
 document.getElementById("contraseniaBtn").addEventListener("click", mostrarMenu);
-document.getElementById("guardarPerfil").addEventListener("click", validarFormulario);
+//document.getElementById("guardarPerfil").addEventListener("click", validarFormulario);
 
 function edit() {
 let inputs = document.getElementsByClassName("inputs");
@@ -25,7 +25,7 @@ let pass2 = document.getElementById("contra2").value;
     if(pass1 != pass2){	
         alert("Las contraseñas no coinciden");
     } else {
-        alert("Cambio de contraseña realizado correctamente");
+        //alert("Cambio de contraseña realizado correctamente");
     }
 }
 
@@ -64,10 +64,6 @@ function validarFormulario(evento){
         let objeto={nom:nom, 
                     apellido:apellido,
                     email:email};
-
-        alert("Tu nombre es: "      + objeto.nom
-             + "\n Tu apellido es:" + objeto.apellido
-             + "\n Tu correo es: "  + objeto.email);
               
         
     }catch (error) {

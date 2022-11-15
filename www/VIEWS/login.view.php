@@ -106,10 +106,10 @@
                                    </svg>
                                 </div>
                             </div>
-                            <input class="inputs" type="email" name="email" placeholder="Email" required="" id="loginEmail">
+                            <input class="inputs" type="email" name="email" placeholder="Email" required="">
                             
-                            <input class="inputs" type="password" name="pswd" placeholder="Contraseña" required="" id="loginPassword">
-                            <button id="btn-login">Login</button>
+                            <input class="inputs" type="password" name="pswd" placeholder="Contraseña" required="">
+                            <button>Login</button>
                         </form>
                     </div>
 
@@ -118,8 +118,9 @@
                             <label class="inputs" for="chk" aria-hidden="true">Registro</label>
                             <input class="inputs" type="text" name="rnombre" placeholder="Nombre de usuario" required="">
                             <input class="inputs" type="email" name="remail" placeholder="Email" required="">
-                            <input class="inputs" type="password" name="rpswd" placeholder="Contraseña" required="">
-                            <button>Registrarse</button>
+                            <input class="inputs" type="password" name="rpswd" placeholder="Contraseña" required="" id="loginPassword">
+                            <b style="color:red;margin-left:15%" id="passIncorrecta" hidden>Formato de contraseña invalido</b>
+                            <button id="btn-registrar">Registrarse</button>
                         </form>
                     </div>
                     <script src="../JS/loginValidacion.js"></script>

@@ -645,6 +645,7 @@ footer #mapa {
     border-radius: 5px;
     color: white;
     padding: 10px;
+    cursor: pointer;
 }
 
 .recuadroFormu .perfil {
