@@ -54,7 +54,7 @@ body * {
 }
 #main {
     grid-area: main;
-    height: 100vh;
+    min-height: 100vh;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -382,7 +382,7 @@ footer #mapa {
     box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
 }
 
-.preguntas{
+.preguntas, .respuesta{
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2%;
@@ -394,6 +394,12 @@ footer #mapa {
     grid-template-areas:
     "user info atributos";
     
+}
+
+.respuesta{
+    grid-template-columns: 10% 20% 70%;
+    grid-template-areas:
+        "votos user info";
 }
 
 .user {
@@ -528,7 +534,7 @@ footer #mapa {
     color: white;
 }
 
-.detalles .votacion {
+.votacion {
     grid-area: votos;
     display: flex;
     flex-direction: column;
@@ -536,7 +542,7 @@ footer #mapa {
     align-items: center;
 }
 
-.detalles .votos {
+.votacion .votos {
     color: #7871AA;
     margin: 5%;
 }
@@ -546,7 +552,7 @@ footer #mapa {
 
 }
 
-.detalles .descripcion {
+.descripcion {
     margin-top: 2%;
     padding: 2%;
     border: 1px solid gray;
@@ -559,9 +565,9 @@ footer #mapa {
 .recuadroFormu.datos>*{
     display: grid;
     grid-template-columns: auto auto;
-    grid-template-rows: 1fr;
+    grid-template-rows: auto auto;
     grid-template-areas:
-    "izq der";
+        "izq der";
     margin-left: 5%;
     margin-right: 5%;
     margin-top: 2%;
@@ -738,7 +744,7 @@ footer #mapa {
 }
 
 @media screen and (max-width: 760px) {
-    .preguntas {
+    .preguntas, .respuesta {
         display: flex;
         flex-direction: column;
         justify-content: center;

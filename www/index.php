@@ -32,6 +32,9 @@
                     $infousuario = getUsuario($dbh);
                     require('VIEWS/publicarPregunta.view.php');
                     break;
+                case 'detalles':
+                    require('VIEWS/detalles.view.php');
+                    break;
                 case 'perfil':
                     $dbh = connect();
                     $infousuario = getUsuario($dbh);
