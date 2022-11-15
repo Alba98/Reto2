@@ -5,10 +5,12 @@
                 <h2>DETALLES</h2><br>
 
                 <label for="nombre">Nombre: </label>
-                <input class="inputs" type="text" name="pnombre" id="nombre" value="<?php echo $infousuario['nombre'] ?>" disabled required=""><br><br>
+                <input class="inputs" type="text" name="pnombre" id="nombre" value="<?php echo $infousuario['nombre'] ?>" disabled required="">
+                <b style="color:red" id="nombreIncorrecto" hidden>Nombre invalido</b><br><br>
 
                 <label for="apellidos">Apellidos: </label>
-                <input class="inputs" type="text" name="papellidos" id="apellidos" value="<?php echo $infousuario['apellidos'] ?>" disabled required=""><br><br>
+                <input class="inputs" type="text" name="papellidos" id="apellidos" value="<?php echo $infousuario['apellidos'] ?>" disabled required="">
+                <b style="color:red" id="apellidosIncorrectos" hidden>Apellidos invalidos</b><br><br>
       
                 <label for="contraseniaBtn">Contraseña:</label>
                 <input type="button" class="inputs" name="contraseña" id="contraseniaBtn" value="Cambiar contraseña" disabled><br>
@@ -19,15 +21,15 @@
                     <input  class="inputs" type = "password" id = "contra1"><br>
             
                     <label>Confirmar contraseña </label>
-                    <input  class="inputs" type = "password" id = "contra2"><br>
-                    
-                    <input type="button" onclick="matchPassword()" value="Cambiar">
-                    <input type ="reset" value = "Reset"><br><br>
+                    <input  class="inputs" type = "password" id = "contra2" name="cambiarpass"><br>
+                    <p style="color:red" id="passIncorrecta" hidden>Las contraseñas no coinciden</p>
+                    <input type="reset" value = "Vaciar"><br><br>
 
                 </div>
 
                 <label for="email">Email: </label>
-                <input class="inputs" type="email" name="pemail" id="email" value="<?php echo $infousuario['email'] ?>" disabled required=""><br><br>
+                <input class="inputs" type="email" name="pemail" id="email" value="<?php echo $infousuario['email'] ?>" disabled required="">
+                <b style="color:red" id="emailIncorrecto" hidden>Email invalido</b><br><br>
                 <input class="inputs" type="submit" value="GUARDAR CAMBIOS" id="guardarPerfil" disabled>
             </div>
             <div class="der">
