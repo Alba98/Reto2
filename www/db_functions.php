@@ -32,12 +32,11 @@ function getAll($dbh,$tabla){
     return $stmt->fetchAll();
 }
 
-function getByName($dbh,$nombre){
-    
-    $stmt = $dbh->prepare("SELECT * FROM usuario WHERE nombre =:nombre");
+function getUsuario($dbh){
+    $stmt = $dbh->prepare("SELECT * FROM usuario WHERE id_usu =:id_usu");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $data = array(
-        "nombre" =>$nombre
+        "id_usu" =>$_SESSION['id_usu']
     );
     $stmt->execute($data);
 
@@ -174,10 +173,4 @@ function cerrarSesion() {
     unset($_SESSION[ "id_usu"]);
 }
 
-if (isset($_GET['accion'])) {
-    if ($_GET['accion'] == 'cerrarsesion') {
-        cerrarSesion();
-        fopen('index.php','r');
-    }
-}
 
