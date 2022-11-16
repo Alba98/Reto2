@@ -54,6 +54,13 @@ function getAll($dbh,$tabla){
     return $stmt->fetchAll();
 }
 
+function getVistaPreguntas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 function getUsuario($dbh){
     $stmt = $dbh->prepare("SELECT nombre, apellidos, email, contrasenia, imagen FROM USUARIO WHERE id_usu =:id_usu");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
