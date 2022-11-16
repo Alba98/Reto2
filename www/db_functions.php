@@ -71,6 +71,16 @@ function getPregunta($dbh) {
     return $stmt->fetchAll();
 }
 
+function getRespuestas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaRespuestas WHERE id_preg = :id");
+    $data = array(
+        "id" => $_GET['id']
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
 function getUsuario($dbh){
     $stmt = $dbh->prepare("SELECT nombre, apellidos, email, contrasenia, imagen FROM USUARIO WHERE id_usu =:id_usu");
     $stmt->setFetchMode(PDO::FETCH_OBJ);

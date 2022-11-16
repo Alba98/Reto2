@@ -1,9 +1,9 @@
 /* SQL USUARIO */
 CREATE TABLE `USUARIO` (
   `id_usu` int NOT NULL,
-  `nombre` varchar(50) NOT NULL,
-  `apellidos` varchar(50)NULL,
-  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NOT NULL,
+  `nombre` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `apellidos` varchar(50) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL,
+  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `contrasenia` varchar(20) NOT NULL,
   `imagen` longblob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -20,7 +20,7 @@ COMMIT;
 /* SQL CATEGORIA */
 CREATE TABLE `CATEGORIA` (
   `id_cat` int NOT NULL,
-  `nombre` varchar(20) NOT NULL
+  `nombre` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ALTER TABLE `CATEGORIA`
@@ -33,10 +33,11 @@ COMMIT;
 /* SQL PREGUNTA */
 CREATE TABLE `PREGUNTA` (
   `id_preg` int NOT NULL,
-  `titulo` varchar(100) NOT NULL,
-  `detalle` text NOT NULL,
+  `titulo` varchar(100) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `detalle` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
   `archivo` longblob COMMENT 'subir archivo',
   `id_cat` int NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 ALTER TABLE `PREGUNTA`
@@ -44,7 +45,7 @@ ALTER TABLE `PREGUNTA`
   ADD KEY `id_cat` (`id_cat`);
 
 ALTER TABLE `PREGUNTA` 
-  ADD `fecha` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
+  ADD `fecha` DATETIME NULL DEFAULT CURRENT_TIMESTAMP;
 
 ALTER TABLE `PREGUNTA`
   MODIFY `id_preg` int NOT NULL AUTO_INCREMENT;
@@ -55,8 +56,14 @@ ALTER TABLE `PREGUNTA`
 /* SQL RESPUESTA */
 CREATE TABLE `RESPUESTA` (
   `id_res` int NOT NULL,
-  `descripcion` text NOT NULL
+  `descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
+  `id_preg` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+ALTER TABLE `RESPUESTA`
+    ADD CONSTRAINT res_idpreg_fk
+    FOREIGN KEY (`id_preg`)
+    REFERENCES `PREGUNTA`(`id_preg`);
 
 ALTER TABLE `RESPUESTA`
   ADD PRIMARY KEY (`id_res`);
@@ -111,17 +118,17 @@ INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('An
 INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Mauro','Arambarri','mauro@gmail.com','mauro');
 INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Kike','Garcia','kike@gmail.com','kike');
 
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Es correcto decir «yo y Santiago» o debemos decir «Santiago y yo»?','En una enumeración referida a personas, se aconseja situar el pronombre yo al final por razones de cortesía, pero no es lingüísticamente incorrecto que aparezca en primer lugar.','1');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe «a gusto» o «agusto»?','Esta expresión, que significa ‘cómodamente’, ‘con gusto o placer’ o ‘según el gusto o deseo de alguien’, se escribe siempre en dos palabras: a gusto. No se considera válida la grafía agusto.','2');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Cuál es la fórmula de saludo más adecuada, «buen día» o «buenos días»?','Como saludo matutino, la fórmula generalmente empleada en todo el ámbito hispanohablante es buenos días. Esta fórmula, única usada en España, alterna en el español de América con buen día, que está sobre todo extendida en el área rioplatense (Argentina, Paraguay y Uruguay).','3');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe «no te rayes» o «no te ralles»?','El verbo que se usa en el habla coloquial juvenil con el sentido de ‘trastornar(se), volver(se) loco’ es rayar(se): No te rayes; Me estás rayando. El verbo rallar significa ‘desmenuzar algo con el rallador’: Necesito que me ralles un poco de queso para la lasaña.','4');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe «Eres muy muy cruel» o «Eres muy, muy cruel»?','Construcciones como esta, en las que se duplica un elemento para aportar énfasis a lo expresado, se escriben sin coma: Eres muy muy cruel; Me gusta el café café; Hace mucho mucho tiempo.','5');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Es correcto decir "yo y Santiago" o debemos decir "Santiago y yo"?','En una enumeración referida a personas, se aconseja situar el pronombre yo al final por razones de cortesía, pero no es lingüísticamente incorrecto que aparezca en primer lugar.','1');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe "a gusto" o "agusto"?','Esta expresión, que significa ‘cómodamente’, ‘con gusto o placer’ o ‘según el gusto o deseo de alguien’, se escribe siempre en dos palabras: a gusto. No se considera válida la grafía agusto.','2');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Cuál es la fórmula de saludo más adecuada, "buen día" o "buenos días"?','Como saludo matutino, la fórmula generalmente empleada en todo el ámbito hispanohablante es buenos días. Esta fórmula, única usada en España, alterna en el español de América con buen día, que está sobre todo extendida en el área rioplatense (Argentina, Paraguay y Uruguay).','3');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe "no te rayes" o "no te ralles"?','El verbo que se usa en el habla coloquial juvenil con el sentido de ‘trastornar(se), volver(se) loco’ es rayar(se): No te rayes; Me estás rayando. El verbo rallar significa ‘desmenuzar algo con el rallador’: Necesito que me ralles un poco de queso para la lasaña.','4');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe "Eres muy muy cruel" o "Eres muy, muy cruel"?','Construcciones como esta, en las que se duplica un elemento para aportar énfasis a lo expresado, se escriben sin coma: Eres muy muy cruel; Me gusta el café café; Hace mucho mucho tiempo.','5');
 
-INSERT INTO `RESPUESTA`(`descripcion`) VALUES ('El burro delante para que no se espante. Con este dicho u otros similares se suele censurar a quien, en una enumeración, se nombra a sí mismo en primer lugar, gesto que ya parecía descortés en tiempos de Gonzalo Correas: «Los arrieros siempre echan los asnos delante».');
-INSERT INTO `RESPUESTA`(`descripcion`) VALUES ('No, no es incorrecto ni lo ha sido nunca, aunque las normas de urbanidad aconsejen mencionar primero al otro. De hecho, no es nada difícil encontrar, en prestigiosos autores de todas las épocas, ejemplos en los que el pronombre que designa al hablante es el primero de una serie, larga o corta, de elementos coordinados.');
-INSERT INTO `RESPUESTA`(`descripcion`) VALUES ('Hay ocasiones, incluso, donde el orden adecuado viene determinado por el contexto y puede ser relevante no citarse en último lugar. Si alguien nos dice Las primeras en llegar a la meta fuimos yo, Eva y Ana, interpretaremos que nuestra interlocutora ha ganado la carrera; si se cita en segundo lugar, lo lógico es pensar que ha llegado en segunda posición. ');
-INSERT INTO `RESPUESTA`(`descripcion`) VALUES ('Con los pronombres del plural parece que la libertad es mayor: resulta más natural decir nosotros y ellos que a la inversa, en lo que quizá influyan razones rítmicas o prosódicas. Por otra parte, si entre los elementos coordinados aparecen entes no animados, la norma de cortesía se deshace y lo normal es que la persona figure en primer lugar.');
-INSERT INTO `RESPUESTA`(`descripcion`) VALUES ('Por tanto, ni las reglas linguísticas ni las de urbanidad se conculcan en ejemplos como los siguientes, en los que sería raro que el pronombre de primera persona apareciera en un lugar distinto al que ocupa: «¡Oh, mal haya yo y todo mi linaje»');
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('El burro delante para que no se espante. Con este dicho u otros similares se suele censurar a quien, en una enumeración, se nombra a sí mismo en primer lugar, gesto que ya parecía descortés en tiempos de Gonzalo Correas: "Los arrieros siempre echan los asnos delante".',1);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('No, no es incorrecto ni lo ha sido nunca, aunque las normas de urbanidad aconsejen mencionar primero al otro. De hecho, no es nada difícil encontrar, en prestigiosos autores de todas las épocas, ejemplos en los que el pronombre que designa al hablante es el primero de una serie, larga o corta, de elementos coordinados.',1);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Hay ocasiones, incluso, donde el orden adecuado viene determinado por el contexto y puede ser relevante no citarse en último lugar. Si alguien nos dice Las primeras en llegar a la meta fuimos yo, Eva y Ana, interpretaremos que nuestra interlocutora ha ganado la carrera; si se cita en segundo lugar, lo lógico es pensar que ha llegado en segunda posición. ',2);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Con los pronombres del plural parece que la libertad es mayor: resulta más natural decir nosotros y ellos que a la inversa, en lo que quizá influyan razones rítmicas o prosódicas. Por otra parte, si entre los elementos coordinados aparecen entes no animados, la norma de cortesía se deshace y lo normal es que la persona figure en primer lugar.',3);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Por tanto, ni las reglas linguísticas ni las de urbanidad se conculcan en ejemplos como los siguientes, en los que sería raro que el pronombre de primera persona apareciera en un lugar distinto al que ocupa: "¡Oh, mal haya yo y todo mi linaje"',4);
 
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1,1);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (2,2);
@@ -142,3 +149,11 @@ FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat
 AND p.id_preg = pr.id_preg;
+
+/* VISTA PARA LA VISUALIZACIÓN DE PREGUNTAS */
+CREATE VIEW vistaRespuestas AS
+SELECT u.nombre "usuario", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg"
+FROM USUARIO u, RESPUESTA r, RESPONDER rr, PREGUNTA p
+WHERE u.id_usu = rr.id_usu
+AND r.id_res = rr.id_res
+AND p.id_preg = r.id_preg;
