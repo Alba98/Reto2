@@ -43,6 +43,9 @@ ALTER TABLE `PREGUNTA`
   ADD PRIMARY KEY (`id_preg`),
   ADD KEY `id_cat` (`id_cat`);
 
+ALTER TABLE `PREGUNTA` 
+  ADD `fecha` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP;
+
 ALTER TABLE `PREGUNTA`
   MODIFY `id_preg` int NOT NULL AUTO_INCREMENT;
 
@@ -131,3 +134,11 @@ INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,2);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (3,3);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (4,4);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,5);
+
+/* VISTA PARA LA VISUALIZACIÓN PREGUNTAS */
+CREATE VIEW vistaPreguntas AS
+SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg"
+FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr
+WHERE u.id_usu = pr.id_usu
+AND p.id_cat = c.id_cat
+AND p.id_preg = pr.id_preg;
