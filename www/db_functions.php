@@ -101,12 +101,21 @@ function insertUsuario ($dbh,$datosUsuario){
 
 
 function insertRespuesta($dbh,$datosRespuesta){
-   
     try {
-        $stmt = $dbh->prepare("INSERT INTO respuesta(descripcion)
+        //insertar respuesta 
+        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion)
                                VALUES (:descripcion)");
 
         $stmt->execute($datosRespuesta);
+
+        //insertar en responder 
+        $stmt_ = $dbh->prepare("INSERT INTO RESPONDER(id_usu,id_res)
+                                VALUES (:usuario, :respuesta)");
+        $data = array (
+             "usuario" => $_SESSION['id_usu'],
+             "respuesta" => $dbh->lastInsertId()
+        );
+        $stmt_->execute($data);
     } catch(Exception $e) {
         echo 'Exception -> ';
         var_dump($e->getMessage());
@@ -123,7 +132,7 @@ function insertPregunta($dbh, $datosPregunta){
 
         //insertar en preguntar 
         $stmt_ = $dbh->prepare("INSERT INTO PREGUNTAR(id_usu,id_preg)
-        VALUES (:usuario, :pregunta)");
+                                VALUES (:usuario, :pregunta)");
         $data = array (
             "usuario" => $_SESSION['id_usu'],
             "pregunta" => $dbh->lastInsertId()

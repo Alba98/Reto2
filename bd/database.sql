@@ -3,7 +3,7 @@ CREATE TABLE `USUARIO` (
   `id_usu` int NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(50)NULL,
-  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NOT NULL,
+  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `contrasenia` varchar(20) NOT NULL,
   `imagen` longblob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -110,6 +110,8 @@ INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Pe
 INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Angel','Rodriguez','angel@gmail.com','angel');
 INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Mauro','Arambarri','mauro@gmail.com','mauro');
 INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Kike','Garcia','kike@gmail.com','kike');
+INSERT INTO `USUARIO`(`nombre`, `email`, `contrasenia`) VALUES ('Albatxu', 'albatxu@gmail.com', 'Hola1234');
+
 
 INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Es correcto decir «yo y Santiago» o debemos decir «Santiago y yo»?','En una enumeración referida a personas, se aconseja situar el pronombre yo al final por razones de cortesía, pero no es lingüísticamente incorrecto que aparezca en primer lugar.','1');
 INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe «a gusto» o «agusto»?','Esta expresión, que significa ‘cómodamente’, ‘con gusto o placer’ o ‘según el gusto o deseo de alguien’, se escribe siempre en dos palabras: a gusto. No se considera válida la grafía agusto.','2');

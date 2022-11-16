@@ -69,13 +69,15 @@
     </div>
 
     <div class="publicarRespuesta">
+        <?php include_once './publicarRespuesta.php' ?>
+
         <div class="recuadroFormu datos">
             <form method="post" action="">
                 <div class="izq">
                     <h2>RESPONDER</h2><br>
-                    <label for="detalle">Detalle:</label>
+                    <label for="detalleR">Detalle:</label>
                     <br>
-                    <textarea class="inputs" name="detalle" id="detalleR" cols="100" rows="10" maxlength="500" ></textarea>
+                    <textarea class="inputs" name="detalleR" id="detalleR" cols="100" rows="10" maxlength="500" ></textarea>
                     <br> 
                     <b style="color:red" id="detalleIncorrecto" hidden>Detalle no puede estar vacio</b>
                     <br><br>
