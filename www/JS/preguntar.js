@@ -31,7 +31,7 @@ function validarTitulo() {
     if(iTitulo.value) {
         tituloIncorrecto.hidden = true;
     } else {
-        iCategoria.focus();
+        iTitulo.focus();
         tituloIncorrecto.hidden = false;
     }
 }
@@ -49,7 +49,7 @@ function validarDetalle() {
     if(iDetalle.value) {
         detalleIncorrecto.hidden = true;
     } else {
-        iCategoria.focus();
+        iDetalle.focus();
         detalleIncorrecto.hidden = false;
     }
 }

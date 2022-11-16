@@ -59,7 +59,7 @@
                     <button class="botones"><i class="fa-solid fa-eye"></i></button>
                     <b class="nums">621k</b>
                 </div>
-                <a class="res" href="#1">Responder</a>
+                <a class="res" href="?accion=detalles">Responder</a>
             </div>
         </div>
     </div>
