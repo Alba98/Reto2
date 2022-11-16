@@ -157,3 +157,10 @@ FROM USUARIO u, RESPUESTA r, RESPONDER rr, PREGUNTA p
 WHERE u.id_usu = rr.id_usu
 AND r.id_res = rr.id_res
 AND p.id_preg = r.id_preg;
+
+/* VISTA PARA CONSEGUIR CANTIDAD DE RESPUESTAS DE UNA PREGUNTA */
+CREATE VIEW countRespuestas AS 
+SELECT p.id_preg, IFNULL(COUNT(r.id_preg),0) "respuestas"
+FROM PREGUNTA p
+LEFT JOIN RESPUESTA r ON p.id_preg = r.id_preg
+GROUP BY p.id_preg;

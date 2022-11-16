@@ -12,7 +12,7 @@ function connect(){
 
     try {
         # MySQL
-        $dbh= new PDO("mysql:host=$host;dbname=$dbname", $username, $pass);
+        $dbh= new PDO("mysql:host=$host;dbname=$dbname", $username, $pass, array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
         $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         return $dbh;
     }
@@ -79,6 +79,16 @@ function getRespuestas($dbh) {
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
     return $stmt->fetchAll();
+}
+
+function countRespuestas($dbh,$id_preg) {
+    $stmt = $dbh->prepare("SELECT * FROM countRespuestas WHERE id_preg = :id");
+    $data = array(
+        "id" => $id_preg
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetch();
 }
 
 function getUsuario($dbh){
@@ -287,3 +297,13 @@ function cerrarSesion() {
 }
 
 
+// OPTIONS CATEGORIA
+function optionsCategoria() {
+    echo '<option value="0">- SELECIONE UNA -</option>';
+    $dbh = connect();
+    $categorias = getAll($dbh, "categoria");
+
+    foreach ($categorias as $categoria) {
+        echo '<option value="'.$categoria->id_cat.'">'.$categoria->nombre.'</option>';
+    }
+}

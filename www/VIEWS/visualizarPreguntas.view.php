@@ -4,7 +4,7 @@
         <form method="get">
                 <input class="buscar" type="search" name="buscar" id="buscar" placeholder="Buscar..." autofocus>
                 <select name="dep" id="dep" class="dep">
-                    <option value="-1">Seleccione un departamento</option>
+                    <?php optionsCategoria() ?>
                 </select>
                 <select name="order" id="order" class="order">
                     <option value="-1">Ordenar por... <i class="fa-solid fa-filter"></i></option>
@@ -25,6 +25,7 @@
         $preguntas = getVistaPreguntas($dbh);
 
         foreach ($preguntas as $preg) {
+            $respuestas = countRespuestas($dbh,$preg->id_preg);
             echo "<div class='preguntas'>
             <div class='user'>
                 <h2 class='titulousuario' id='titulousuario'>$preg->usuario</h2>
@@ -57,14 +58,14 @@
                         <b class='nums'>210k</b>
                     </div>
                     <div class='iconos'>
-                        <button class='botones'><i class='fa-solid fa-check'></i></button>
-                        <b class='nums'>434k</b>
+                        <button class='botones'><i class='fa-brands fa-teamspeak'></i></button>
+                        <b class='nums'>$respuestas->respuestas RES</b>
                     </div>
                     <div class='iconos'>
                         <button class='botones'><i class='fa-solid fa-eye'></i></button>
-                        <b class='nums'>621k</b>
+                        <b class='nums'>657k</b>
                     </div>
-                    <a class='res' href='?accion=detalles&id=$preg->id_preg'>Responder</a>
+                    <a class='res' href='?accion=detalles&id=$preg->id_preg'>Detalles</a>
                 </div>
             </div>
         </div>";
