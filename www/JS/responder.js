@@ -12,8 +12,6 @@ var detalleIncorrecto = document.getElementById("detalleIncorrecto");
 botonPreguntar.addEventListener("click", validar);
 iDetalle.addEventListener("focusout", validarDetalle);
 
-console.log("se llama")
-
 function validar() {
     validarDetalle();
     // validarArchivo();
