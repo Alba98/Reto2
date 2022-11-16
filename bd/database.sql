@@ -137,7 +137,7 @@ INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,5);
 
 /* VISTA PARA LA VISUALIZACIÓN PREGUNTAS */
 CREATE VIEW vistaPreguntas AS
-SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg"
+SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle"
 FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat
