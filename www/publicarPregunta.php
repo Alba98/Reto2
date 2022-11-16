@@ -9,7 +9,6 @@
         }
     }
 
-    // Se ejecuta updateUsuario al rellenar los campos necesarios
     if (isset($_POST['titulo']) && isset($_POST['categoria']) && isset($_POST['detalle']) && isset($_POST['archivo'])) {
         if ($_POST['titulo'] != "" && $_POST['categoria'] != "" && $_POST['detalle'] != "") {
             $dbh = connect();
