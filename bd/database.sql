@@ -3,7 +3,7 @@ CREATE TABLE `USUARIO` (
   `id_usu` int NOT NULL,
   `nombre` varchar(50) NOT NULL,
   `apellidos` varchar(50)NULL,
-  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci DEFAULT NOT NULL,
+  `email` varchar(30) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `contrasenia` varchar(20) NOT NULL,
   `imagen` longblob
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -36,6 +36,7 @@ CREATE TABLE `PREGUNTA` (
   `titulo` varchar(100) NOT NULL,
   `detalle` text NOT NULL,
   `archivo` longblob COMMENT 'subir archivo',
+  `visto` INT NULL DEFAULT 0,
   `id_cat` int NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
@@ -137,7 +138,7 @@ INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,5);
 
 /* VISTA PARA LA VISUALIZACIÓN PREGUNTAS */
 CREATE VIEW vistaPreguntas AS
-SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle"
+SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos"
 FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat

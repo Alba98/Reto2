@@ -62,7 +62,7 @@
                     </div>
                     <div class='iconos'>
                         <button class='botones'><i class='fa-solid fa-eye'></i></button>
-                        <b class='nums'>621k</b>
+                        <b class='nums'>$preg->vistos</b>
                     </div>
                     <a class='res' href='?accion=detalles&id=$preg->id_preg'>Responder</a>
                 </div>
