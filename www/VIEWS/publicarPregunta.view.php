@@ -1,5 +1,5 @@
 
-    <?php include_once './publicarPregunta.php' ?>
+    <?php include_once './PHP/publicarPregunta.php' ?>
 
     <div class="preguntar">
         <div class="datos recuadroFormu">

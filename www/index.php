@@ -14,6 +14,8 @@
             $inicio = userLogin($_POST['email'],$_POST['pswd']); // Si es TRUE es correcto
             if ($inicio) {
                 echo '<p style="color:green">Inicio de sesión hecho correctamente</p>';
+                // header("Location: index.php?accion=preguntas", TRUE, 301);
+                // exit();
             } else echo '<p style="color:red">Contraseña o email no validos</p>';
         }
 

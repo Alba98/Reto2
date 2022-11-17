@@ -20,6 +20,9 @@
         </form>
     </div>
 
+
+    <script src="../JS/pregunta.js"></script>
+
     <?php
         $dbh = connect();
         $preguntas = getVistaPreguntas($dbh);
@@ -63,12 +66,14 @@
                     </div>
                     <div class='iconos'>
                         <button class='botones'><i class='fa-solid fa-eye'></i></button>
-                        <b class='nums'>657k</b>
+                        <b class='nums'>$preg->vistos</b>
                     </div>
-                    <a class='res' href='?accion=detalles&id=$preg->id_preg'>Detalles</a>
+                    <a class='res' href='?accion=detalles&id=$preg->id_preg' onclick=\"actualizarVisto('$preg->id_preg')\">Responder</a>
                 </div>
             </div>
         </div>";
         }
     ?>
 </div>
+
+ <!-- <a class='res' href='?accion=detalles&id=$preg->id_preg' -->
