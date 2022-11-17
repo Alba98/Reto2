@@ -7,7 +7,8 @@
 async function actualizarVisto(id_preg) {
     console.log('JS pregunta = ', id_preg);
     debugger;
-    await fetch('../PHP/pregunta.php?id_preg='.id_preg, {
+    fetch('../PHP/pregunta.php?id_preg='+id_preg, 
+        {
             method: 'POST',
             async: true,
             headers: { 'Content-Type': 'application/json;charset=utf-8' },
@@ -22,6 +23,6 @@ async function actualizarVisto(id_preg) {
         console.log('data = ', data);
     })
     .catch(function(err) {
-        console.error(err);
+        console.log(err);
     });
 }
