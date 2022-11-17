@@ -209,7 +209,7 @@ function insertCategoria($dbh,$datosCategoria){
 
 function updateVisto($dbh, $id_preg) {
     try {
-        $stmt = $dbh->prepare("UPDATE PREGUNTA SET vistos = vistos + 1  WHERE id_usu = :id_preg");
+        $stmt = $dbh->prepare("UPDATE PREGUNTA SET visto = visto + 1 WHERE id_preg = :id_preg");
         $data = array (
             "id_preg" => $id_preg
         );

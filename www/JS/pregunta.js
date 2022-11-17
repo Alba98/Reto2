@@ -6,7 +6,6 @@
 
 async function actualizarVisto(id_preg) {
     console.log('JS pregunta = ', id_preg);
-    debugger;
     fetch('../PHP/pregunta.php?id_preg='+id_preg, 
         {
             method: 'POST',
