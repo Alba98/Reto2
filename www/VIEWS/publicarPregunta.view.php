@@ -3,7 +3,7 @@
 
     <div class="preguntar">
         <div class="datos recuadroFormu">
-            <form method="post" action="">
+            <form method="post" action="?accion=preguntas">
                 <div class="izq">
                     <h2>PREGUNTAR A OTROS USUARIOS</h2><br>
                     <label for="usuario">Usuario</label>

@@ -81,6 +81,37 @@ function getRespuestas($dbh) {
     return $stmt->fetchAll();
 }
 
+function getPreguntasCategoria($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat");
+    $data = array(
+        "id_cat" => $_GET['dep']
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasRecientes($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY fecha DESC");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasVistas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY vistos DESC");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosVistas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY vistos");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 function countRespuestas($dbh,$id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM countRespuestas WHERE id_preg = :id");
     $data = array(
@@ -153,8 +184,8 @@ function insertUsuario ($dbh,$datosUsuario){
 function insertRespuesta($dbh,$datosRespuesta){
     try {
         //insertar respuesta 
-        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion)
-                               VALUES (:descripcion)");
+        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg)
+                               VALUES (:descripcion,:id_preg)");
 
         $stmt->execute($datosRespuesta);
 
@@ -192,6 +223,18 @@ function insertPregunta($dbh, $datosPregunta){
         echo 'Exception -> ';
         var_dump($e->getMessage());
     }
+}
+
+// SE EJECUTA AL CREAR UNA PREGUNTA
+if (isset($_POST['titulo']) && $_POST['categoria'] != 0 && isset($_POST['detalle'])) {
+    $data = array (
+        "titulo" => $_POST['titulo'],
+        "categoria" => $_POST['categoria'],
+        "detalle" => $_POST['detalle'],
+        "archivo" => $_POST['archivo']
+    );
+    $dbh = connect();
+    insertPregunta($dbh,$data);
 }
 
 function insertCategoria($dbh,$datosCategoria){
