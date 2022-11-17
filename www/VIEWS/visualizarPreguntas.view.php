@@ -29,6 +29,7 @@
 
         foreach ($preguntas as $preg) {
             $respuestas = countRespuestas($dbh,$preg->id_preg);
+            $likes = countLikes($dbh,$preg->id_preg);
             echo "
             <div class='preguntas'>
             <div class='user'>
@@ -59,7 +60,7 @@
                 <div class='stats'>
                     <div class='iconos'>
                         <button class='botones'><i class='fa-solid fa-thumbs-up'></i></button>
-                        <b class='nums'>210k</b>
+                        <b class='nums'>$likes->like LIKE</b>
                     </div>
                     <div class='iconos'>
                         <button class='botones'><i class='fa-brands fa-teamspeak'></i></button>
@@ -67,7 +68,7 @@
                     </div>
                     <div class='iconos'>
                         <button class='botones'><i class='fa-solid fa-eye'></i></button>
-                        <b class='nums'>$preg->vistos</b>
+                        <b class='nums'>$preg->vistos VISTO</b>
                     </div>
                     <a class='res' href='?accion=detalles&id=$preg->id_preg' onclick=\"actualizarVisto('$preg->id_preg')\">Responder</a>
                 </div>

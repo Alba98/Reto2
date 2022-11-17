@@ -1,7 +1,8 @@
 <?php 
     session_start();
     require ('./db_functions.php');
-    require ('./VIEWS/PARTIALS/header.php');
+    require('VIEWS/PARTIALS/header.php');
+    require('./PHP/API.php');
 ?>
         
 <?php
