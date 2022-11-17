@@ -2,10 +2,11 @@
         $dbh = connect();
         $preguntas = getPregunta($dbh);
         foreach ($preguntas as $preg) {
+            $likes = countLikes($dbh,$preg->id_preg);
             echo "<div class='detalles'>
             <div class='votacion'>
                 <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
-                <b id='votos' class='votos'>LIKE</b>
+                <b id='votos' class='votos'>$likes->like LIKE</b>
                 <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
             </div>
             <div class='user'>
@@ -43,11 +44,12 @@
     $dbh = connect();
     $respuestas = getRespuestas($dbh);
     foreach ($respuestas as $res) {
+        $votos = countVotos($dbh,$res->id_res);
         echo "<div class='respuestas'>
         <div class='respuesta'>
             <div class='votacion'>
                 <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
-                <b id='votos' class='votos'>VOTOS</b>
+                <b id='votos' class='votos'>$votos->voto VOTOS</b>
                 <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
             </div>
             <div class='user'>

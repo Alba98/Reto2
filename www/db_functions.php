@@ -91,6 +91,26 @@ function countRespuestas($dbh,$id_preg) {
     return $stmt->fetch();
 }
 
+function countLikes($dbh,$id_preg) {
+    $stmt = $dbh->prepare("SELECT * FROM countLikes WHERE id_preg = :id");
+    $data = array(
+        "id" => $id_preg
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetch();
+}
+
+function countVotos($dbh,$id_res) {
+    $stmt = $dbh->prepare("SELECT * FROM countVotos WHERE id_res = :id");
+    $data = array(
+        "id" => $id_res
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetch();
+}
+
 function getUsuario($dbh){
     $stmt = $dbh->prepare("SELECT nombre, apellidos, email, contrasenia, imagen FROM USUARIO WHERE id_usu =:id_usu");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
