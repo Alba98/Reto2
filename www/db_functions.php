@@ -24,6 +24,8 @@ function connect(){
 
 function getAll($dbh,$tabla){
     $tabla = strtoupper($tabla);
+
+    //$stmt = $dbh->prepare("SELECT * FROM ${tabla}");
     switch($tabla)
     {
         case 'CATEGORIA':
@@ -56,15 +58,15 @@ function getAll($dbh,$tabla){
 
 function getVistaPreguntas($dbh) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas");
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     return $stmt->fetchAll();
 }
 
-function getPregunta($dbh) {
+function getPregunta($dbh,$id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_preg = :id_preg");
     $data = array(
-        "id_preg" => $_GET['id']
+        "id_preg" => $id_preg
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
