@@ -198,3 +198,17 @@ SELECT p.id_preg, IFNULL(COUNT(r.id_preg),0) "respuestas"
 FROM PREGUNTA p
 LEFT JOIN RESPUESTA r ON p.id_preg = r.id_preg
 GROUP BY p.id_preg;
+
+/* VISTA PARA CONSEGUIR CANTIDAD LIKES DE UNA PREGUNTA */
+CREATE VIEW countLikes AS 
+SELECT p.id_preg, IFNULL(COUNT(g.id_preg),0) "like"
+FROM PREGUNTA p
+LEFT JOIN GUSTAR g ON g.id_preg = p.id_preg
+GROUP BY p.id_preg;
+
+/* VISTA PARA CONSEGUIR CANTIDAD VOTOS DE UNA RESPUESTA */
+CREATE VIEW countVotos AS 
+SELECT r.id_res, IFNULL(COUNT(v.id_res),0) "voto"
+FROM RESPUESTA r
+LEFT JOIN VOTAR v ON v.id_res = r.id_res
+GROUP BY r.id_res;

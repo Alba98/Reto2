@@ -32,8 +32,7 @@
 
         foreach ($preguntas as $preg) {
             $respuestas = countRespuestas($dbh,$preg->id_preg);
-            echo 
-            */
+            echo "
             <div class='preguntas'>
             <div class='user'>
                 <h2 class='titulousuario' id='titulousuario'>$preg->usuario</h2>
@@ -77,11 +76,9 @@
                 </div>
             </div>
         </div>";
+       
         }
-   
-    */
-
-    
+    ?>
 </div>
 
  <!-- <a class='res' href='?accion=detalles&id=$preg->id_preg' -->
