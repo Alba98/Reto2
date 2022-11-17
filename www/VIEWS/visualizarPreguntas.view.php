@@ -4,7 +4,7 @@
         <form method="get">
                 <input class="buscar" type="search" name="buscar" id="buscar" placeholder="Buscar..." autofocus>
                 <select name="dep" id="dep" class="dep">
-                    <?php optionsCategoria() ?>
+                    <?php optionsCategoria(); ?>
                 </select>
                 <select name="order" id="order" class="order">
                     <option value="-1">Ordenar por... <i class="fa-solid fa-filter"></i></option>
@@ -19,12 +19,9 @@
 
         </form>
         
-    <script src="../JS/cargarPreguntas.js"></script>
+
 
     </div>
-
-
-    <script src="../JS/pregunta.js"></script>
 
     <?php
         $dbh = connect();
@@ -32,8 +29,7 @@
 
         foreach ($preguntas as $preg) {
             $respuestas = countRespuestas($dbh,$preg->id_preg);
-            echo 
-            */
+            echo "
             <div class='preguntas'>
             <div class='user'>
                 <h2 class='titulousuario' id='titulousuario'>$preg->usuario</h2>
@@ -77,9 +73,9 @@
                 </div>
             </div>
         </div>";
+        
         }
-   
-    */
+    ?>
 
     
 </div>
