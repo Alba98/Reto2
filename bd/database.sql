@@ -107,26 +107,26 @@ ALTER TABLE `RESPONDER`
 COMMIT;
 
 CREATE TABLE VOTAR (
-  cod_vot  int(10) PRIMARY KEY ,
+  cod_voto  int(10) PRIMARY KEY ,
   id_usu    int(10) ,
   id_res   int(10) ,
-  CONSTRAINT res_usu_fk FOREIGN KEY (id_usu)
+  CONSTRAINT vot_usu_fk FOREIGN KEY (id_usu)
         REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
-  CONSTRAINT  id_res_fk FOREIGN KEY (id_res)
+  CONSTRAINT  id_vot_fk FOREIGN KEY (id_res)
         REFERENCES RESPUESTA( id_res) ON DELETE CASCADE
 );
 
 ALTER TABLE `VOTAR`
-  MODIFY `cod_vot` int NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_voto` int NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 CREATE TABLE GUSTAR (
   cod_like  int(10) PRIMARY KEY ,
   id_usu    int(10) ,
   id_preg   int(10) ,
-  CONSTRAINT res_usu_fk FOREIGN KEY (id_usu)
+  CONSTRAINT gust_usu_fk FOREIGN KEY (id_usu)
         REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
-  CONSTRAINT  id_preg_fk FOREIGN KEY (id_preg)
+  CONSTRAINT  id_gust_fk FOREIGN KEY (id_preg)
         REFERENCES PREGUNTA( id_preg) ON DELETE CASCADE
 );
 
@@ -198,3 +198,17 @@ SELECT p.id_preg, IFNULL(COUNT(r.id_preg),0) "respuestas"
 FROM PREGUNTA p
 LEFT JOIN RESPUESTA r ON p.id_preg = r.id_preg
 GROUP BY p.id_preg;
+
+/* VISTA PARA CONSEGUIR CANTIDAD LIKES DE UNA PREGUNTA */
+CREATE VIEW countLikes AS 
+SELECT p.id_preg, IFNULL(COUNT(g.id_preg),0) "like"
+FROM PREGUNTA p
+LEFT JOIN GUSTAR g ON g.id_preg = p.id_preg
+GROUP BY p.id_preg;
+
+/* VISTA PARA CONSEGUIR CANTIDAD VOTOS DE UNA RESPUESTA */
+CREATE VIEW countVotos AS 
+SELECT r.id_res, IFNULL(COUNT(v.id_res),0) "voto"
+FROM RESPUESTA r
+LEFT JOIN VOTAR v ON v.id_res = r.id_res
+GROUP BY r.id_res;
