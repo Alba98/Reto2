@@ -1,5 +1,6 @@
 <?php
         $dbh = connect();
+        updateVisto($dbh, $_GET['id']);
         $preguntas = getPregunta($dbh);
         foreach ($preguntas as $preg) {
             $likes = countLikes($dbh,$preg->id_preg);

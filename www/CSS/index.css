@@ -22,10 +22,10 @@
 
 #menu a {
     text-decoration: none;
-    color: var(--lightGray);
+    color: var(--gainsBoro);
 }
 a:visited {
-    color: var(--lightGray);
+    color: var(--gainsBoro);
 }
 
 body {
@@ -60,7 +60,7 @@ body * {
     flex-direction: column;
     /* justify-content: center;
     place-items: center; */
-    background: var(--darkBlue) fixed;
+    background: var(--gainsBoro) fixed;
 }
 
 #menu {
@@ -119,7 +119,7 @@ body * {
     width: 100%;
     height: min-content;
     background-color: var(--darkBlueGray);
-    color: var(--lightGray);
+    color: var(--gainsBoro);
     z-index: 5;
 }
 
@@ -127,7 +127,7 @@ body * {
     font-size: 2.5rem;
     padding: 5px 10px;
     background-color: var(--darkBlueGray);
-    color: var(--lightGray);
+    color: var(--gainsBoro);
 }
 #menu-h-principal {
     display: none;
@@ -136,7 +136,7 @@ body * {
     height:0px;
     transition: 1s ease;
     background-color: var(--darkBlueGray);
-    color: var(--lightGray);
+    color: var(--gainsBoro);
     z-index: 5;
 }
 #menu-h-principal:target {
@@ -153,13 +153,13 @@ body * {
 #menu-h-principal a,
 #menu-h-principal a:visited {
     text-decoration: none;
-    color: var(--lightGray);
+    color: var(--gainsBoro);
 }
 
 footer {
     grid-area: foot;
     background-color: var(--darkBlueGray);
-    color: var(--lightGray);
+    color: var(--gainsBoro);
     grid-column: 1/13;
     grid-row: 10/11;
     display: grid;
@@ -209,7 +209,7 @@ footer #servicios {
 }
 #servicios a:visited {
     background-color: var(--darkBlueGray);
-    color: var(--lightGray);
+    color: var(--gainsBoro);
 }
 footer #mapa {
     grid-area: mapa;
