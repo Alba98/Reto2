@@ -75,7 +75,7 @@ COMMIT;
 
 /* SQL PREGUNTAR */
 CREATE TABLE PREGUNTAR (
-  id_preguntar int(10),
+  cod_preg int(10),
   id_usu    int(10),
   id_preg   int(10),
 
@@ -86,10 +86,10 @@ CREATE TABLE PREGUNTAR (
 );
 
 ALTER TABLE `PREGUNTAR`
-  ADD PRIMARY KEY (`id_preguntar`);
+  ADD PRIMARY KEY (`cod_preg`);
 
 ALTER TABLE `PREGUNTAR`
-  MODIFY `id_preguntar` int NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_preg` int NOT NULL AUTO_INCREMENT;
 
 /* SQL RESPONDER */
 CREATE TABLE RESPONDER (
@@ -105,6 +105,38 @@ CREATE TABLE RESPONDER (
 ALTER TABLE `RESPONDER`
   MODIFY `cod_res` int NOT NULL AUTO_INCREMENT;
 COMMIT;
+
+CREATE TABLE VOTAR (
+  cod_vot  int(10) PRIMARY KEY ,
+  id_usu    int(10) ,
+  id_res   int(10) ,
+  CONSTRAINT res_usu_fk FOREIGN KEY (id_usu)
+        REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
+  CONSTRAINT  id_res_fk FOREIGN KEY (id_res)
+        REFERENCES RESPUESTA( id_res) ON DELETE CASCADE
+);
+
+ALTER TABLE `VOTAR`
+  MODIFY `cod_vot` int NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+CREATE TABLE GUSTAR (
+  cod_like  int(10) PRIMARY KEY ,
+  id_usu    int(10) ,
+  id_preg   int(10) ,
+  CONSTRAINT res_usu_fk FOREIGN KEY (id_usu)
+        REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
+  CONSTRAINT  id_preg_fk FOREIGN KEY (id_preg)
+        REFERENCES PREGUNTA( id_preg) ON DELETE CASCADE
+);
+
+ALTER TABLE `GUSTAR`
+  MODIFY `cod_like` int NOT NULL AUTO_INCREMENT;
+COMMIT;
+
+
+
+
 
 /* INSERTAR DATOS BASE */
 INSERT INTO `CATEGORIA`(`nombre`) VALUES ('Informatica');

@@ -18,6 +18,9 @@
                 <input type="submit" id="guardar" hidden>
 
         </form>
+        
+    <script src="../JS/cargarPreguntas.js"></script>
+
     </div>
 
 
@@ -29,7 +32,9 @@
 
         foreach ($preguntas as $preg) {
             $respuestas = countRespuestas($dbh,$preg->id_preg);
-            echo "<div class='preguntas'>
+            echo 
+            */
+            <div class='preguntas'>
             <div class='user'>
                 <h2 class='titulousuario' id='titulousuario'>$preg->usuario</h2>
                 <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
@@ -73,7 +78,10 @@
             </div>
         </div>";
         }
-    ?>
+   
+    */
+
+    
 </div>
 
  <!-- <a class='res' href='?accion=detalles&id=$preg->id_preg' -->
