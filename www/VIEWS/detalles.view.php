@@ -5,7 +5,7 @@
             echo "<div class='detalles'>
             <div class='votacion'>
                 <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
-                <b id='votos' class='votos'>VOTOS</b>
+                <b id='votos' class='votos'>LIKE</b>
                 <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
             </div>
             <div class='user'>
@@ -81,7 +81,7 @@
     
 
     <div class="publicarRespuesta">
-        <?php include_once './publicarRespuesta.php' ?>
+        <?php include_once './PHP/publicarRespuesta.php' ?>
 
         <div class="recuadroFormu datos">
             <form method="post" action="">
