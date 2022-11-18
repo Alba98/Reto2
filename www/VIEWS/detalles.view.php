@@ -1,6 +1,4 @@
-<?php
-    
-?>
+<?php require('VIEWS/PARTIALS/header.php') ?>
 
     <div class="zonaPregunta"></div>
     <div class="zonaRespuestas"></div>
@@ -31,4 +29,4 @@
     <script src="JS/responder.js"></script>
     <br><br>
 
-    
+<?php require('VIEWS/PARTIALS/footer.php') ?>
