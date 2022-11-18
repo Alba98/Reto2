@@ -1,5 +1,7 @@
 <?php require('VIEWS/PARTIALS/header.php') ?>
 
+<script src="JS/visto.js"></script>
+
 <div class="visualizacion">
     <div class="datos">
         <form method="get">
@@ -21,6 +23,7 @@
     </div>
 </div>
 <script src="JS/cargarPreguntas.js"></script>
+
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>
  <!-- <a class='res' href='?accion=detalles&id=$preg->id_preg' -->

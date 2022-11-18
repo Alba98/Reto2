@@ -4,7 +4,6 @@
 
     $dbh = connect();
 
-
     //Funciones
     function api_getPreguntas(){
         global $dbh;
@@ -38,7 +37,7 @@
             $id_preg = $pregunta['id_preg'];
 
             // obtengo los likes por cada pregunta
-            $likes = countLikes($dbh, $id_preg)->like;
+            $likes = countLikes($dbh, $_GET["id"])->like;
             $pregunta['likes'] = $likes;
         }
 
@@ -61,6 +60,11 @@
         return $preguntas;
     }
 
+    function api_actualizarVisto(){
+        global $dbh;
+        updateVisto($dbh);
+    }
+
 
     //Vamos a comprobar que lo que 
     $funcion = isset($_GET['funcion']) ? $_GET['funcion'] : null;
@@ -77,6 +81,9 @@
             break;
         case 'getRespuestas':
             $respuesta = api_getRespuestas();
+            break;
+        case 'actualizarVisto':
+            api_actualizarVisto();
             break;
         default:
             break;

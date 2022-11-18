@@ -59,7 +59,6 @@ function cargarLayoutRespuesta(datosPregunta) {
 
 cargarRespuesta()
     .then( function(resultadoPromesa) {
-        debugger;
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
         } else {
