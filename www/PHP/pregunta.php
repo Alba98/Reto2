@@ -20,6 +20,10 @@
             // a cada pregunta, meterle su cantidad de likes
             // hay que poder modificar la pregunta para que esta linea tenga sentido
             $pregunta['likes'] = $likes;
+
+            // obtengo las respuestas por cada pregunta
+            $respuestas = countRespuestas($dbh, $id_preg)->respuestas;
+            $pregunta['respuestas'] = $respuestas;
         }
 
         return $preguntas;

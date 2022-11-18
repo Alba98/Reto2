@@ -24,7 +24,7 @@ function cargarLayout(datosPregunta) {
     pregunta.classList.add('preguntas');
 
     pregunta.innerHTML = `<div class='user'>
-    <h2 class='titulousuario' id='titulousuario'>${datosPregunta.id_preg}</h2>
+    <h2 class='titulousuario' id='titulousuario'>${datosPregunta.usuario}</h2>
     <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
     <form>
         <p class='clasificacion'>
@@ -55,7 +55,7 @@ function cargarLayout(datosPregunta) {
         </div>
         <div class='iconos'>
             <button class='botones'><i class='fa-brands fa-teamspeak'></i></button>
-            <b class='nums'>$respuestas->respuestas RES</b>
+            <b class='nums'>${datosPregunta.respuestas} RES</b>
         </div>
         <div class='iconos'>
             <button class='botones'><i class='fa-solid fa-eye'></i></button>
