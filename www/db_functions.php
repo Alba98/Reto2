@@ -133,34 +133,59 @@ function getPreguntasMenosVistasCategoria($dbh) {
 }
 
 function getPreguntasRecientesCategoria($dbh) {
-    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha DESC ");
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY :order");
+    $order = orderBy();
     $data = array(
-        "id_cat" => $_GET['dep']
+        "id_cat" => $_GET['dep'],
+        "order" => $order
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
-function preguntasCategoriaOrder() {
-    $dbh = connect();
-    if ($_GET['order' == "masvistas"]) {
-        return getPreguntasMasVistasCategoria($dbh);
-    } elseif ($_GET['order' == "menosvistas"]) {
-        return getPreguntasMenosVistasCategoria($dbh);
-    } else {
-        return null;
-    }
-}
-
 function getPreguntasBuscar($dbh) {
-    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE titulo LIKE %:buscar%");
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE titulo LIKE '%:buscar%'");
     $data = array(
         "buscar" => $_GET['buscar']
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
     return $stmt->fetchAll();
+}
+
+function getPreguntasTodosFiltros($dbh){
+    $stmt = $dbh->prepare("SELECT * 
+    FROM vistaPreguntas 
+    WHERE titulo LIKE '%:buscar%'
+    AND id_cat = :id_cat
+    ORDER BY :order");
+    $order = orderBy();
+    $data = array(
+        "buscar" => $_GET['buscar'],
+        "id_cat" => $_GET['dep'],
+        "order" => $order
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+
+function orderBy() {
+    if (isset($_GET['order'])) {
+        if ($_GET['order'] == "masvistas") {
+            return "vistos DESC";
+        } elseif ($_GET['order'] == "menosvistas") {
+            return "vistos";
+        } elseif ($_GET['order'] == "masvotadas") {
+            return "votos DESC";
+        } elseif ($_GET['order'] == "menosvotadas") {
+            return "votos";
+        } else {
+            return "fecha";
+        }
+    }
 }
 
 /*************************************************************************************/
