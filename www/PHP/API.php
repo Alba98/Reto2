@@ -1,4 +1,4 @@
 <?php 
-    require('./PHP/pregunta.php');
+    require('./PHP/API_pregunta.php');
 ?>
         
