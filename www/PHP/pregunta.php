@@ -40,7 +40,6 @@
             break;
     }
 
-    // bai ur oun tu programinn ~ Ania1 2022
     header('Content-Type', 'application/json');
     echo json_encode($respuesta);
 ?>
