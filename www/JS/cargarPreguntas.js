@@ -18,7 +18,7 @@ async function cargarPreguntas() {
     }
 }
 
-function cargarLayout(datosPregunta) {
+function cargarLayoutPregunta(datosPregunta) {
     let contenedorPregunta = document.getElementsByClassName("visualizacion")[0];
     let pregunta = document.createElement('div');
     pregunta.classList.add('preguntas');
@@ -61,7 +61,7 @@ function cargarLayout(datosPregunta) {
             <button class='botones'><i class='fa-solid fa-eye'></i></button>
             <b class='nums'>${datosPregunta.vistos} VISTO</b>
         </div>
-        <a class='res' href='?accion=detalles&id=$preg->id_preg' onclick=\"actualizarVisto('$preg->id_preg')\">Responder</a>
+        <a class='res' href='?accion=detalles&id=${datosPregunta.id_preg}' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Responder</a>
     </div>
 </div>`;
 
@@ -74,7 +74,7 @@ cargarPreguntas()
             console.error(resultadoPromesa);
         } else {
             resultadoPromesa.forEach(datosPregunta => {
-                cargarLayout(datosPregunta);
+                cargarLayoutPregunta(datosPregunta);
             });
         }
     });

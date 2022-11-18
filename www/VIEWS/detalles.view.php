@@ -1,91 +1,91 @@
 <?php
-        $dbh = connect();
-        updateVisto($dbh, $_GET['id']);
-        $preguntas = getPregunta($dbh);
-        foreach ($preguntas as $preg) {
-            $likes = countLikes($dbh,$preg->id_preg);
-            echo "<div class='detalles'>
-            <div class='votacion'>
-                <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
-                <b id='votos' class='votos'>$likes->like LIKE</b>
-                <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
-            </div>
-            <div class='user'>
-                <h3 class='titulousuario' id='titulousuario'>$preg->usuario</h3>
-                <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de pergil'>
-                <form>
-                    <p class='clasificacion'>
-                      <input id='radio1' type='radio' name='estrellas' value='1'>
-                      <label for='radio1'>★</label>
-                      <input id='radio2' type='radio' name='estrellas' value='2'>
-                      <label for='radio2'>★</label>
-                      <input id='radio3' type='radio' name='estrellas' value='3'>
-                      <label for='radio3'>★</label>
-                      <input id='radio4' type='radio' name='estrellas' value='4'>
-                      <label for='radio4'>★</label>
-                      <input id='radio5' type='radio' name='estrellas' value='5'>
-                      <label for='radio5'>★</label>
-                    </p>
-                  </form>
-            </div>
-            <div class='info'>
-                <h1>$preg->titulo</h1>
-                <p><b>Usuario:</b> $preg->usuario</p>
-                <p><b>Fecha de publicación:</b> $preg->fecha</p>
-                <p><b>Departamento:</b> $preg->categoria</p>
-                <div class='descripcion'>
-                    $preg->detalle
-                </div>
-            </div>
-        </div>";
-        }
+        // $dbh = connect();
+        // updateVisto($dbh, $_GET['id']);
+        // $preguntas = getPregunta($dbh);
+        // foreach ($preguntas as $preg) {
+        //     $likes = countLikes($dbh,$preg->id_preg);
+        //     echo "<div class='detalles'>
+        //     <div class='votacion'>
+        //         <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
+        //         <b id='votos' class='votos'>$likes->like LIKE</b>
+        //         <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
+        //     </div>
+        //     <div class='user'>
+        //         <h3 class='titulousuario' id='titulousuario'>$preg->usuario</h3>
+        //         <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de pergil'>
+        //         <form>
+        //             <p class='clasificacion'>
+        //               <input id='radio1' type='radio' name='estrellas' value='1'>
+        //               <label for='radio1'>★</label>
+        //               <input id='radio2' type='radio' name='estrellas' value='2'>
+        //               <label for='radio2'>★</label>
+        //               <input id='radio3' type='radio' name='estrellas' value='3'>
+        //               <label for='radio3'>★</label>
+        //               <input id='radio4' type='radio' name='estrellas' value='4'>
+        //               <label for='radio4'>★</label>
+        //               <input id='radio5' type='radio' name='estrellas' value='5'>
+        //               <label for='radio5'>★</label>
+        //             </p>
+        //           </form>
+        //     </div>
+        //     <div class='info'>
+        //         <h1>$preg->titulo</h1>
+        //         <p><b>Usuario:</b> $preg->usuario</p>
+        //         <p><b>Fecha de publicación:</b> $preg->fecha</p>
+        //         <p><b>Departamento:</b> $preg->categoria</p>
+        //         <div class='descripcion'>
+        //             $preg->detalle
+        //         </div>
+        //     </div>
+        // </div>";
+        // }
 ?>
 
 <?php
-    $dbh = connect();
-    $respuestas = getRespuestas($dbh);
-    foreach ($respuestas as $res) {
-        $votos = countVotos($dbh,$res->id_res);
-        echo "<div class='respuestas'>
-        <div class='respuesta'>
-            <div class='votacion'>
-                <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
-                <b id='votos' class='votos'>$votos->voto VOTOS</b>
-                <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
-            </div>
-            <div class='user'>
-                <h3 class='titulousuario' id='titulousuario'>$res->usuario</h3>
-                <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
-                <form>
-                    <p class='clasificacion'>
-                    <input id='radio1' type='radio' name='estrellas' value='1'>
-                    <label for='radio1'>★</label>
-                    <input id='radio2' type='radio' name='estrellas' value='2'>
-                    <label for='radio2'>★</label>
-                    <input id='radio3' type='radio' name='estrellas' value='3'>
-                    <label for='radio3'>★</label>
-                    <input id='radio4' type='radio' name='estrellas' value='4'>
-                    <label for='radio4'>★</label>
-                    <input id='radio5' type='radio' name='estrellas' value='5'>
-                    <label for='radio5'>★</label>
-                    </p>
-                </form>
-            </div>
-            <div class='info'>
-                <b class=''>SOLUCIÓN</b>
-                <div class='descripcion'>
-                $res->descripcion
-                </div>
-            </div>
-        </div>
-    </div>";
-    }
+    // $dbh = connect();
+    // $respuestas = getRespuestas($dbh);
+    // foreach ($respuestas as $res) {
+    //     $votos = countVotos($dbh,$res->id_res);
+    //     echo "<div class='respuestas'>
+    //     <div class='respuesta'>
+    //         <div class='votacion'>
+    //             <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
+    //             <b id='votos' class='votos'>$votos->voto VOTOS</b>
+    //             <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
+    //         </div>
+    //         <div class='user'>
+    //             <h3 class='titulousuario' id='titulousuario'>$res->usuario</h3>
+    //             <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
+    //             <form>
+    //                 <p class='clasificacion'>
+    //                 <input id='radio1' type='radio' name='estrellas' value='1'>
+    //                 <label for='radio1'>★</label>
+    //                 <input id='radio2' type='radio' name='estrellas' value='2'>
+    //                 <label for='radio2'>★</label>
+    //                 <input id='radio3' type='radio' name='estrellas' value='3'>
+    //                 <label for='radio3'>★</label>
+    //                 <input id='radio4' type='radio' name='estrellas' value='4'>
+    //                 <label for='radio4'>★</label>
+    //                 <input id='radio5' type='radio' name='estrellas' value='5'>
+    //                 <label for='radio5'>★</label>
+    //                 </p>
+    //             </form>
+    //         </div>
+    //         <div class='info'>
+    //             <b class=''>SOLUCIÓN</b>
+    //             <div class='descripcion'>
+    //             $res->descripcion
+    //             </div>
+    //         </div>
+    //     </div>
+    // </div>";
+    // }
 ?>
-    
 
-    <div class="publicarRespuesta">
-        <?php include_once './PHP/publicarRespuesta.php' ?>
 
+    <div class="zonaPregunta"></div>
+    <div class="zonaRespuestas"></div>
+    <div class="zonaPublicarRespuesta">
         <div class="recuadroFormu datos">
             <form method="post" action="">
                 <div class="izq">
@@ -104,9 +104,12 @@
                 <input class="inputs" type="submit" value="Responder" id="responder">
             </form>
         </div>
-        <script src="../JS/responder.js"></script>
     </div>
 
+    <script src="JS/cargarPregunta.js"></script>
+    <script src="JS/cargarRespuestas.js"></script>
+    <!-- Formulario publicar pregunta -->
+    <script src="JS/responder.js"></script>
     <br><br>
 
     
