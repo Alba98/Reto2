@@ -1,3 +1,4 @@
+<?php require('VIEWS/PARTIALS/header.php') ?>
 
                 <div id="inicioSesion">  
                     <input type="checkbox" id="chk" aria-hidden="true">	
@@ -127,3 +128,5 @@
 
                     <noscript>El navegador no soporta JavaScript</noscript>
                 </div>
+
+<?php require('VIEWS/PARTIALS/footer.php') ?>

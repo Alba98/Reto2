@@ -1,3 +1,4 @@
+<?php require('VIEWS/PARTIALS/header.php') ?>
 
 <div class="visualizacion">
     <div class="datos">
@@ -21,4 +22,5 @@
 </div>
 <script src="JS/cargarPreguntas.js"></script>
 
+<?php require('VIEWS/PARTIALS/footer.php') ?>
  <!-- <a class='res' href='?accion=detalles&id=$preg->id_preg' -->

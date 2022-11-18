@@ -1,3 +1,4 @@
+<?php require('VIEWS/PARTIALS/header.php') ?>
 
     <?php include_once './PHP/publicarPregunta.php' ?>
 
@@ -35,3 +36,5 @@
         </div>
         <script src="../JS/preguntar.js"></script>
     </div>
+
+<?php require('VIEWS/PARTIALS/footer.php') ?>

@@ -1,3 +1,5 @@
+<?php require('VIEWS/PARTIALS/header.php') ?>
+
 <div id="perfil">
     <div class="datos recuadroFormu">
         <form method="post" action="">
@@ -44,3 +46,5 @@
  
     <script src="../JS/perfil.js"></script>
 </div>
+
+<?php require('VIEWS/PARTIALS/footer.php') ?>
