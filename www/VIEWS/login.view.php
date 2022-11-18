@@ -106,8 +106,7 @@
                                    </svg>
                                 </div>
                             </div>
-                            <input class="inputs" type="email" name="email" placeholder="Email" required="">
-                            
+                            <input class="inputs" type="email"    name="email" placeholder="Email"  required="">
                             <input class="inputs" type="password" name="pswd" placeholder="Contraseña" required="">
                             <button id="btn-login">Login</button>
                         </form>
@@ -124,5 +123,7 @@
                         </form>
                     </div>
                     <script src="../JS/loginValidacion.js"></script>
+                    <script src="../JS/cookies.js"></script>
+
                     <noscript>El navegador no soporta JavaScript</noscript>
                 </div>
