@@ -3,7 +3,7 @@
  **/
 
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
-const API_URL = '/PHP/pregunta.php';
+const API_URL = '/PHP/API_get.php';
 
 async function cargarPregunta() {
     let respuesta = await fetch(API_URL + '?funcion=getDetallesPregunta&id=1') // con '?' separamos la ruta de los parametros
