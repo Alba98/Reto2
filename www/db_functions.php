@@ -80,7 +80,7 @@ function getRespuestas($dbh) {
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
-
+// FUNCIONES PARA LA BUSQUEDA CON FILTROS
 function getPreguntasCategoria($dbh) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat");
     $data = array(
@@ -112,6 +112,58 @@ function getPreguntasMenosVistas($dbh) {
     return $stmt->fetchAll();
 }
 
+function getPreguntasMasVistasCategoria($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY vistos DESC");
+    $data = array(
+        "id_cat" => $_GET['dep']
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosVistasCategoria($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY vistos");
+    $data = array(
+        "id_cat" => $_GET['dep']
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasRecientesCategoria($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha DESC ");
+    $data = array(
+        "id_cat" => $_GET['dep']
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function preguntasCategoriaOrder() {
+    $dbh = connect();
+    if ($_GET['order' == "masvistas"]) {
+        return getPreguntasMasVistasCategoria($dbh);
+    } elseif ($_GET['order' == "menosvistas"]) {
+        return getPreguntasMenosVistasCategoria($dbh);
+    } else {
+        return null;
+    }
+}
+
+function getPreguntasBuscar($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE titulo LIKE %:buscar%");
+    $data = array(
+        "buscar" => $_GET['buscar']
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+/*************************************************************************************/
 function countRespuestas($dbh,$id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM countRespuestas WHERE id_preg = :id");
     $data = array(
