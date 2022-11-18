@@ -6,7 +6,7 @@
 
 
     //Funciones
-    function api_getPregunta(){
+    function api_getPreguntas(){
         global $dbh;
 
         $preguntas = getVistaPreguntas($dbh);
@@ -29,6 +29,23 @@
         return $preguntas;
     }
 
+    //Funciones
+    function api_getPregunta(){
+        global $dbh;
+
+        $preguntas = getVistaPregunta($dbh);
+        foreach ($preguntas as &$pregunta) { 
+            $id_preg = $pregunta['id_preg'];
+
+            // obtengo los likes por cada pregunta
+            $likes = countLikes($dbh, $id_preg)->like;
+            $pregunta['likes'] = $likes;
+        }
+
+
+        return $preguntas;
+    }
+
 
     //Vamos a comprobar que lo que 
     $funcion = isset($_GET['funcion']) ? $_GET['funcion'] : null;
@@ -38,6 +55,9 @@
 
     switch ($funcion) {
         case 'getPreguntas':
+            $respuesta = api_getPreguntas();
+            break;
+        case 'getDetallesPregunta':
             $respuesta = api_getPregunta();
             break;
         default:

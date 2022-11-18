@@ -63,12 +63,12 @@ function getVistaPreguntas($dbh) {
     return $stmt->fetchAll();
 }
 
-function getPregunta($dbh,$id_preg) {
+function getVistaPregunta($dbh) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_preg = :id_preg");
     $data = array(
-        "id_preg" => $id_preg
+        "id_preg" => $_GET['id']
     );
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
