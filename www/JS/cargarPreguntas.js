@@ -18,7 +18,7 @@ async function cargarPreguntas() {
     }
 }
 
-function cargarLayout(datosPregunta) {
+function cargarLayoutPregunta(datosPregunta) {
     let contenedorPregunta = document.getElementsByClassName("visualizacion")[0];
     let pregunta = document.createElement('div');
     pregunta.classList.add('preguntas');
@@ -74,7 +74,7 @@ cargarPreguntas()
             console.error(resultadoPromesa);
         } else {
             resultadoPromesa.forEach(datosPregunta => {
-                cargarLayout(datosPregunta);
+                cargarLayoutPregunta(datosPregunta);
             });
         }
     });

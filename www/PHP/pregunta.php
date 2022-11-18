@@ -46,6 +46,21 @@
         return $preguntas;
     }
 
+    function api_getRespuestas(){
+        global $dbh;
+
+        $preguntas = getVistaRespuestas($dbh);
+        foreach ($preguntas as &$pregunta) { 
+            $id_preg = $pregunta['id_preg'];
+
+            // obtengo los votos de cada pregunta
+            $votos = countVotos($dbh, $id_preg)->voto;
+            $pregunta['votos'] = $votos;
+        }
+
+        return $preguntas;
+    }
+
 
     //Vamos a comprobar que lo que 
     $funcion = isset($_GET['funcion']) ? $_GET['funcion'] : null;
@@ -59,6 +74,9 @@
             break;
         case 'getDetallesPregunta':
             $respuesta = api_getPregunta();
+            break;
+        case 'getRespuestas':
+            $respuesta = api_getRespuestas();
             break;
         default:
             break;

@@ -107,6 +107,7 @@
     </div>
 
     <script src="JS/cargarPregunta.js"></script>
+    <script src="JS/cargarRespuestas.js"></script>
     <!-- Formulario publicar pregunta -->
     <script src="JS/responder.js"></script>
     <br><br>
