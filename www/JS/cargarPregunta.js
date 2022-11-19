@@ -71,7 +71,8 @@ cargarPregunta()
                 cargarLayout(datosPregunta);
             });
         }
-});
+    }
+);
  
 
 async function insertarLike(id_preg) {

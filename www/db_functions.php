@@ -396,13 +396,13 @@ function cerrarSesion() {
 }
 
 
-// OPTIONS CATEGORIA
-function optionsCategoria() {
-    echo '<option value="0">- SELECIONE UNA -</option>';
-    $dbh = connect();
-    $categorias = getAll($dbh, "categoria");
+// // OPTIONS CATEGORIA
+// function optionsCategoria() {
+//     echo '<option value="0">- SELECIONE UNA -</option>';
+//     $dbh = connect();
+//     $categorias = getAll($dbh, "categoria");
 
-    foreach ($categorias as $categoria) {
-        echo '<option value="'.$categoria->id_cat.'">'.$categoria->nombre.'</option>';
-    }
-}
+//     foreach ($categorias as $categoria) {
+//         echo '<option value="'.$categoria->id_cat.'">'.$categoria->nombre.'</option>';
+//     }
+// }
