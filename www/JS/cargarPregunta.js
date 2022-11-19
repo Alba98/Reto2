@@ -26,9 +26,9 @@ function cargarLayout(datosPregunta) {
     pregunta.innerHTML = `
         <div class='detalles'>
             <div class='votacion'>
-                <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
-                <b id='votos' class='votos'>${datosPregunta.likes} LIKE</b>
-                <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
+                <a class='like' onclick=\"insertarLike('${datosPregunta.id_preg}')\"><i class='fa-solid fa-sort-up'></i></a>
+                <b id='likes' class='votos'>${datosPregunta.likes} LIKE</b>
+                <a class='like'onclick=\"borrarLike('${datosPregunta.id_preg}')\"><i class='fa-solid fa-sort-down'></i></a>
             </div>
             <div class='user'>
                 <h3 class='titulousuario' id='titulousuario'>${datosPregunta.usuario}</h3>
@@ -74,6 +74,27 @@ cargarPregunta()
 });
  
 
+async function insertarLike(id_preg) {
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=insertarLike&id='+id_preg)
+    if (respuesta.ok) {
+        return respuesta.json();
+    } else {
+        return {
+            mensaje: 'Error en el servidor',
+        };
+    }
+}
+
+async function borrarLike(id_preg) {
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=borrarLike&id='+id_preg)
+    if (respuesta.ok) {
+        return respuesta.json();
+    } else {
+        return {
+            mensaje: 'Error en el servidor',
+        };
+    }
+}
 
 
 

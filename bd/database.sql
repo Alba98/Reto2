@@ -107,34 +107,24 @@ ALTER TABLE `RESPONDER`
 COMMIT;
 
 CREATE TABLE VOTAR (
-  cod_voto  int(10) PRIMARY KEY ,
-  id_usu    int(10) ,
-  id_res   int(10) ,
+  id_usu    int(10),
+  id_res   int(10),
   CONSTRAINT vot_usu_fk FOREIGN KEY (id_usu)
         REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
   CONSTRAINT  id_vot_fk FOREIGN KEY (id_res)
-        REFERENCES RESPUESTA( id_res) ON DELETE CASCADE
+        REFERENCES RESPUESTA( id_res) ON DELETE CASCADE,
+  PRIMARY KEY (id_usu, id_res) 
 );
 
-ALTER TABLE `VOTAR`
-  MODIFY `cod_voto` int NOT NULL AUTO_INCREMENT;
-COMMIT;
-
 CREATE TABLE GUSTAR (
-  cod_like  int(10) PRIMARY KEY ,
   id_usu    int(10) ,
   id_preg   int(10) ,
   CONSTRAINT gust_usu_fk FOREIGN KEY (id_usu)
         REFERENCES USUARIO(id_usu) ON DELETE CASCADE,
   CONSTRAINT  id_gust_fk FOREIGN KEY (id_preg)
-        REFERENCES PREGUNTA( id_preg) ON DELETE CASCADE
+        REFERENCES PREGUNTA( id_preg) ON DELETE CASCADE,
+  PRIMARY KEY (id_usu, id_preg)       
 );
-
-ALTER TABLE `GUSTAR`
-  MODIFY `cod_like` int NOT NULL AUTO_INCREMENT;
-COMMIT;
-
-
 
 
 
