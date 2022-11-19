@@ -222,6 +222,62 @@ function updateVisto($dbh) {
     }
 }
 
+function insertarLike($dbh) {
+    try {
+        $stmt = $dbh->prepare("INSERT INTO GUSTAR (id_usu, id_preg) VALUES (:usuario, :pregunta)");
+        $data = array (
+            "usuario" => $_SESSION['id_usu'],
+            "pregunta" => $_GET["id"]
+        );
+        $stmt->execute($data);
+    } catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
+
+function borrarLike($dbh) {
+    try {
+        $stmt = $dbh->prepare("DELETE FROM GUSTAR WHERE id_usu = :usuario AND id_preg = :pregunta");
+        $data = array (
+            "usuario" => $_SESSION['id_usu'],
+            "pregunta" => $_GET["id"]
+        );
+        $stmt->execute($data);
+    } catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
+
+function insertarVoto($dbh) {
+    try {
+        $stmt = $dbh->prepare("INSERT INTO VOTAR (id_usu, id_res) VALUES (:usuario, :respuesta)");
+        $data = array (
+            "usuario" => $_SESSION['id_usu'],
+            "respuesta" => $_GET["id"]
+        );
+        $stmt->execute($data);
+    } catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
+
+function borrarVoto($dbh) {
+    try {
+        $stmt = $dbh->prepare("DELETE FROM VOTAR WHERE id_usu = :usuario AND id_res = :respuesta");
+        $data = array (
+            "usuario" => $_SESSION['id_usu'],
+            "respuesta" => $_GET["id"]
+        );
+        $stmt->execute($data);
+    } catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
+
 // UPDATES
 function updateUsuario($dbh) { // UPDATE SIN LA CONTRASEÑA
     try {

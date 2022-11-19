@@ -18,19 +18,19 @@ async function cargarRespuesta() {
     }
 }
 
-function cargarLayoutRespuesta(datosPregunta) {
+function cargarLayoutRespuesta(datosRespuesta) {
     let contenedorPregunta = document.getElementsByClassName("zonaRespuestas")[0];
     let pregunta = document.createElement('div');
     pregunta.classList.add('respuesta');
 
     pregunta.innerHTML = `
                 <div class='votacion'>
-                    <a class='like' href='#1'><i class='fa-solid fa-sort-up'></i></a>
-                    <b id='votos' class='votos'>${datosPregunta.votos} VOTOS</b>
-                    <a class='like' href='#2'><i class='fa-solid fa-sort-down'></i></a>
+                    <a class='like' onclick=\"insertarVoto('${datosRespuesta.id_res}')\"><i class='fa-solid fa-sort-up'></i></a>
+                    <b id='votos' class='votos'>${datosRespuesta.votos} VOTOS</b>
+                    <a class='like' onclick=\"borrarVoto('${datosRespuesta.id_res}')\"><i class='fa-solid fa-sort-down'></i></a>
                 </div>
                 <div class='user'>
-                    <h3 class='titulousuario' id='titulousuario'>${datosPregunta.usuario}</h3>
+                    <h3 class='titulousuario' id='titulousuario'>${datosRespuesta.usuario}</h3>
                     <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
                     <form>
                         <p class='clasificacion'>
@@ -50,7 +50,7 @@ function cargarLayoutRespuesta(datosPregunta) {
                 <div class='info'>
                     <b class=''>SOLUCIÓN</b>
                     <div class='descripcion'>
-                        <p> ${datosPregunta.descripcion} </p>
+                        <p> ${datosRespuesta.descripcion} </p>
                     </div>
                 </div>`;
 
@@ -62,12 +62,35 @@ cargarRespuesta()
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
         } else {
-            resultadoPromesa.forEach(datosPregunta => {
-                cargarLayoutRespuesta(datosPregunta);
+            resultadoPromesa.forEach(datosRespuesta => {
+                cargarLayoutRespuesta(datosRespuesta);
             });
         }
 });
  
+
+async function insertarVoto(id_res) {
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=insertarVoto&id='+id_res)
+    if (respuesta.ok) {
+        return respuesta.json();
+    } else {
+        return {
+            mensaje: 'Error en el servidor',
+        };
+    }
+}
+
+async function borrarVoto(id_res) {
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=borrarVoto&id='+id_res)
+    if (respuesta.ok) {
+        return respuesta.json();
+    } else {
+        return {
+            mensaje: 'Error en el servidor',
+        };
+    }
+}
+
 
 
 

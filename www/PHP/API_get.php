@@ -50,10 +50,10 @@
 
         $preguntas = getVistaRespuestas($dbh);
         foreach ($preguntas as &$pregunta) { 
-            $id_preg = $pregunta['id_preg'];
+            $id_res = $pregunta['id_res'];
 
             // obtengo los votos de cada pregunta
-            $votos = countVotos($dbh, $id_preg)->voto;
+            $votos = countVotos($dbh, $id_res)->voto;
             $pregunta['votos'] = $votos;
         }
 
@@ -65,6 +65,25 @@
         updateVisto($dbh);
     }
 
+    function api_actualizarLike(){
+        global $dbh;
+        insertarLike($dbh);
+    }
+
+    function api_borrarLike(){
+        global $dbh;
+        borrarLike($dbh);
+    }
+
+    function api_actualizarVoto(){
+        global $dbh;
+        insertarVoto($dbh);
+    }
+
+    function api_borrarVoto(){
+        global $dbh;
+        borrarVoto($dbh);
+    }
 
     //Vamos a comprobar que lo que 
     $funcion = isset($_GET['funcion']) ? $_GET['funcion'] : null;
@@ -84,6 +103,18 @@
             break;
         case 'actualizarVisto':
             api_actualizarVisto();
+            break;
+        case 'insertarLike':
+            api_actualizarLike();
+            break;
+        case 'borrarLike':
+            api_borrarLike();
+            break;
+        case 'insertarVoto':
+            api_actualizarVoto();
+            break;
+        case 'borrarVoto':
+            api_borrarVoto();
             break;
         default:
             break;
