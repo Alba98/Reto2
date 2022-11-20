@@ -1,8 +1,8 @@
 <?php require('VIEWS/PARTIALS/header.php') ?>
 
 <div id="perfil">
-    <div class="datos recuadroFormu">
-        <form method="post" action="">
+    <div class="recuadro">
+        <form method="post" action="" class="formulario">
             <div class="izq">
                 <h2>DETALLES</h2><br>
 
@@ -17,24 +17,24 @@
                 <label for="contraseniaBtn">Contraseña:</label>
                 <input type="button" class="inputs" name="contraseña" id="contraseniaBtn" value="Cambiar contraseña" disabled><br>
                 <div id="cambiarPASS">
-                    <h3>Confirmación nueva contraseña</h3><br>
-
-                    <label>Cambiar contraseña</label>
-                    <input  class="inputs" type = "password" id = "contra1"><br>
-            
-                    <label>Confirmar contraseña </label>
-                    <input  class="inputs" type = "password" id = "contra2" name="cambiarpass"><br>
+                    <h3>Confirmación nueva contraseña</h3>
+                    <br>
+                    <label>Cambiar contraseña</label><br>
+                    <input  class="inputs" type = "password" id = "contra1">
+                    <br><br>
+                    <label>Confirmar contraseña </label><br>
+                    <input  class="inputs" type = "password" id = "contra2" name="cambiarpass">
+                    <br><br>
                     <p style="color:red" id="passIncorrecta" hidden>Las contraseñas no coinciden</p>
-                    <input type="reset" value = "Vaciar"><br><br>
-
+                    <input type="reset" value="Vaciar"><br>
                 </div>
-
+                <br>
                 <label for="email">Email: </label>
                 <input class="inputs" type="email" name="pemail" id="email" value="<?php echo $infousuario['email'] ?>" disabled required="">
                 <b style="color:red" id="emailIncorrecto" hidden>Email invalido</b><br><br>
                 <input class="inputs" type="submit" value="GUARDAR CAMBIOS" id="guardarPerfil" disabled>
             </div>
-            <div class="der">
+            <div class="der end">
                 <img src="../RECURSOS/IMAGES/user.png" alt="Foto de perfil" class="perfil"><br><br>
                 <input class="inputs" type="file" name="pfoto" id="foto" disabled><br><br>
                 <input type="button" value="EDITAR PERFIL" id="editar">

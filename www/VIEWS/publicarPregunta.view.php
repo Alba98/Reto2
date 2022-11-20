@@ -1,8 +1,8 @@
 <?php require('VIEWS/PARTIALS/header.php') ?>
 
     <div class="preguntar">
-        <div class="datos recuadroFormu">
-            <form method="post" action="">
+        <div class="recuadro">
+            <form method="post" action="" class="formulario">
                 <div class="izq">
                     <h2>PREGUNTAR A OTROS USUARIOS</h2><br>
                     <label for="usuario">Usuario</label>
@@ -24,13 +24,18 @@
                     <textarea class="inputs" name="detalle" id="detalle" cols="50" rows="10" maxlength="500" ></textarea>
                     <br> 
                     <b style="color:red" id="detalleIncorrecto" hidden>Detalle no puede estar vacio</b>
-                    <br><br>
                 </div> 
                 <div class="der end">
                     <label for="archivo">Subir archivo</label>
                     <input class="inputs" type="file" name="archivo" id="archivo">
-                </div> 
-                <input class="inputs" type="submit" value="Enviar" id="preguntar">
+                </div>
+                <div  class="formulario">
+                    <div  class="izq">
+                        <br>
+                        <input class="inputs" type="submit" value="Enviar" id="preguntar"> 
+                    </div>
+                </div>
+                
             </form>
         </div>
         <script src="../JS/categoria.js"></script>

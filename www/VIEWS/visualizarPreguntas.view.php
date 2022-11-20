@@ -3,7 +3,7 @@
 <script src="JS/visto.js"></script>
 
 <div class="visualizacion">
-    <div class="datos">
+    <div class="datos recuadro">
         <form method="get">
                 <input class="buscar" type="search" name="buscar" id="buscar" placeholder="Buscar..." autofocus>
                 <!-- <select name="dep" id="dep" class="dep">  -->

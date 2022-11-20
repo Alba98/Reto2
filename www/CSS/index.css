@@ -18,39 +18,20 @@
     gap: 0;
     transition: all 0.4s;
 }
-
-
-#menu a {
-    text-decoration: none;
-    color: var(--gainsBoro);
-}
-a:visited {
-    color: var(--gainsBoro);
-}
-
+/****************************** COMUN ****************************************/
 body {
     max-width: 100vw;
     height: 100vh;
     z-index: -1;
 }
-
-body * {
-    overflow-x: hidden;
-}
-/*
-
-#google-translate{
-}
-*/
-
 #global {
     max-width: 100vw;
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: 1fr; 
     grid-template-rows: repeat(3, auto);
-    grid-template-areas:"menu menu menu menu"
-                        "main main main main"
-                        "foot foot foot foot";
+    grid-template-areas:"menu"
+                        "main"
+                        "foot";
 }
 #main {
     grid-area: main;
@@ -62,27 +43,89 @@ body * {
     place-items: center; */
     background: var(--gainsBoro) fixed;
 }
+.recuadro {
+    margin: 2% 5%;
+    padding: 3%;
+    border: 1px solid gray;
+    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
+}
+/* formularios */
+.formulario{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+        "izq der";
+    justify-content: space-around;
+}
+.formulario .izq {
+    grid-area: izq;
+}
+.formulario .der {
+    grid-area: der;
+}
+.formulario .end {
+    align-self: end;
+}
+.formulario label {
+    display: inline-block;
+    min-width: 90px;
+}
+.formulario .inputs {
+    border: 1px solid white;
+    border-radius: 5px;
+}
+.formulario input[type='file'] {
+    width: 80%;
+    cursor: pointer;
+    background-color: #ABA194;
+    color: white;
+}
+.formulario input[type='submit'], input[type='button'], input[type='reset']{
+    background-color: #7871AA;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+}
+#formulario input[type='password'] {
+    width: 80%;
+    cursor: pointer;
+    background-color: #7871AA;
+    padding: 1px;
+    border: 1px solid white;
+    border-radius: 5px;
 
+}
+.formulario .perfil {
+    width: 140px;
+}
+/****************************** HEADER ****************************************/
+
+#menu a {
+    text-decoration: none;
+    color: var(--gainsBoro);
+}
+a:visited {
+    color: var(--gainsBoro);
+}
 #menu {
     grid-area: menu;
     background-color: var(--darkBlueGray);
     display: none;
     height: min-content;
-    min-height: 50px;
     justify-content: space-between;
     position: sticky;
     top: 0px;
     z-index: 5;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
 }
-
 #logo-menu {
     display: flex;
     height: 40px;
     margin: 10px 20px;
 }
-
-
 #menu-principal {
     display: flex;
     align-items: center;
@@ -92,7 +135,6 @@ body * {
     min-width: 250px;
     justify-content: space-between;
 }
-
 #menu-principal li {
     display: flex;
     align-items: center;
@@ -100,7 +142,6 @@ body * {
     height: 100%;
     flex-grow: 1;
 }
-
 #menu-principal li a {
     padding: 10px 20px;
 }
@@ -122,7 +163,6 @@ body * {
     color: var(--gainsBoro);
     z-index: 5;
 }
-
 #menu-h span {
     font-size: 2.5rem;
     padding: 5px 10px;
@@ -144,18 +184,16 @@ body * {
     height: min-content;
     top: 45px;
 }
-
 #menu-h-principal li {
     padding: 10px 30px;
     font-size: 1.5rem;
 }
-
 #menu-h-principal a,
 #menu-h-principal a:visited {
     text-decoration: none;
     color: var(--gainsBoro);
 }
-
+/****************************** FOOTER ****************************************/
 footer {
     grid-area: foot;
     background-color: var(--darkBlueGray);
@@ -178,7 +216,6 @@ footer {
     z-index: 1;
     box-shadow: -10px -5px 10px rgba(0, 0, 0, 0.5);
 }
-
 #redessociales{
     width: 200px;
     height: 50px;
@@ -186,13 +223,6 @@ footer {
     justify-content: space-between;
     align-items: center;
 }
-
-/*   
-#fb,#tw,#in,#ws,#wp{
- 
-}
-*/
-
 footer #direccion {
     grid-area: direccion;
 }
@@ -201,7 +231,6 @@ footer #servicios {
     display: flex;
     flex-direction: column;
 }
-
 #servicios a {
     text-decoration: none;
     background-color: var(--darkBlueGray);
@@ -218,7 +247,6 @@ footer #mapa {
     text-align: center;
     padding: 10px;
 }
-
 #servicios .enlace,
 #direccion .enlace {
     padding: 5px 20px;
@@ -226,12 +254,10 @@ footer #mapa {
     border: 1px var(--turquesa) solid;
     margin: 3px;
 }
-
 #servicios a,
 #direccion a {
     padding: 3px 20px;
 }
-
 #servicios .enlace:hover,
 #direccion .enlace:hover {
     color: var(--claro);
@@ -305,7 +331,7 @@ footer #mapa {
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-20%);
+	transform: translateY(-30%);
 	transition: .8s ease-in-out;
 }
 .registro label{
@@ -313,9 +339,8 @@ footer #mapa {
 	transform: scale(.6);
 	margin: 50px;
 }
-
 #chk:checked ~ .registro{
-	transform: translateY(-90%);
+	transform: translateY(-110%);
 }
 #chk:checked ~ .registro label{
 	transform: scale(1);
@@ -326,11 +351,9 @@ footer #mapa {
 }
 /****************************** VISUALIZACION PREGUNTAS ****************************************/
 
-
 .visualizacion {
     width: 100vw;
 }
-
 .lupa {
     padding: 1.5%;
     padding-left: 3%;
@@ -340,7 +363,6 @@ footer #mapa {
     border-radius: 5px;
     color: white;
 }
-
 .dep {
     padding: 1.5%;
     padding-left: 3%;
@@ -350,7 +372,6 @@ footer #mapa {
     border-radius: 5px;
     color: white;
 }
-
 .order {
     padding: 1.5%;
     padding-left: 0.5%;
@@ -360,7 +381,6 @@ footer #mapa {
     border-radius: 5px;
     color: white;
 }
-
 .buscar {
     padding: 1.5%;
     background-color: #7871AA;
@@ -368,44 +388,23 @@ footer #mapa {
     border: 1px solid white;
     border-radius: 5px;
 }
-
 .buscar::placeholder {
     color: white;
 }
-
-.datos>*{
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    padding: 3%;
-    border: 1px solid gray;
-    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
-}
-
 .titulousuario {
     color: black;
 }
-
-.preguntas, .respuesta{
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 3%;
-    border: 1px solid gray;
-    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
+.pregunta, .respuesta{
     display: grid;
     grid-template-columns: repeat(3,1fr);
     grid-template-areas:
     "user info atributos";
 }
-
 .respuesta{
     grid-template-columns: 20% 30% 50%;
     grid-template-areas:
      "votos user info";
 }
-
 .user {
     grid-area: user;
     display: flex;
@@ -413,22 +412,18 @@ footer #mapa {
     align-items: center;
     color: #ABA194;
 }
-
 .info {
     grid-area: info;
     display: flex;
     flex-direction: column;
     text-align: center;
 }
-
 .atributos {
     grid-area: atributos;
 }
-
 .perfil {
     width: 140px;
 }
-
 .stats {
     display: grid;
     grid-template-columns: repeat(3,2fr);
@@ -437,14 +432,12 @@ footer #mapa {
     "res res res";
     gap: 15%;
 }
-
 .iconos {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-
 .res {
     margin-left: 10px;
     grid-area: res;
@@ -457,7 +450,6 @@ footer #mapa {
     text-decoration: none;
     justify-self: center;
 }
-
 .nums {
     color: white;
     margin-top: 5%;
@@ -465,7 +457,6 @@ footer #mapa {
     font-size:1.2em;
     overflow: hidden;
 }
-
 .botones {
     overflow: hidden;
     font-size: 2.5rem;
@@ -484,23 +475,19 @@ footer #mapa {
 .clasificacion input[type="radio"] {
     display: none;
 }
-  
 .clasificacion label {
     color: white;
     font-size: 1.875rem;
 }
-  
 .clasificacion {
     direction: rtl;
     unicode-bidi: bidi-override;
 }
-  
 .clasificacion label:hover,
 .clasificacion label:hover ~ label {
     color: orange;
     cursor: pointer;
-}
-  
+} 
 .clasificacion input[type="radio"]:checked ~ label {
     color: orange;
 }
@@ -508,41 +495,24 @@ footer #mapa {
 /****************************** DETALLE PREGUNTA ****************************************/
 
 .detalles {
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    margin-bottom: 2%;
-    padding: 3%;
-    border: 1px solid gray;
-    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
     display: grid;
     grid-template-columns: 20% 30% 50%;
     grid-template-areas:
     "votos user info";
 }
-
-.clasificacion {
-    direction:ltr;
-    unicode-bidi: bidi-override;
-}
-
 .detalles i {
     font-size: 70px;
 }
-
 .respuestas i {
     font-size: 70px;
 }
-
 .like,.like:link,.like:visited {
     text-decoration: none;
     color: #7871AA;
 }
-
 .like:hover {
     color: white;
 }
-
 .votacion {
     grid-area: votos;
     display: flex;
@@ -550,121 +520,34 @@ footer #mapa {
     justify-content: center;
     align-items: center;
 }
-
 .votacion .votos {
     color: #7871AA;
     margin: 5%;
 }
-
 .detalles .info {
     align-items: flex-start;
-
 }
-
 .descripcion {
-    margin-top: 2%;
-    padding: 2%;
-    border: 1px solid gray;
-    box-shadow: 0px 0px 5px 5px rgba(0,0,0,0.49);
+    margin: 4% 0%;
     max-width: 700px;
 }
 
 /****************************** PERFIL ****************************************/
 
-.recuadroFormu.datos>*{
-    display: grid;
-    grid-template-columns: auto auto;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-        "izq der";
-    margin-left: 5%;
-    margin-right: 5%;
-    margin-top: 2%;
-    padding: 3%;
-    border: 1px solid gray;
-    box-shadow: 0px 0px 10px 10px rgba(0,0,0,0.49);
-    justify-content: space-around;
-}
-
-.recuadroFormu .izq {
-    grid-area: izq;
-}
-
-.recuadroFormu .der {
-    grid-area: der;
-}
-
-.recuadroFormu .end {
-    align-self: end;
-}
-
-.recuadroFormu label {
-    display: inline-block;
-    width: 90px;
-}
-
-.recuadroFormu .inputs {
-    border: 1px solid white;
-    border-radius: 5px;
-}
-
-.recuadroFormu input[type='file'] {
-    width: 80%;
-    cursor: pointer;
-    background-color: #ABA194;
-    color: white;
-}
-
-.recuadroFormu input[type='submit'], input[type='button'] {
-    background-color: #7871AA;
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-    padding: 10px;
-    cursor: pointer;
-}
-
-.recuadroFormu .perfil {
-    width: 140px;
-}
-
 /*Formulario cambio de contraseña*/
-
 #cambiarPASS {
     display: none;
+    margin: 2% 0%;
+    padding: 2%;
 }
-
 #cambiarPASS.shown {
     display:block;
     border: 1px solid rgb(16, 15, 15);
     border-radius: 5px;
-    font-family:helvetica;
 }
-
-
-
-#cambiarPASS input[type='password'] {
-    width: 80%;
-    cursor: pointer;
-    background-color: #7871AA;
-    padding: 1px;
-    border: 1px solid white;
-    border-radius: 5px;
-
-}
-
-#cambiarPASS input[type='submit'], #cambiarPASS input[type='button'] {
-    background-color: #7871AA;
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-    padding: 10px;
-}
-
 
 /****************************** MEDIA ****************************************/
 
-/* MEDIA */
 @media only screen and (min-width: 1920px) {
     #menu-principal li a {
         font-size: 1.1rem;
@@ -677,7 +560,6 @@ footer #mapa {
         grid-template-areas:
             "servicios redes mapa"
             "servicios direccion mapa";
-     
     }
     #menu-h,
     #menu-h-principal {
@@ -692,7 +574,6 @@ footer #mapa {
     #menu-principal li a {
         font-size: 1.1rem;
     }
-  
     footer {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: 55px auto;
@@ -724,7 +605,6 @@ footer #mapa {
     }
 }
 @media only screen and (min-width: 361px) and (max-width: 768px) {
-
     footer{
         display: flex;
         flex-direction: column;
@@ -753,13 +633,12 @@ footer #mapa {
 }
 
 @media screen and (max-width: 760px) {
-    .preguntas, .respuesta {
+    .pregunta, .respuesta {
         display: flex;
         flex-direction: column;
         justify-content: center;
         align-items: center;
     }
-
     .stats {
         display: grid;
         grid-template-columns: repeat(3,auto);
@@ -768,11 +647,9 @@ footer #mapa {
         "res res res";
         gap: 12%;
     }
-
     .iconos {
         margin-top: 15%;
     }
-    
     .res {
         grid-area: res;
         padding-top: 5%;
@@ -786,13 +663,11 @@ footer #mapa {
         cursor: pointer;
         text-decoration: none;
     }
-    
     .nums {
         color: white;
         font-size:0.9em;
 
     }
-    
     .botones {
         font-size: 20px;
         padding: 10%;
@@ -803,32 +678,17 @@ footer #mapa {
         border-radius: 5px;
         color: white;
     }
-}
-
-
-@media screen and (max-width: 760px) {
-    .datos>* {
+    .formulario .der {
         display: flex;
         flex-direction: column;
         justify-content: center;
     }
-
-    .recuadroFormu .der {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .recuadroFormu input[type='submit'] {
+    .formulario input[type='submit'] {
         margin-bottom: 15px;
     }
-
-    .recuadroFormu input[type='button'], input[type='file'] {
+    .formulario input[type='button'], input[type='file'] {
         margin-top: -20px;
     }
-}
-
-@media screen and (max-width: 760px) {
     .detalles {
         grid-template-columns: 30% 70%;
         grid-template-rows: repeat(2, auto);
