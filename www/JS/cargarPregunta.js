@@ -62,6 +62,35 @@ function cargarLayout(datosPregunta) {
     contenedorPregunta.appendChild(pregunta);
 }
 
+function cargarLayoutResponder(datosPregunta) {
+    let contenedorPregunta = document.getElementsByClassName("zonaPublicarRespuesta")[0];
+    let pregunta = document.createElement('div');
+    pregunta.classList.add('recuadroFormu');
+    pregunta.classList.add('datos');
+
+    pregunta.innerHTML = `
+        <form method="post" action="">
+            <div class="izq">
+                <h2>RESPONDER</h2><br>
+                <label for="detalleR">Detalle:</label>
+                <br>
+                <textarea class="inputs" name="detalleR" id="detalleR" cols="100" rows="10" maxlength="500" ></textarea>
+                <br> 
+                <b style="color:red" id="detalleIncorrecto" hidden>Detalle no puede estar vacio</b>
+                <br><br>
+                <input id="pregId" name="pregId" type="hidden" value="${datosPregunta.id_preg}">
+            </div> 
+            <div class="der end">
+                <label for="archivo">Subir archivo</label>
+                <input class="inputs" type="file" name="archivo" id="archivo">
+            </div> 
+            <input class="inputs" type="submit" value="Responder" id="responder">
+        </form>
+       `;
+
+    contenedorPregunta.appendChild(pregunta);
+}
+
 cargarPregunta()
     .then( function(resultadoPromesa) {
         if (resultadoPromesa.mensaje) { // != undefined
@@ -70,6 +99,7 @@ cargarPregunta()
             resultadoPromesa.forEach(datosPregunta => {
                 cargarLayout(datosPregunta);
             });
+            cargarLayoutResponder(resultadoPromesa[0]);
         }
     }
 );
