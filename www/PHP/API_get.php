@@ -85,6 +85,16 @@
         borrarVoto($dbh);
     }
 
+    function api_getCategorias(){
+        global $dbh;
+        return getAll($dbh, "categoria");;
+    }
+
+    function api_enviarPregunta(){
+        global $dbh;
+        enviarPregunta($dbh);        
+    }
+
     //Vamos a comprobar que lo que 
     $funcion = isset($_GET['funcion']) ? $_GET['funcion'] : null;
 
@@ -115,6 +125,12 @@
             break;
         case 'borrarVoto':
             api_borrarVoto();
+            break;
+        case 'getCategorias':
+            $respuesta = api_getCategorias();
+            break;
+        case 'enviarPregunta':
+            api_enviarPregunta();
             break;
         default:
             break;

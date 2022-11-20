@@ -1,7 +1,5 @@
 <?php require('VIEWS/PARTIALS/header.php') ?>
 
-    <?php include_once './PHP/publicarPregunta.php' ?>
-
     <div class="preguntar">
         <div class="datos recuadroFormu">
             <form method="post" action="">
@@ -17,7 +15,8 @@
                     <br><br>
                     <label for="categoria">Categoria</label>
                     <select class="inputs" name="categoria" id="categoria">
-                        <?php optionsCategoria() ?>
+                        <option value="0">- SELECIONE UNA -</option>
+                        <!-- <?php   // optionsCategoria() ?>  -->
                     </select>
                     <b style="color:red" id="categoriaIncorrecto" hidden>Escoja una categoria</b>
                     <br><br>
@@ -34,6 +33,7 @@
                 <input class="inputs" type="submit" value="Enviar" id="preguntar">
             </form>
         </div>
+        <script src="../JS/categoria.js"></script>
         <script src="../JS/preguntar.js"></script>
     </div>
 

@@ -66,7 +66,8 @@ cargarRespuesta()
                 cargarLayoutRespuesta(datosRespuesta);
             });
         }
-});
+    }
+);
  
 
 async function insertarVoto(id_res) {

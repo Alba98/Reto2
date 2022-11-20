@@ -19,12 +19,23 @@ iTitulo.addEventListener("focusout", validarTitulo);
 iCategoria.addEventListener("focusout", validarCategoria);
 iDetalle.addEventListener("focusout", validarDetalle);
 
-
 function validar() {
-    validarTitulo();
-    validarCategoria();
-    validarDetalle();
-    // validarArchivo();
+    try {
+        validarTitulo();
+        validarCategoria();
+        validarDetalle();
+        // validarArchivo();
+        
+        enviarPregunta().then( function(resultadoPromesa) {
+            if (resultadoPromesa.mensaje) { 
+                console.error(resultadoPromesa);
+            } else {
+                console.log(resultadoPromesa);
+            }
+        });
+    } catch (error) {
+        console.log(error.mensaje);
+    }
 }
 
 function validarTitulo() {
@@ -33,6 +44,7 @@ function validarTitulo() {
     } else {
         iTitulo.focus();
         tituloIncorrecto.hidden = false;
+        throw new Error("Titulo");
     }
 }
 
@@ -42,6 +54,7 @@ function validarCategoria() {
     } else {
         iCategoria.focus();
         categoriaIncorrecto.hidden = false;
+        throw new Error("Categoria");
     }
 }
 
@@ -51,5 +64,22 @@ function validarDetalle() {
     } else {
         iDetalle.focus();
         detalleIncorrecto.hidden = false;
+        throw new Error("Detalle");
+    }
+}
+
+async function enviarPregunta() {
+    let respuesta = await fetch('/PHP/API_get.php' 
+                                + '?funcion=enviarPregunta'
+                                + '&titulo='+iTitulo.value
+                                + '&categoria='+iCategoria.value
+                                + '&detalle='+iDetalle.value);
+    
+    if (respuesta.ok) {
+        return respuesta.json();
+    } else {
+        return {
+            mensaje: 'Error en el servidor',
+        };
     }
 }

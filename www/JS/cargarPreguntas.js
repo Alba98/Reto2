@@ -77,7 +77,8 @@ cargarPreguntas()
                 cargarLayoutPregunta(datosPregunta);
             });
         }
-    });
+    }
+);
  
 
 
