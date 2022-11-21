@@ -24,6 +24,8 @@ function cargarLayoutPregunta(datosPregunta) {
     pregunta.classList.add('pregunta');
     pregunta.classList.add('recuadro');
 
+
+
     pregunta.innerHTML = `<div class='user'>
     <h2 class='titulousuario' id='titulousuario'>${datosPregunta.usuario}</h2>
     <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
@@ -62,9 +64,16 @@ function cargarLayoutPregunta(datosPregunta) {
             <button class='botones'><i class='fa-solid fa-eye'></i></button>
             <b class='nums'>${datosPregunta.vistos} VISTO</b>
         </div>
-        <a class='res' href='?accion=detalles&id=${datosPregunta.id_preg}' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Responder</a>
+        <a class='res' href='?accion=detalles' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Responder</a>
     </div>
 </div>`;
+
+    // obtenemos el boton para añadir un evento click
+    let respuestasBoton = pregunta.getElementsByClassName('res')[0];
+    respuestasBoton.addEventListener('click', (e) => {
+        // establece el id_preg dentro del localStorage
+        localStorage.setItem("idPregunta", datosPregunta.id_preg); //obtenemos datosPregunta de la api y obtenemos el la
+    });
 
     contenedorPregunta.appendChild(pregunta);
 }

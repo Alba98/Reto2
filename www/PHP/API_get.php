@@ -32,12 +32,14 @@
     function api_getPregunta(){
         global $dbh;
 
-        $preguntas = getVistaPregunta($dbh);
+        $id_preg = $_GET['id'];
+
+        $preguntas = getVistaPregunta($dbh,$id_preg);
         foreach ($preguntas as &$pregunta) { 
-            $id_preg = $pregunta['id_preg'];
+            $id = $pregunta['id_preg'];
 
             // obtengo los likes por cada pregunta
-            $likes = countLikes($dbh, $_GET["id"])->like;
+            $likes = countLikes($dbh,$id )->like;
             $pregunta['likes'] = $likes;
         }
 
@@ -48,7 +50,9 @@
     function api_getRespuestas(){
         global $dbh;
 
-        $preguntas = getVistaRespuestas($dbh);
+        $id_preg = $_GET['id'];
+
+        $preguntas = getVistaRespuestas($dbh, $id_preg);
         foreach ($preguntas as &$pregunta) { 
             $id_res = $pregunta['id_res'];
 
