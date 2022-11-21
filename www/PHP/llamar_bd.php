@@ -3,66 +3,80 @@
 
     $dbh = connect();
 
-    //Funciones
     function api_getPreguntas(){
         global $dbh;
 
-        $order = isset($_GET['order']) ? $_GET['order'] : null;
+        $preguntas = [];
 
+        $order = isset($_GET['order']) ? $_GET['order'] : null;
+        $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : null;
 
         switch ($order) {
-            case 'masvistas':
-                $preguntas = getPreguntasMasVistas($dbh);
+            case 'masVistas':
+                if($categoria)
+                    $preguntas = getPreguntasMasVistasCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMasVistas($dbh);
                 break;
-            case 'menosvistas':
-                $preguntas = getPreguntasMenosVistas($dbh);
+            case 'menosVistas':
+                if($categoria)
+                    $preguntas = getPreguntasMenosVistasCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMenosVistas($dbh);
                 break;
-            case 'masvotadas':
-                $preguntas = getPreguntasMasLike($dbh); //
+            case 'masVotadas':
+                if($categoria)
+                    $preguntas = getPreguntasMasLikeCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMasLike($dbh);
                 break;
-            case 'menosvotadas':
-                $preguntas = getPreguntasMenosLike($dbh); //
+            case 'menosVotadas':
+                if($categoria)
+                    $preguntas = getPreguntasMenosLikeCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMenosLike($dbh);
                 break;
-            case 'recientes':
-                $preguntas = getPreguntasRecientes($dbh);
+            case 'masRespuestas':
+                // if($categoria)
+                //     $preguntas = getPreguntasMasLikeCategoria($dbh, $categoria);
+                // else
+                //     $preguntas = getPreguntasMasLike($dbh);
+                break;
+            case 'menosRespuestas':
+                // if($categoria)
+                //     $preguntas = getPreguntasMenosLikeCategoria($dbh, $categoria);
+                // else
+                //     $preguntas = getPreguntasMenosLike($dbh);
+                break;
+            case 'masRecientes':
+                if($categoria)
+                    $preguntas = getPreguntasMasRecientesCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMasRecientes($dbh);
+                break;
+            case 'menosRecientes':
+                if($categoria)
+                    $preguntas = getPreguntasMenosRecientesCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMenosRecientes($dbh);
                 break;
             default:
-                $preguntas = getVistaPreguntas($dbh);
+                if(is_null($categoria))
+                    $preguntas;
+                else
+                    $preguntas = getPreguntasCategoria($dbh, $categoria);
                 break;
         }
 
         // $preguntas = getVistaPreguntas($dbh);
-        foreach ($preguntas as &$pregunta) { //pasamos por referencia para modificar cada elemento del array
-            // obtengo el id de cada pregunta
-            $id_preg = $pregunta['id_preg'];
-
-            // obtengo los likes por cada pregunta
-            $likes = countLikes($dbh, $id_preg)->like;
-
-            // a cada pregunta, meterle su cantidad de likes
-            // hay que poder modificar la pregunta para que esta linea tenga sentido
-            $pregunta['likes'] = $likes;
-
-            // obtengo las respuestas por cada pregunta
-            $respuestas = countRespuestas($dbh, $id_preg)->respuestas;
-            $pregunta['respuestas'] = $respuestas;
-        }
 
         return $preguntas;
     }
 
-    //Funciones
     function api_getPregunta(){
         global $dbh;
 
         $preguntas = getVistaPregunta($dbh, $_GET['id']);
-        foreach ($preguntas as &$pregunta) { 
-            $id_preg = $pregunta['id_preg'];
-
-            // obtengo los likes por cada pregunta
-            $likes = countLikes($dbh, $id_preg)->like;
-            $pregunta['likes'] = $likes;
-        }
 
         return $preguntas;
     }
@@ -71,13 +85,6 @@
         global $dbh;
 
         $preguntas = getVistaRespuestas($dbh, $_GET['id']);
-        foreach ($preguntas as &$pregunta) { 
-            $id_res = $pregunta['id_res'];
-
-            // obtengo los votos de cada pregunta
-            $votos = countVotos($dbh, $id_res)->voto;
-            $pregunta['votos'] = $votos;
-        }
 
         return $preguntas;
     }

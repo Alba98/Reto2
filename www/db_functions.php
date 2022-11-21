@@ -83,18 +83,25 @@ function getVistaRespuestas($dbh, $id_preg) {
     return $stmt->fetchAll();
 }
 // FUNCIONES PARA LA BUSQUEDA CON FILTROS
-function getPreguntasCategoria($dbh) {
+function getPreguntasCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat");
     $data = array(
-        "id_cat" => $_GET['dep']
+        "id_cat" => $categoria
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
-function getPreguntasRecientes($dbh) {
+function getPreguntasMasRecientes($dbh) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY fecha DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRecientes($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY fecha");
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     return $stmt->fetchAll();
@@ -128,31 +135,58 @@ function getPreguntasMenosLike($dbh) {
     return $stmt->fetchAll();
 }
 
-function getPreguntasMasVistasCategoria($dbh) {
+function getPreguntasMasVistasCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY vistos DESC");
     $data = array(
-        "id_cat" => $_GET['dep']
+        "id_cat" => $categoria
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
-function getPreguntasMenosVistasCategoria($dbh) {
+function getPreguntasMenosVistasCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY vistos");
     $data = array(
-        "id_cat" => $_GET['dep']
+        "id_cat" => $categoria
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
-function getPreguntasRecientesCategoria($dbh) {
-    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY :order");
-    $order = orderBy();
+function getPreguntasMasLikeCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY likes DESC");
     $data = array(
-        "id_cat" => $_GET['dep'],
+        "id_cat" => $categoria
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosLikeCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY likes");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasRecientesCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha");
+    $data = array(
+        "id_cat" => $categoria,
+        "order" => $order
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRecientesCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha DESC");
+    $data = array(
+        "id_cat" => $categoria,
         "order" => $order
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
@@ -311,18 +345,6 @@ function insertPregunta($dbh, $datosPregunta){
             "pregunta" => $dbh->lastInsertId()
         );
         $stmt_->execute($data);
-    } catch(Exception $e) {
-        echo 'Exception -> ';
-        var_dump($e->getMessage());
-    }
-}
-
-function insertCategoria($dbh,$datosCategoria){
-    try {
-        $stmt = $dbh->prepare("INSERT INTO categoria(nombre)
-                               VALUES (:nombre)");
-
-        $stmt->execute($datosCategoria);
     } catch(Exception $e) {
         echo 'Exception -> ';
         var_dump($e->getMessage());

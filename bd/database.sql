@@ -189,19 +189,21 @@ GROUP BY r.id_res;
 
 /* VISTA PARA LA VISUALIZACIÓN PREGUNTAS */
 CREATE VIEW vistaPreguntas AS
-SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos", c.id_cat "id_cat", cl.like "likes"
-FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr, countLikes cl
+SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos", c.id_cat "id_cat", cl.like "likes", cr.respuestas "respuestas"
+FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr, countLikes cl, countRespuestas cr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat
 AND p.id_preg = pr.id_preg
-and cl.id_preg = p.id_preg 
+AND cl.id_preg = p.id_preg 
+AND cr.id_preg = p.id_preg 
 ORDER BY p.id_preg;
 
 /* VISTA PARA LA VISUALIZACIÓN DE RESPUESTAS */
 CREATE VIEW vistaRespuestas AS
-SELECT u.nombre "usuario", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg"
-FROM USUARIO u, RESPUESTA r, RESPONDER rr, PREGUNTA p
+SELECT u.nombre "usuario", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg", cv.voto "votos"
+FROM USUARIO u, RESPUESTA r, RESPONDER rr, PREGUNTA p, countVotos cv
 WHERE u.id_usu = rr.id_usu
 AND r.id_res = rr.id_res
 AND p.id_preg = r.id_preg
+AND cv.id_res = r.id_res
 ORDER BY r.id_res;

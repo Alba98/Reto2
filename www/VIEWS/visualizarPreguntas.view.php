@@ -15,11 +15,14 @@
                 </select>
                 <select name="order" id="order" class="order">
                     <option value="0">Ordenar por... <i class="fa-solid fa-filter"></i></option>
-                    <option value="masvistas">+Vistas</option>
-                    <option value="menosvistas">-Vistas</option>
-                    <option value="masvotadas">+Votadas</option>
-                    <option value="menosvotadas">-Votadas</option>
-                    <option value="recientes">Recientes</option>
+                    <option value="masVistas">+Vistas</option>
+                    <option value="menosVistas">-Vistas</option>
+                    <option value="masVotadas">+Votadas</option>
+                    <option value="menosVotadas">-Votadas</option>
+                    <option value="masRespuestas">+Respuestas</option>
+                    <option value="menosRespuestas">-Respuestas</option>
+                    <option value="masRecientes">+Recientes</option>
+                    <option value="menosRecientes">-Recientes</option>
                 </select>
                 <button class="lupa"><i class="fa fa-search"></i></button>
                 <input type="submit" id="guardar" hidden>

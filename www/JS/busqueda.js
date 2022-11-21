@@ -10,8 +10,9 @@ if(urlParams.has('buscar')) {
 }
 
 if(urlParams.has('categoria')) {    
-    console.log(categoria);
     categoria.value = urlParams.get('categoria');
+
+    console.log(categoria);
     console.log(categoria.value);
 }
 

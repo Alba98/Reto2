@@ -9,7 +9,7 @@ const API_URL = '/PHP/API_get.php';
 
 async function cargarPreguntas() {
     // let respuesta = await fetch(API_URL + '?funcion=getPreguntas'+getCategoria()) 
-    console.log(API_URL + '?funcion=getPreguntas' + getOrder());
+    console.log(API_URL + '?funcion=getPreguntas' + getCategoria() + getOrder());
     let respuesta = await fetch(API_URL + '?funcion=getPreguntas' + getOrder()) // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
    
@@ -22,11 +22,11 @@ async function cargarPreguntas() {
     }
 }
 
-// function getCategoria() {
-//     if(categoria.value != 0)
-//         return '&dep='+categoria.value;
-//     return '';
-// }
+function getCategoria() {
+    if(categoria.value != 0)
+        return '&categoria='+categoria.value;
+    return '';
+}
 
 function getOrder() {
     if(orderen.value != 0)
@@ -59,7 +59,7 @@ function cargarLayoutPregunta(datosPregunta) {
     </form>
 </div>
 <div class='info'>
-    <h2>${datosPregunta.titulo}</h2>
+    <h2>${datosPregunta.titulo}</h2> <br>
     <p id='usuario'><b>Usuario:</b>${datosPregunta.usuario} </p>
     <p id='fecha'><b>Fecha:</b> ${datosPregunta.fecha}</p>
     <p id='departamento'><b>Departamento:</b> ${datosPregunta.categoria}</p>
@@ -87,7 +87,6 @@ function cargarLayoutPregunta(datosPregunta) {
 
 cargarPreguntas()
     .then( function(resultadoPromesa) {
-        debugger
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
         } else {
