@@ -10,6 +10,7 @@
 
         $order = isset($_GET['order']) ? $_GET['order'] : null;
         $categoria = isset($_GET['categoria']) ? $_GET['categoria'] : null;
+        $buscar = isset($_GET['buscar']) ? $_GET['buscar'] : null;
 
         switch ($order) {
             case 'masVistas':
@@ -61,10 +62,12 @@
                     $preguntas = getPreguntasMenosRecientes($dbh);
                 break;
             default:
-                if(is_null($categoria))
-                    $preguntas = getVistaPreguntas($dbh);
-                else
+                if($categoria)
                     $preguntas = getPreguntasCategoria($dbh, $categoria);
+                if($buscar)
+                    $preguntas = getPreguntasBuscar($dbh, $buscar);
+                else
+                    $preguntas = getVistaPreguntas($dbh);  
                 break;
         }
 

@@ -8,8 +8,8 @@
 const API_URL = '/PHP/API_get.php';
 
 async function cargarPreguntas() {
-    console.log(API_URL + '?funcion=getPreguntas' + getCategoria() + getOrder());
-    let respuesta = await fetch(API_URL + '?funcion=getPreguntas' + getCategoria() + getOrder()) // con '?' separamos la ruta de los parametros
+    console.log(API_URL + '?funcion=getPreguntas' + getBuscar() + getCategoria() + getOrder());
+    let respuesta = await fetch(API_URL + '?funcion=getPreguntas' + getBuscar() + getCategoria() + getOrder()) // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
    
     if (respuesta.ok) {
@@ -21,6 +21,12 @@ async function cargarPreguntas() {
     }
 }
 
+function getBuscar() {
+    if(buscar.value)
+        return '&buscar='+buscar.value;
+    return '';
+}
+
 function getCategoria() { 
     if(urlParams.has('categoria')) 
         return '&categoria='+urlParams.get('categoria');
@@ -30,8 +36,8 @@ function getCategoria() {
 }
 
 function getOrder() {
-    if(orderen.value != 0)
-        return '&order='+orderen.value;
+    if(orden.value != 0)
+        return '&order='+orden.value;
     return '';
 }
 

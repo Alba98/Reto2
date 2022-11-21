@@ -1,6 +1,6 @@
 let buscar = document.getElementById("buscar");
 let categoria = document.getElementById("categoria");
-let orderen = document.getElementById("order");
+let orden = document.getElementById("order");
 
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -17,5 +17,5 @@ if(urlParams.has('categoria')) {
 }
 
 if(urlParams.has('order')) {
-    orderen.value = urlParams.get('order');
+    orden.value = urlParams.get('order');
 }

@@ -223,10 +223,10 @@ function getPreguntasMenosRecientesCategoria($dbh, $categoria) {
     return $stmt->fetchAll();
 }
 
-function getPreguntasBuscar($dbh) {
+function getPreguntasBuscar($dbh, $buscar) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE titulo LIKE '%:buscar%'");
     $data = array(
-        "buscar" => $_GET['buscar']
+        "buscar" => $buscar
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
