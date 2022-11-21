@@ -1,9 +1,7 @@
 :root {
     --grullo: #ABA194;
     --paleSilver: #BDB6AF;
-   
     --menuBotones: #7871AA;
-
     --fondo: #e5e7e8;
     --recuadro: #D8DDDE;
     --hover: rgb(133, 174, 218);
@@ -99,7 +97,7 @@ body * {
     cursor: pointer;
     background-color: var(--menuBotones);
     padding: 1px;
-    border: 1px solid white;
+    border: 1px solid #ffffff;
     border-radius: 5px;
 
 }
@@ -130,6 +128,13 @@ a:visited {
     display: flex;
     height: 40px;
     margin: 10px 20px;
+}
+
+#menu span{
+   color:white;
+   font-size: 2rem;
+   padding-top:3px;
+   margin-left: 10px;
 }
 #menu-principal {
     display: flex;
