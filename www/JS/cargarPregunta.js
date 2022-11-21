@@ -21,10 +21,11 @@ async function cargarPregunta() {
 function cargarLayout(datosPregunta) {
     let contenedorPregunta = document.getElementsByClassName("zonaPregunta")[0];
     let pregunta = document.createElement('div');
-    pregunta.classList.add('pregunta');
+
+    pregunta.classList.add('detalles');
+    pregunta.classList.add('recuadro');
 
     pregunta.innerHTML = `
-        <div class='detalles'>
             <div class='votacion'>
                 <a class='like' onclick=\"insertarLike('${datosPregunta.id_preg}')\"><i class='fa-solid fa-sort-up'></i></a>
                 <b id='likes' class='votos'>${datosPregunta.likes} LIKE</b>
@@ -53,23 +54,21 @@ function cargarLayout(datosPregunta) {
                 <p><b>Usuario:</b> ${datosPregunta.usuario}</p>
                 <p><b>Fecha de publicación:</b> ${datosPregunta.fecha}</p>
                 <p><b>Departamento:</b> ${datosPregunta.categoria}</p>
-                <div class='descripcion'>
+                <div class='descripcion recuadro'>
                     ${datosPregunta.detalle}
                 </div>
-            </div>
-        </div>`;
+            </div>`;
 
     contenedorPregunta.appendChild(pregunta);
 }
 
 function cargarLayoutResponder(datosPregunta) {
     let contenedorPregunta = document.getElementsByClassName("zonaPublicarRespuesta")[0];
-    let pregunta = document.createElement('div');
-    pregunta.classList.add('recuadroFormu');
-    pregunta.classList.add('datos');
+    let pregunta = document.createElement('div');  
+    pregunta.classList.add('recuadro');
 
     pregunta.innerHTML = `
-        <form method="post" action="">
+        <form method="post" action="" class="formulario">
             <div class="izq">
                 <h2>RESPONDER</h2><br>
                 <label for="detalleR">Detalle:</label>

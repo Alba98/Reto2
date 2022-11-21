@@ -21,7 +21,8 @@ async function cargarRespuesta() {
 function cargarLayoutRespuesta(datosRespuesta) {
     let contenedorPregunta = document.getElementsByClassName("zonaRespuestas")[0];
     let pregunta = document.createElement('div');
-    pregunta.classList.add('respuesta');
+    pregunta.classList.add('respuesta');   
+    pregunta.classList.add('recuadro');
 
     pregunta.innerHTML = `
                 <div class='votacion'>
@@ -49,7 +50,7 @@ function cargarLayoutRespuesta(datosRespuesta) {
                 </div>
                 <div class='info'>
                     <b class=''>SOLUCIÓN</b>
-                    <div class='descripcion'>
+                    <div class='descripcion recuadro'>
                         <p> ${datosRespuesta.descripcion} </p>
                     </div>
                 </div>`;

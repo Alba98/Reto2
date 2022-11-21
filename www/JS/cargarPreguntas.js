@@ -21,7 +21,8 @@ async function cargarPreguntas() {
 function cargarLayoutPregunta(datosPregunta) {
     let contenedorPregunta = document.getElementsByClassName("visualizacion")[0];
     let pregunta = document.createElement('div');
-    pregunta.classList.add('preguntas');
+    pregunta.classList.add('pregunta');
+    pregunta.classList.add('recuadro');
 
     pregunta.innerHTML = `<div class='user'>
     <h2 class='titulousuario' id='titulousuario'>${datosPregunta.usuario}</h2>
