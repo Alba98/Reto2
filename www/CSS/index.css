@@ -34,6 +34,9 @@ body {
                         "main"
                         "foot";
 }
+body * {
+    overflow-x: hidden;
+}
 #main {
     grid-area: main;
     min-height: 100vh;
@@ -333,7 +336,7 @@ footer #mapa {
 	height: 460px;
 	background: #eee;
 	border-radius: 60% / 10%;
-	transform: translateY(-30%);
+	transform: translateY(-20%);
 	transition: .8s ease-in-out;
 }
 .registro label{
@@ -342,7 +345,7 @@ footer #mapa {
 	margin: 50px;
 }
 #chk:checked ~ .registro{
-	transform: translateY(-110%);
+	transform: translateY(-90%);
 }
 #chk:checked ~ .registro label{
 	transform: scale(1);
