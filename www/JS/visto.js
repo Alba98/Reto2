@@ -27,7 +27,7 @@
 // }
 
 async function actualizarVisto(id_preg) {
-    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=actualizarVisto&id='+id_preg)
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=actualizarVisto&id='+id_preg);
    
     if (respuesta.ok) {
         return respuesta.json();

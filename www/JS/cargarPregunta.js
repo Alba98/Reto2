@@ -5,10 +5,9 @@
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 const API_URL = '/PHP/API_get.php';
 
-async function cargarPregunta() {
-    let respuesta = await fetch(API_URL + '?funcion=getDetallesPregunta&id=1') // con '?' separamos la ruta de los parametros
+async function cargarPregunta(id_preg) {
+    let respuesta = await fetch(API_URL + '?funcion=getDetallesPregunta&id='+id_preg) // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
-   
     if (respuesta.ok) {
         return respuesta.json();
     } else {
@@ -62,7 +61,8 @@ function cargarLayout(datosPregunta) {
     contenedorPregunta.appendChild(pregunta);
 }
 
-cargarPregunta()
+let id_preg = localStorage.getItem('idPregunta');
+cargarPregunta(id_preg)
     .then( function(resultadoPromesa) {
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
