@@ -172,15 +172,17 @@ SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fec
 FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat
-AND p.id_preg = pr.id_preg;
+AND p.id_preg = pr.id_preg
+ORDER BY p.id_preg;
 
-/* VISTA PARA LA VISUALIZACIÓN DE PREGUNTAS */
+/* VISTA PARA LA VISUALIZACIÓN DE RESPUESTAS */
 CREATE VIEW vistaRespuestas AS
 SELECT u.nombre "usuario", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg"
 FROM USUARIO u, RESPUESTA r, RESPONDER rr, PREGUNTA p
 WHERE u.id_usu = rr.id_usu
 AND r.id_res = rr.id_res
-AND p.id_preg = r.id_preg;
+AND p.id_preg = r.id_preg
+ORDER BY r.id_res;
 
 /* VISTA PARA CONSEGUIR CANTIDAD DE RESPUESTAS DE UNA PREGUNTA */
 CREATE VIEW countRespuestas AS 

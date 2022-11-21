@@ -8,7 +8,7 @@
                 <input class="buscar" type="search" name="buscar" id="buscar" value="<?php if (isset($_GET['buscar'])) {
                     echo $_GET['buscar'];
                 } ?>" placeholder="Buscar..." autofocus>
-                <input class="buscar" type="search" name="buscar" id="buscar" placeholder="Buscar..." autofocus>
+                <!-- <input class="buscar" type="search" name="buscar" id="buscar" placeholder="Buscar..." autofocus> -->
                 <!-- <select name="dep" id="dep" class="dep">  -->
                 <select name="categoria" id="categoria" class="dep">
                     <option value="0">- SELECIONE UNA -</option>  
