@@ -166,6 +166,7 @@ INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,2);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (3,3);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (4,4);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,5);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,6);
 
 INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (1,1);
 INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (2,1);
