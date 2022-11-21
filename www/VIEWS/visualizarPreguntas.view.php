@@ -4,7 +4,7 @@
 
 <div class="visualizacion">
     <div class="datos recuadro">
-        <form method="get">
+        <form method="get" action="#">
                 <input class="buscar" type="search" name="buscar" id="buscar" placeholder="Buscar..." autofocus>
                 <!-- <select name="dep" id="dep" class="dep">  -->
                 <select name="categoria" id="categoria" class="dep">

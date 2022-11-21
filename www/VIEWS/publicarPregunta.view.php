@@ -2,7 +2,7 @@
 
     <div class="preguntar">
         <div class="recuadro">
-            <form method="post" action="" class="formulario">
+            <form method="post" action="#" class="formulario">
                 <div class="izq">
                     <h2>PREGUNTAR A OTROS USUARIOS</h2><br>
                     <label for="usuario">Usuario</label>
