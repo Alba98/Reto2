@@ -2,11 +2,15 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
+// let categoria = document.getElementById("categoria")
+
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 const API_URL = '/PHP/API_get.php';
 
 async function cargarPreguntas() {
-    let respuesta = await fetch(API_URL + '?funcion=getPreguntas') // con '?' separamos la ruta de los parametros
+    // let respuesta = await fetch(API_URL + '?funcion=getPreguntas'+getCategoria()) 
+    console.log(API_URL + '?funcion=getPreguntas' + getOrder());
+    let respuesta = await fetch(API_URL + '?funcion=getPreguntas' + getOrder()) // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
    
     if (respuesta.ok) {
@@ -16,6 +20,18 @@ async function cargarPreguntas() {
             mensaje: 'Error en el servidor',
         };
     }
+}
+
+// function getCategoria() {
+//     if(categoria.value != 0)
+//         return '&dep='+categoria.value;
+//     return '';
+// }
+
+function getOrder() {
+    if(orderen.value != 0)
+        return '&order='+orderen.value;
+    return '';
 }
 
 function cargarLayoutPregunta(datosPregunta) {
@@ -71,6 +87,7 @@ function cargarLayoutPregunta(datosPregunta) {
 
 cargarPreguntas()
     .then( function(resultadoPromesa) {
+        debugger
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
         } else {
@@ -80,6 +97,7 @@ cargarPreguntas()
         }
     }
 );
+
  
 
 

@@ -7,7 +7,31 @@
     function api_getPreguntas(){
         global $dbh;
 
-        $preguntas = getVistaPreguntas($dbh);
+        $order = isset($_GET['order']) ? $_GET['order'] : null;
+
+
+        switch ($order) {
+            case 'masvistas':
+                $preguntas = getPreguntasMasVistas($dbh);
+                break;
+            case 'menosvistas':
+                $preguntas = getPreguntasMenosVistas($dbh);
+                break;
+            case 'masvotadas':
+                $preguntas = getPreguntasMasLike($dbh); //
+                break;
+            case 'menosvotadas':
+                $preguntas = getPreguntasMenosLike($dbh); //
+                break;
+            case 'recientes':
+                $preguntas = getPreguntasRecientes($dbh);
+                break;
+            default:
+                $preguntas = getVistaPreguntas($dbh);
+                break;
+        }
+
+        // $preguntas = getVistaPreguntas($dbh);
         foreach ($preguntas as &$pregunta) { //pasamos por referencia para modificar cada elemento del array
             // obtengo el id de cada pregunta
             $id_preg = $pregunta['id_preg'];

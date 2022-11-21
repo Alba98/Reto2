@@ -95,21 +95,35 @@ function getPreguntasCategoria($dbh) {
 
 function getPreguntasRecientes($dbh) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY fecha DESC");
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     return $stmt->fetchAll();
 }
 
 function getPreguntasMasVistas($dbh) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY vistos DESC");
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     return $stmt->fetchAll();
 }
 
 function getPreguntasMenosVistas($dbh) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY vistos");
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasLike($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY likes DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosLike($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY likes");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute();
     return $stmt->fetchAll();
 }

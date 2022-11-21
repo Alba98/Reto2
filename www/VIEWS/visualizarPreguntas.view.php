@@ -3,7 +3,7 @@
 <script src="JS/visto.js"></script>
 
 <div class="visualizacion">
-    <div class="datos recuadro">
+    <div class="recuadro">
         <form method="get">
                 <input class="buscar" type="search" name="buscar" id="buscar" value="<?php if (isset($_GET['buscar'])) {
                     echo $_GET['buscar'];
@@ -28,8 +28,8 @@
 </div>
 
 <script src="JS/categoria.js"></script>
+<script src="JS/busqueda.js"></script>
 <script src="JS/cargarPreguntas.js"></script>
 
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>
- <!-- <a class='res' href='?accion=detalles&id=$preg->id_preg' -->

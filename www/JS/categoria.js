@@ -18,8 +18,8 @@ async function cargarPregunta() {
 function cargarCategoria(datosCategoria) {
     let selectCategoria = document.getElementById("categoria");
     var nuevaOption = document.createElement("option");
-    nuevaOption.text = datosCategoria.nombre;
-    nuevaOption.value = datosCategoria.id_cat;
+        nuevaOption.text = datosCategoria.nombre;
+        nuevaOption.value = datosCategoria.id_cat;
     selectCategoria.appendChild(nuevaOption);
 }
 
