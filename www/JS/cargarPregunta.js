@@ -60,6 +60,18 @@ function cargarLayout(datosPregunta) {
             </div>`;
 
     contenedorPregunta.appendChild(pregunta);
+
+    // Añadir el id pregunta al formulario de respuesta
+    // <input id="pregId" name="pregId" type="hidden" value="${datosPregunta.id_preg}"></input>
+    let contenedorResponder = document.getElementsByClassName("izq")[0];
+    
+    var input = document.createElement("input");
+    input.setAttribute("type", "hidden");
+    input.setAttribute("name", "pregId");
+    input.setAttribute("id", "pregId");
+    input.setAttribute("value", datosPregunta.id_preg);
+
+    contenedorResponder.appendChild(input);
 }
 
 cargarPregunta()
@@ -67,9 +79,7 @@ cargarPregunta()
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
         } else {
-            resultadoPromesa.forEach(datosPregunta => {
-                cargarLayout(datosPregunta);
-            });
+            cargarLayout(resultadoPromesa[0]);
         }
     }
 );
