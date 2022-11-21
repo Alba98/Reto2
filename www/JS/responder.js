@@ -9,14 +9,14 @@ var iDetalle = document.getElementById("detalleR");
 var detalleIncorrecto = document.getElementById("detalleIncorrecto");
 
 //Eventos
-botonResponder.addEventListener("click", validar);
+botonResponder.addEventListener("click", validarResponder);
 iDetalle.addEventListener("focusout", validarDetalle);
 
-function validar() {
+function validarResponder() {
     try {
         validarDetalle();
         // validarArchivo();
-        
+
         enviarRespuesta().then( function(resultadoPromesa) {
             if (resultadoPromesa.mensaje) { 
                 console.error(resultadoPromesa);
@@ -40,10 +40,13 @@ function validarDetalle() {
 }
 
 async function enviarRespuesta() {
+    debugger
     let respuesta = await fetch('/PHP/API_get.php' 
                                 + '?funcion=enviarRespuesta'
-                                + '&detalle='+iDetalle.value);
-    
+                                + '&id_preg='+'1'
+                                + '&detalle='+iDetalle.value
+                                );
+    debugger                      
     if (respuesta.ok) {
         return respuesta.json();
     } else {

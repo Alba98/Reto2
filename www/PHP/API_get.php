@@ -95,6 +95,11 @@
         enviarPregunta($dbh);        
     }
 
+    function api_enviarRespuesta(){
+        global $dbh;
+        enviarRespuesta($dbh);        
+    }
+
     //Vamos a comprobar que lo que 
     $funcion = isset($_GET['funcion']) ? $_GET['funcion'] : null;
 
@@ -131,6 +136,9 @@
             break;
         case 'enviarPregunta':
             api_enviarPregunta();
+            break;
+        case 'enviarRespuesta':
+            api_enviarRespuesta();
             break;
         default:
             break;

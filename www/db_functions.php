@@ -151,12 +151,24 @@ function insertUsuario ($dbh,$datosUsuario){
     }
 }
 
+function enviarRespuesta($dbh){
+    if (isset($_GET['id_preg']) && isset($_GET['detalle']) ) { // && isset($_GET['archivo'])
+        if ($_GET['id_preg'] != "" && $_GET['detalle'] != "") {
+            $data = array (
+                "id_preg" => $_GET['id_preg'],
+                "detalle" => $_GET['detalle'],
+                // "archivo" => $_GET['archivo']
+            );
+            insertRespuesta($dbh, $data);
+        }
+    }
+}
 
 function insertRespuesta($dbh,$datosRespuesta){
     try {
         //insertar respuesta 
-        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion)
-                               VALUES (:descripcion)");
+        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion, id_preg)
+                               VALUES (:descripcion, :id_preg)");
 
         $stmt->execute($datosRespuesta);
 
@@ -177,7 +189,6 @@ function insertRespuesta($dbh,$datosRespuesta){
 function enviarPregunta($dbh){
     if (isset($_GET['titulo']) && isset($_GET['categoria']) && isset($_GET['detalle']) ) { // && isset($_GET['archivo'])
         if ($_GET['titulo'] != "" && $_GET['categoria'] != "" && $_GET['detalle'] != "") {
-            $dbh = connect();
             $data = array (
                 "titulo" => $_GET['titulo'],
                 "detalle" => $_GET['detalle'],
