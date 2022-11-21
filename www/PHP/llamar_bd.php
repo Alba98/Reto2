@@ -37,16 +37,16 @@
                     $preguntas = getPreguntasMenosLike($dbh);
                 break;
             case 'masRespuestas':
-                // if($categoria)
-                //     $preguntas = getPreguntasMasLikeCategoria($dbh, $categoria);
-                // else
-                //     $preguntas = getPreguntasMasLike($dbh);
+                if($categoria)
+                    $preguntas = getPreguntasMasRespuestasCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMasRespuestas($dbh);
                 break;
             case 'menosRespuestas':
-                // if($categoria)
-                //     $preguntas = getPreguntasMenosLikeCategoria($dbh, $categoria);
-                // else
-                //     $preguntas = getPreguntasMenosLike($dbh);
+                if($categoria)
+                    $preguntas = getPreguntasMenosRespuestasCategoria($dbh, $categoria);
+                else
+                    $preguntas = getPreguntasMenosRespuestas($dbh);
                 break;
             case 'masRecientes':
                 if($categoria)
@@ -62,7 +62,7 @@
                 break;
             default:
                 if(is_null($categoria))
-                    $preguntas;
+                    $preguntas = getVistaPreguntas($dbh);
                 else
                     $preguntas = getPreguntasCategoria($dbh, $categoria);
                 break;

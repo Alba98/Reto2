@@ -135,6 +135,20 @@ function getPreguntasMenosLike($dbh) {
     return $stmt->fetchAll();
 }
 
+function getPreguntasMasRespuestas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY respuestas DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRespuestas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY respuestas");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 function getPreguntasMasVistasCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY vistos DESC");
     $data = array(
@@ -171,6 +185,21 @@ function getPreguntasMenosLikeCategoria($dbh, $categoria) {
     $stmt->execute();
     return $stmt->fetchAll();
 }
+
+function getPreguntasMasRespuestasCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY respuestas DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRespuestasCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY respuestas");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
 
 function getPreguntasMasRecientesCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha");
