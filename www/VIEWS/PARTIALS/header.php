@@ -19,7 +19,7 @@
         <div class="container grid-1" id="global">
             <nav id="menu">
                 <div>
-                    <a href="?" id="logo-menu"><img src="../RECURSOS/IMAGES/search_book.png" alt="logotipo"/></a>
+                    <a href="?" id="logo-menu"><img src="../RECURSOS/IMAGES/search_book.png" alt="logotipo"/><span>AERGIBIDE SL</span></a>
                 </div>
                 <ul id="menu-principal">
                     <li><a href="?accion=preguntar">Preguntar <i class="fa-solid fa-circle-question"></i></a></li>
