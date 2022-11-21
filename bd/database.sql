@@ -142,11 +142,11 @@ INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Ma
 INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Kike','Garcia','kike@gmail.com','kike');
 INSERT INTO `USUARIO`(`nombre`, `email`, `contrasenia`) VALUES ('Albatxu', 'albatxu@gmail.com', 'Hola1234');
 
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Es correcto decir "yo y Santiago" o debemos decir "Santiago y yo"?','En una enumeración referida a personas, se aconseja situar el pronombre yo al final por razones de cortesía, pero no es lingüísticamente incorrecto que aparezca en primer lugar.','1');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe "a gusto" o "agusto"?','Esta expresión, que significa ‘cómodamente’, ‘con gusto o placer’ o ‘según el gusto o deseo de alguien’, se escribe siempre en dos palabras: a gusto. No se considera válida la grafía agusto.','2');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Cuál es la fórmula de saludo más adecuada, "buen día" o "buenos días"?','Como saludo matutino, la fórmula generalmente empleada en todo el ámbito hispanohablante es buenos días. Esta fórmula, única usada en España, alterna en el español de América con buen día, que está sobre todo extendida en el área rioplatense (Argentina, Paraguay y Uruguay).','3');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe "no te rayes" o "no te ralles"?','El verbo que se usa en el habla coloquial juvenil con el sentido de ‘trastornar(se), volver(se) loco’ es rayar(se): No te rayes; Me estás rayando. El verbo rallar significa ‘desmenuzar algo con el rallador’: Necesito que me ralles un poco de queso para la lasaña.','4');
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`) VALUES ('¿Se escribe "Eres muy muy cruel" o "Eres muy, muy cruel"?','Construcciones como esta, en las que se duplica un elemento para aportar énfasis a lo expresado, se escriben sin coma: Eres muy muy cruel; Me gusta el café café; Hace mucho mucho tiempo.','5');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Es correcto decir "yo y Santiago" o debemos decir "Santiago y yo"?','En una enumeración referida a personas, se aconseja situar el pronombre yo al final por razones de cortesía, pero no es lingüísticamente incorrecto que aparezca en primer lugar.','1','10');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Se escribe "a gusto" o "agusto"?','Esta expresión, que significa ‘cómodamente’, ‘con gusto o placer’ o ‘según el gusto o deseo de alguien’, se escribe siempre en dos palabras: a gusto. No se considera válida la grafía agusto.','2','15');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Cuál es la fórmula de saludo más adecuada, "buen día" o "buenos días"?','Como saludo matutino, la fórmula generalmente empleada en todo el ámbito hispanohablante es buenos días. Esta fórmula, única usada en España, alterna en el español de América con buen día, que está sobre todo extendida en el área rioplatense (Argentina, Paraguay y Uruguay).','3','20');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Se escribe "no te rayes" o "no te ralles"?','El verbo que se usa en el habla coloquial juvenil con el sentido de ‘trastornar(se), volver(se) loco’ es rayar(se): No te rayes; Me estás rayando. El verbo rallar significa ‘desmenuzar algo con el rallador’: Necesito que me ralles un poco de queso para la lasaña.','4','5');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Se escribe "Eres muy muy cruel" o "Eres muy, muy cruel"?','Construcciones como esta, en las que se duplica un elemento para aportar énfasis a lo expresado, se escriben sin coma: Eres muy muy cruel; Me gusta el café café; Hace mucho mucho tiempo.','5','25');
 
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('El burro delante para que no se espante. Con este dicho u otros similares se suele censurar a quien, en una enumeración, se nombra a sí mismo en primer lugar, gesto que ya parecía descortés en tiempos de Gonzalo Correas: "Los arrieros siempre echan los asnos delante".',1);
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('No, no es incorrecto ni lo ha sido nunca, aunque las normas de urbanidad aconsejen mencionar primero al otro. De hecho, no es nada difícil encontrar, en prestigiosos autores de todas las épocas, ejemplos en los que el pronombre que designa al hablante es el primero de una serie, larga o corta, de elementos coordinados.',1);
@@ -168,7 +168,7 @@ INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,5);
 
 /* VISTA PARA LA VISUALIZACIÓN PREGUNTAS */
 CREATE VIEW vistaPreguntas AS
-SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos"
+SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos", c.id_cat "id_cat"
 FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat
