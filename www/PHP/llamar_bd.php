@@ -18,6 +18,19 @@
                     $preguntas = getPreguntasMasVistasCategoria($dbh, $categoria);
                 else
                     $preguntas = getPreguntasMasVistas($dbh);
+
+                    // if($categoria) {
+                    //     if($buscar)
+                    //         busqueda + categoria + orden
+                    //     else
+                    //         categoria + orden
+                    // }
+                    // else{
+                    //     if($buscar)
+                    //         busqueda + orden
+                    //     else
+                    //         orden
+                    // }
                 break;
             case 'menosVistas':
                 if($categoria)
@@ -62,12 +75,18 @@
                     $preguntas = getPreguntasMenosRecientes($dbh);
                 break;
             default:
-                if($categoria)
-                    $preguntas = getPreguntasCategoria($dbh, $categoria);
-                if($buscar)
-                    $preguntas = getPreguntasBuscar($dbh, $buscar);
-                else
-                    $preguntas = getVistaPreguntas($dbh);  
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasBuscar($dbh, $buscar);
+                   else
+                       $preguntas = getVistaPreguntas($dbh); 
+                }
                 break;
         }
 
