@@ -6,7 +6,7 @@
 
 
 async function cargarRespuesta() {
-    let respuesta = await fetch(API_URL + '?funcion=getRespuestas&id=1') // con '?' separamos la ruta de los parametros
+    let respuesta = await fetch(API_URL + '?funcion=getRespuestas&id='+id_preg); // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
    
     if (respuesta.ok) {
@@ -58,7 +58,8 @@ function cargarLayoutRespuesta(datosRespuesta) {
     contenedorPregunta.appendChild(pregunta);
 }
 
-cargarRespuesta()
+
+cargarRespuesta(id_preg)
     .then( function(resultadoPromesa) {
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
