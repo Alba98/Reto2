@@ -25,12 +25,21 @@ function cargarCategoria(datosCategoria) {
 
 cargarPregunta()
     .then( function(resultadoPromesa) {
+        debugger
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
         } else {
             resultadoPromesa.forEach(datosCategoria => {
                 cargarCategoria(datosCategoria);
             });
+
+            if(urlParams.has('categoria')) {    
+                console.log(urlParams.get('categoria'));
+                document.getElementById("categoria").value = urlParams.get('categoria');
+            
+                console.log(document.getElementById("categoria"));
+                console.log(document.getElementById("categoria").value);
+            }
         }
     }
 );
