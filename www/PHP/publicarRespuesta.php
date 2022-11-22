@@ -3,7 +3,8 @@
         if ($_POST['detalleR'] != "") {
             $dbh = connect();
             $data = array (
-                "descripcion" => $_POST['detalleR']
+                "descripcion" => $_POST['detalleR'],
+                "id_preg" => $_GET['id']
                 // "archivo" => $_POST['archivo']
             );
             insertRespuesta($dbh, $data);

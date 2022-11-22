@@ -9,7 +9,7 @@
                     <h2>RESPONDER</h2><br>
                     <label for="detalleR">Detalle:</label>
                     <br>
-                    <textarea class="inputs" name="detalleR" id="detalleR" cols="80" rows="10" maxlength="500" ></textarea>
+                    <textarea class="inputs" name="detalleR" id="detalleR" cols="100" rows="10" maxlength="500" ></textarea>
                     <br> 
                     <b style="color:red" id="detalleIncorrecto" hidden>Detalle no puede estar vacio</b>
                     <br><br>

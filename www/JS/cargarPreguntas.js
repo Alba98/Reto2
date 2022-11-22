@@ -2,11 +2,14 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
+// let categoria = document.getElementById("categoria")
+
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 const API_URL = '/PHP/API_get.php';
 
 async function cargarPreguntas() {
-    let respuesta = await fetch(API_URL + '?funcion=getPreguntas') // con '?' separamos la ruta de los parametros
+    console.log(API_URL + '?funcion=getPreguntas' + getBuscar() + getCategoria() + getOrder());
+    let respuesta = await fetch(API_URL + '?funcion=getPreguntas' + getBuscar() + getCategoria() + getOrder()) // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
    
     if (respuesta.ok) {
@@ -16,6 +19,26 @@ async function cargarPreguntas() {
             mensaje: 'Error en el servidor',
         };
     }
+}
+
+function getBuscar() {
+    if(buscar.value)
+        return '&buscar='+buscar.value;
+    return '';
+}
+
+function getCategoria() { 
+    if(urlParams.has('categoria')) 
+        return '&categoria='+urlParams.get('categoria');
+    // if(categoria.value != 0)
+        //return '&categoria='+categoria.value;
+    return '';
+}
+
+function getOrder() {
+    if(orden.value != 0)
+        return '&order='+orden.value;
+    return '';
 }
 
 function cargarLayoutPregunta(datosPregunta) {
@@ -45,7 +68,7 @@ function cargarLayoutPregunta(datosPregunta) {
     </form>
 </div>
 <div class='info'>
-    <h2>${datosPregunta.titulo}</h2>
+    <h2>${datosPregunta.titulo}</h2> <br>
     <p id='usuario'><b>Usuario:</b>${datosPregunta.usuario} </p>
     <p id='fecha'><b>Fecha:</b> ${datosPregunta.fecha}</p>
     <p id='departamento'><b>Departamento:</b> ${datosPregunta.categoria}</p>
@@ -89,6 +112,7 @@ cargarPreguntas()
         }
     }
 );
+
  
 
 

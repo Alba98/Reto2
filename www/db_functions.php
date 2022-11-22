@@ -63,26 +63,211 @@ function getVistaPreguntas($dbh) {
     return $stmt->fetchAll();
 }
 
-function getVistaPregunta($dbh) {
+function getVistaPregunta($dbh, $id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_preg = :id_preg");
     $data = array(
-        "id_preg" => $_GET['id']
+        "id_preg" => $id_preg
     );
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
-function getVistaRespuestas($dbh,$id_preg) {
+function getVistaRespuestas($dbh, $id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM vistaRespuestas WHERE id_preg = :id");
     $data = array(
-        "id" =>$id_preg 
+        "id" => $id_preg
     );
     $stmt->setFetchMode(PDO::FETCH_ASSOC);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
+// FUNCIONES PARA LA BUSQUEDA CON FILTROS
+function getPreguntasCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat");
+    $data = array(
+        "id_cat" => $categoria
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
 
+function getPreguntasMasRecientes($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY fecha DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRecientes($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY fecha");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasVistas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY vistos DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosVistas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY vistos");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasLike($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY likes DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosLike($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY likes");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasRespuestas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY respuestas DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRespuestas($dbh) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas ORDER BY respuestas");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasVistasCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY vistos DESC");
+    $data = array(
+        "id_cat" => $categoria
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosVistasCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY vistos");
+    $data = array(
+        "id_cat" => $categoria
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasLikeCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY likes DESC");
+    $data = array(
+        "id_cat" => $categoria
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosLikeCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY likes");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasRespuestasCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY respuestas DESC");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRespuestasCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY respuestas");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+
+function getPreguntasMasRecientesCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha");
+    $data = array(
+        "id_cat" => $categoria,
+        "order" => $order
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRecientesCategoria($dbh, $categoria) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha DESC");
+    $data = array(
+        "id_cat" => $categoria,
+        "order" => $order
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasBuscar($dbh, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE titulo LIKE '%:buscar%'");
+    $data = array(
+        "buscar" => $buscar
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasTodosFiltros($dbh){
+    $stmt = $dbh->prepare("SELECT * 
+    FROM vistaPreguntas 
+    WHERE titulo LIKE '%:buscar%'
+    AND id_cat = :id_cat
+    ORDER BY :order");
+    $order = orderBy();
+    $data = array(
+        "buscar" => $_GET['buscar'],
+        "id_cat" => $_GET['dep'],
+        "order" => $order
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+
+function orderBy() {
+    if (isset($_GET['order'])) {
+        if ($_GET['order'] == "masvistas") {
+            return "vistos DESC";
+        } elseif ($_GET['order'] == "menosvistas") {
+            return "vistos";
+        } elseif ($_GET['order'] == "masvotadas") {
+            return "votos DESC";
+        } elseif ($_GET['order'] == "menosvotadas") {
+            return "votos";
+        } else {
+            return "fecha";
+        }
+    }
+}
+
+/*************************************************************************************/
 function countRespuestas($dbh,$id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM countRespuestas WHERE id_preg = :id");
     $data = array(
@@ -151,12 +336,11 @@ function insertUsuario ($dbh,$datosUsuario){
     }
 }
 
-
 function insertRespuesta($dbh,$datosRespuesta){
     try {
         //insertar respuesta 
-        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion)
-                               VALUES (:descripcion)");
+        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg)
+                               VALUES (:descripcion,:id_preg)");
 
         $stmt->execute($datosRespuesta);
 
@@ -171,21 +355,6 @@ function insertRespuesta($dbh,$datosRespuesta){
     } catch(Exception $e) {
         echo 'Exception -> ';
         var_dump($e->getMessage());
-    }
-}
-
-function enviarPregunta($dbh){
-    if (isset($_GET['titulo']) && isset($_GET['categoria']) && isset($_GET['detalle']) ) { // && isset($_GET['archivo'])
-        if ($_GET['titulo'] != "" && $_GET['categoria'] != "" && $_GET['detalle'] != "") {
-            $dbh = connect();
-            $data = array (
-                "titulo" => $_GET['titulo'],
-                "detalle" => $_GET['detalle'],
-                // "archivo" => $_GET['archivo'],
-                "categoria" => $_GET['categoria']
-            );
-            insertPregunta($dbh, $data);
-        }
     }
 }
 
@@ -211,23 +380,11 @@ function insertPregunta($dbh, $datosPregunta){
     }
 }
 
-function insertCategoria($dbh,$datosCategoria){
-    try {
-        $stmt = $dbh->prepare("INSERT INTO categoria(nombre)
-                               VALUES (:nombre)");
-
-        $stmt->execute($datosCategoria);
-    } catch(Exception $e) {
-        echo 'Exception -> ';
-        var_dump($e->getMessage());
-    }
-}
-
-function updateVisto($dbh) {
+function updateVisto($dbh,$id_preg) {
     try {
         $stmt = $dbh->prepare("UPDATE PREGUNTA SET visto = visto + 1 WHERE id_preg = :id_preg");
         $data = array (
-            "id_preg" => $_GET["id"]
+            "id_preg" => $id_preg
         );
         $stmt->execute($data);
     } catch(Exception $e) {
@@ -236,12 +393,12 @@ function updateVisto($dbh) {
     }
 }
 
-function insertarLike($dbh) {
+function insertarLike($dbh,$id_preg) {
     try {
         $stmt = $dbh->prepare("INSERT INTO GUSTAR (id_usu, id_preg) VALUES (:usuario, :pregunta)");
         $data = array (
             "usuario" => $_SESSION['id_usu'],
-            "pregunta" => $_GET["id"]
+            "pregunta" => $id_preg
         );
         $stmt->execute($data);
     } catch(Exception $e) {
@@ -250,12 +407,12 @@ function insertarLike($dbh) {
     }
 }
 
-function borrarLike($dbh) {
+function borrarLike($dbh,$id_preg) {
     try {
         $stmt = $dbh->prepare("DELETE FROM GUSTAR WHERE id_usu = :usuario AND id_preg = :pregunta");
         $data = array (
             "usuario" => $_SESSION['id_usu'],
-            "pregunta" => $_GET["id"]
+            "pregunta" => $id_preg
         );
         $stmt->execute($data);
     } catch(Exception $e) {
@@ -264,12 +421,12 @@ function borrarLike($dbh) {
     }
 }
 
-function insertarVoto($dbh) {
+function insertarVoto($dbh,$id_preg) {
     try {
         $stmt = $dbh->prepare("INSERT INTO VOTAR (id_usu, id_res) VALUES (:usuario, :respuesta)");
         $data = array (
             "usuario" => $_SESSION['id_usu'],
-            "respuesta" => $_GET["id"]
+            "respuesta" => $id_preg
         );
         $stmt->execute($data);
     } catch(Exception $e) {
@@ -278,12 +435,12 @@ function insertarVoto($dbh) {
     }
 }
 
-function borrarVoto($dbh) {
+function borrarVoto($dbh,$id_preg) {
     try {
         $stmt = $dbh->prepare("DELETE FROM VOTAR WHERE id_usu = :usuario AND id_res = :respuesta");
         $data = array (
             "usuario" => $_SESSION['id_usu'],
-            "respuesta" => $_GET["id"]
+            "respuesta" => $id_preg
         );
         $stmt->execute($data);
     } catch(Exception $e) {
@@ -408,15 +565,3 @@ function userRegistration($nombre,$email,$pass){
 function cerrarSesion() {
     unset($_SESSION[ "id_usu"]);
 }
-
-
-// // OPTIONS CATEGORIA
-// function optionsCategoria() {
-//     echo '<option value="0">- SELECIONE UNA -</option>';
-//     $dbh = connect();
-//     $categorias = getAll($dbh, "categoria");
-
-//     foreach ($categorias as $categoria) {
-//         echo '<option value="'.$categoria->id_cat.'">'.$categoria->nombre.'</option>';
-//     }
-// }
