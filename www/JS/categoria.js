@@ -25,7 +25,6 @@ function cargarCategoria(datosCategoria) {
 
 cargarPregunta()
     .then( function(resultadoPromesa) {
-        debugger
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
         } else {

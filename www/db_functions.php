@@ -251,6 +251,96 @@ function getPreguntasCategoriaBuscar($dbh, $categoria, $buscar) {
     return $stmt->fetchAll();
 }
 
+
+function getPreguntasMasVistasCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY vistos DESC");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosVistasCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY vistos");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasLikeCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY likes DESC");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosLikeCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY likes");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMasRespuestasCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY respuestas DESC");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRespuestasCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY respuestas");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+
+function getPreguntasMasRecientesCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY fecha DESC");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasMenosRecientesCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar ORDER BY fecha");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
 function getPreguntasTodosFiltros($dbh){
     $consulta  = "SELECT * 
         FROM vistaPreguntas 
