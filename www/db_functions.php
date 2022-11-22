@@ -175,37 +175,45 @@ function getPreguntasMasLikeCategoria($dbh, $categoria) {
         "id_cat" => $categoria
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
-    $stmt->execute();
+    $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
 function getPreguntasMenosLikeCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY likes");
+    $data = array(
+        "id_cat" => $categoria
+    );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
-    $stmt->execute();
+    $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
 function getPreguntasMasRespuestasCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY respuestas DESC");
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $stmt->execute();
+    $data = array(
+        "id_cat" => $categoria
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
 function getPreguntasMenosRespuestasCategoria($dbh, $categoria) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY respuestas");
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
-    $stmt->execute();
+    $data = array(
+        "id_cat" => $categoria
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
     return $stmt->fetchAll();
 }
 
 
 function getPreguntasMasRecientesCategoria($dbh, $categoria) {
-    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha");
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha DESC");
     $data = array(
-        "id_cat" => $categoria,
-        "order" => $order
+        "id_cat" => $categoria
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
@@ -213,10 +221,9 @@ function getPreguntasMasRecientesCategoria($dbh, $categoria) {
 }
 
 function getPreguntasMenosRecientesCategoria($dbh, $categoria) {
-    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha DESC");
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat ORDER BY fecha");
     $data = array(
-        "id_cat" => $categoria,
-        "order" => $order
+        "id_cat" => $categoria
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);

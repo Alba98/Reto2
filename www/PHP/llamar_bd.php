@@ -64,8 +64,8 @@
             default:
                 if($categoria)
                     $preguntas = getPreguntasCategoria($dbh, $categoria);
-                if($buscar)
-                    $preguntas = getPreguntasBuscar($dbh, $buscar);
+                // if($buscar)
+                //     $preguntas = getPreguntasBuscar($dbh, $buscar);
                 else
                     $preguntas = getVistaPreguntas($dbh);  
                 break;
