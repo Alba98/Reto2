@@ -36,9 +36,6 @@ function crearCookie(nombre,valor,dias){
 
 //Cookie creada. 
 
-
-
-
 //Aqui leemos la cookie
 function getCookie(nombre){
     let buscarCookie = nombre + "=";
