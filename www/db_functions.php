@@ -231,9 +231,20 @@ function getPreguntasMenosRecientesCategoria($dbh, $categoria) {
 }
 
 function getPreguntasBuscar($dbh, $buscar) {
-    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE titulo LIKE '%:buscar%'");
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE titulo LIKE :buscar");
     $data = array(
-        "buscar" => $buscar
+        "buscar" => '%'.$buscar.'%'
+    );
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute($data);
+    return $stmt->fetchAll();
+}
+
+function getPreguntasCategoriaBuscar($dbh, $categoria, $buscar) {
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_cat = :id_cat AND titulo LIKE :buscar");
+    $data = array(
+        "id_cat" => $categoria,
+        "buscar" => '%'.$buscar.'%'
     );
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
@@ -241,22 +252,17 @@ function getPreguntasBuscar($dbh, $buscar) {
 }
 
 function getPreguntasTodosFiltros($dbh){
-    $stmt = $dbh->prepare("SELECT * 
-    FROM vistaPreguntas 
-    WHERE titulo LIKE '%:buscar%'
-    AND id_cat = :id_cat
-    ORDER BY :order");
-    $order = orderBy();
-    $data = array(
-        "buscar" => $_GET['buscar'],
-        "id_cat" => $_GET['dep'],
-        "order" => $order
-    );
+    $consulta  = "SELECT * 
+        FROM vistaPreguntas 
+        WHERE titulo LIKE" + '%'.$buscar.'%' +
+        "AND id_cat = :id_cat
+        ORDER BY " + orderBy();
+    $stmt = $dbh->prepare($consulta);
+   
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute($data);
     return $stmt->fetchAll();
 }
-
 
 function orderBy() {
     if (isset($_GET['order'])) {
