@@ -66,9 +66,28 @@ function validarEmail() {
     }
 }
 
+/* PRUEBA LOCAL STORAGE */
+document.getElementById('foto').addEventListener("change",imgPerfil);
 
+var bannerImage = document.getElementById('foto');
+var imgData = getBase64Image(bannerImage);
+localStorage.setItem('imgPerfil', imgData);
 
-    
+function getBase64Image(img) {
+    var canvas = document.createElement("canvas");
+    canvas.width = img.width;
+    canvas.height = img.height;
 
+    var ctx = canvas.getContext("2d");
+    ctx.drawImage(img, 0, 0);
 
+    var dataURL = canvas.toDataURL("image/png");
 
+    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
+}
+
+function imgPerfil() {
+    var dataImage = localStorage.getItem('imgPerfil');
+    bannerImage = document.getElementById('fotoperfil');
+    bannerImage.src = "data:image/png;base64," + dataImage;
+}

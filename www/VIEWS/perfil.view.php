@@ -35,15 +35,13 @@
                 <input class="inputs" type="submit" value="GUARDAR CAMBIOS" id="guardarPerfil" disabled>
             </div>
             <div class="der end">
-                <img src="../RECURSOS/IMAGES/user.png" alt="Foto de perfil" class="perfil"><br><br>
+                <img src="../RECURSOS/IMAGES/user.png" alt="Foto de perfil" class="perfil" id="fotoperfil"><br><br>
                 <input class="inputs" type="file" name="pfoto" id="foto" disabled><br><br>
                 <input type="button" value="EDITAR PERFIL" id="editar">
             </div>
         </form>
     
-    </div>
-
- 
+    </div> 
     <script src="../JS/perfil.js"></script>
 </div>
 
