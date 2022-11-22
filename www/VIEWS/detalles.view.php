@@ -4,7 +4,7 @@
     <div class="zonaRespuestas"></div>
     <div class="zonaPublicarRespuesta">
         <div class="recuadro">
-            <form method="post" action="" class="formulario">
+            <form method="post" action="#" class="formulario">
                 <div class="izq">
                     <h2>RESPONDER</h2><br>
                     <label for="detalleR">Detalle:</label>
