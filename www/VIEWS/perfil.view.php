@@ -2,7 +2,7 @@
 
 <div id="perfil">
     <div class="recuadro">
-        <form method="post" action="#" class="formulario">
+        <form method="post" action="#" enctype="multipart/form-data" class="formulario">
             <div class="izq">
                 <h2>DETALLES</h2><br>
 
