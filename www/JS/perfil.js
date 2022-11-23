@@ -115,3 +115,42 @@ function handleFileSelect(evt) {
     // Ocultamos la imagen por defecto del usuario
     document.getElementById('fotoperfil').hidden = false;
   }
+
+
+  //Historial de las respuestas con la API-INDEXED.DB:
+
+  //Accedemos a ella 
+  const indexedDB = window.indexedDB;
+  
+  //Almacenamos una variable para la base de datos y establecemos una Conexión:
+  //Es una base de datos no-relacional.Los objetos que almacenamos en ella son de tipo JSON:
+  let dataBase;
+
+  //Abrimos una nueva conexion 
+
+  const conexion = indexedDB.open('HistorialPreguntas',1);
+
+  //Eventos:
+
+  //Creamos la base de datos
+    conexion.onsuccess = () =>{
+      dataBase = conexion.result;
+      console.log('Base de datos abierta',dataBase);
+  }
+  //Cuando la base de datos está creada (si cambiamos la version se actualiza):
+  conexion.onupgradeneeded = (e) =>{
+      db = e.target.result;
+      console.log('Base de datos establecida' +dataBase);
+      //Coleccion de objetos para guardar las preguntas:
+      const coleccionObjetos = dataBase.createObjectStore('Historial',{
+        keyPath : 'clave'
+      });
+  }
+
+  conexion.onerror = (error) =>{
+      console.error('ERROR',error);
+  }
+
+
+
+  

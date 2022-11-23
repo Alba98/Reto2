@@ -24,7 +24,7 @@ function cargarBusqueda() {
     }
 
     if(urlParams.has('categoria')) {    
-        document.getElementById("categoria").value = urlParams.get('categoria');
+        categoria.value = urlParams.get('categoria');
     }
 
     if(urlParams.has('order')) {

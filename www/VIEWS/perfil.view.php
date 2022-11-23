@@ -43,7 +43,10 @@
         </form>
     
     </div> 
+    <script src="../JS/cookies.js"></script>
     <script src="../JS/perfil.js"></script>
+    
+
 </div>
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>

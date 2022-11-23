@@ -13,7 +13,7 @@ se cierra el navegador.Esta fecha de caducidad debe estar en hora UTC(Greenwich)
 
 
 //Evento para acceder a la cookie:
-//let saveEmail  = document.getElementById('btn-login').addEventListener('click',guardarCookie);
+let saveLogin  = document.getElementById('btn-login').addEventListener('click',guardarCookie);
 let savePerfil = document.getElementById('guardarPerfil').addEventListener('click',guardarCookie); 
 
 
@@ -51,14 +51,13 @@ function getCookie(nombre){
 }
 
 //Almacenamos la cokie
-function guardarCookie() {
+function guardarCookie(nombre) {
     //debugger;
+    let emailLogin = document.getElementsByName('remail')[0].value;
     let coE = document.getElementsByName('pemail')[0].value;
     let coN = document.getElementsByName('pnombre')[0].value;
     let coA = document.getElementsByName('papellidos')[0].value;
-    console.log(coE);
-    console.log(coN);
-    console.log(coA);
+    console.log(crearCookie("Email Login",emailLogin,30));
     console.log(crearCookie("Email",coE,30));
     console.log(crearCookie("Nombre ",coN,30));
     console.log(crearCookie("Apellido",coA,30));
@@ -66,7 +65,7 @@ function guardarCookie() {
 }
 //Borramos la cookie 
 function borrarCookie(nombre) {
-	crearCookie(nombre,"",-1);
+    guardarCookie(nombre,"",-1);
 }
 
 

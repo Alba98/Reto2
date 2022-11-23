@@ -13,7 +13,6 @@ se recoge en ese script.*/
 const API_URL = '/PHP/API_get.php';
 
 async function cargarPreguntas() {
-    console.log(API_URL + '?funcion=getPreguntas' + getBuscar() + getCategoria() + getOrder());
     let respuesta = await fetch(API_URL + '?funcion=getPreguntas' + getBuscar() + getCategoria() + getOrder()) // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
    
@@ -117,6 +116,18 @@ cargarPreguntas()
         }
     }
 );
+
+
+
+
+   
+
+
+
+
+
+
+
 
  
 
