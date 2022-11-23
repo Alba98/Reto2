@@ -13,8 +13,12 @@ se cierra el navegador.Esta fecha de caducidad debe estar en hora UTC(Greenwich)
 
 
 //Evento para acceder a la cookie:
-let saveLogin  = document.getElementById('btn-login').addEventListener('click',guardarCookie);
-let savePerfil = document.getElementById('guardarPerfil').addEventListener('click',guardarCookie); 
+let saveLogin  = document.getElementById('btn-login')
+if (saveLogin) {
+    saveLogin.addEventListener('click',guardarCookie);
+}
+
+//let savePerfil = document.getElementById('guardarPerfil').addEventListener('click',guardarCookie); 
 
 
 //Al llamar a createCookie() hay que darle tres datos: el nombre y el valor de la cookie y el número de días que debe permanecer activa. 
@@ -36,38 +40,25 @@ function crearCookie(nombre,valor,dias){
 
 //Aqui leemos la cookie
 function getCookie(nombre){
-    let buscarCookie = nombre + "=";
-    let crear_cookie  = document.cookie.split(';');
-    for (let i=0; i<crear_cookie.length;i++){
-        let c = crear_cookie[i];
-        while ( c.charAt(0) == ' '){
-            c = c.substring(1,c.length); 
-            if (c.indexOf(nameEQ) == 0){
-                return c.substring(buscarCookie.length,c.length);
-            }
-        }
-        return null;    
-    } 
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${nombre}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }
+
+
 
 //Almacenamos la cokie
 function guardarCookie(nombre) {
-    //debugger;
-    let emailLogin = document.getElementsByName('remail')[0].value;
     let coE = document.getElementsByName('pemail')[0].value;
     let coN = document.getElementsByName('pnombre')[0].value;
     let coA = document.getElementsByName('papellidos')[0].value;
-    console.log(crearCookie("Email Login",emailLogin,30));
-    console.log(crearCookie("Email",coE,30));
-    console.log(crearCookie("Nombre ",coN,30));
-    console.log(crearCookie("Apellido",coA,30));
-
+    (crearCookie("Email",coE,30));
+    (crearCookie("Nombre ",coN,30));
+    (crearCookie("Apellido",coA,30));
 }
+
 //Borramos la cookie 
 function borrarCookie(nombre) {
     guardarCookie(nombre,"",-1);
 }
-
-
-
-
+borrarCookie(nombre);

@@ -63,6 +63,15 @@ function getVistaPreguntas($dbh) {
     return $stmt->fetchAll();
 }
 
+function getVistaPreguntasPorUsuario($dbh, $id_usuario) {
+    $stmt = $dbh->prepare("SELECT v.* FROM vistaPreguntas v, USUARIO u WHERE v.usuario = u.nombre AND u.nombre = :id");
+    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt->execute([
+        ':id' => $id_usuario
+    ]);
+    return $stmt->fetchAll();
+}
+
 function getVistaPregunta($dbh, $id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas WHERE id_preg = :id_preg");
     $data = array(

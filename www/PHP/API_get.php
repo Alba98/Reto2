@@ -15,6 +15,9 @@
         case 'getDetallesPregunta':
             $respuesta = api_getPregunta();
             break;
+        case 'getPreguntasUsuario':
+            $respuesta = api_GetPreguntasUsuario();
+            break;
         case 'getRespuestas':
             $respuesta = api_getRespuestas();
             break;
