@@ -41,6 +41,12 @@ function getOrder() {
     return '';
 }
 
+function setValoracion(valoracion,num) {
+    if (valoracion == num) {
+        return "checked";
+    } else return "";
+}
+
 function cargarLayoutPregunta(datosPregunta) {
     let contenedorPregunta = document.getElementsByClassName("visualizacion")[0];
     let pregunta = document.createElement('div');
@@ -52,15 +58,15 @@ function cargarLayoutPregunta(datosPregunta) {
     <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
     <form>
         <p class='clasificacion'>
-            <input id='radio1' type='radio' name='estrellas' value='5'>
+            <input id='radio1' type='radio' name='estrellas' value='5' disabled ${setValoracion(datosPregunta.valoracion,5)}>
             <label for='radio1'>★</label>
-            <input id='radio2' type='radio' name='estrellas' value='4'>
+            <input id='radio2' type='radio' name='estrellas' value='4' disabled ${setValoracion(datosPregunta.valoracion,4)}>
             <label for='radio2'>★</label>
-            <input id='radio3' type='radio' name='estrellas' value='3'>
+            <input id='radio3' type='radio' name='estrellas' value='3' disabled ${setValoracion(datosPregunta.valoracion,3)}>
             <label for='radio3'>★</label>
-            <input id='radio4' type='radio' name='estrellas' value='2'>
+            <input id='radio4' type='radio' name='estrellas' value='2' disabled ${setValoracion(datosPregunta.valoracion,2)}>
             <label for='radio4'>★</label>
-            <input id='radio5' type='radio' name='estrellas' value='1'>
+            <input id='radio5' type='radio' name='estrellas' value='1' disabled ${setValoracion(datosPregunta.valoracion,1)}>
             <label for='radio5'>★</label>
         </p>
     </form>
@@ -85,7 +91,7 @@ function cargarLayoutPregunta(datosPregunta) {
             <button class='botones'><i class='fa-solid fa-eye'></i></button>
             <b class='nums'>${datosPregunta.vistos} VISTO</b>
         </div>
-        <a class='res' href='?accion=detalles' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Responder</a>
+        <a class='res' href='?accion=detalles' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Detalle</a>
     </div>
 </div>`;
 

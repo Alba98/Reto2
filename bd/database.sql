@@ -147,7 +147,7 @@ GROUP BY r.id_res;
 
 /* VISTA PARA LA VISUALIZACIÓN PREGUNTAS */
 CREATE VIEW vistaPreguntas AS
-SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos", c.id_cat "id_cat", cl.like "likes", cr.respuestas "respuestas"
+SELECT u.nombre "usuario", u.puntuacion "valoracion", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos", c.id_cat "id_cat", cl.like "likes", cr.respuestas "respuestas"
 FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr, countLikes cl, countRespuestas cr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat
@@ -158,7 +158,7 @@ ORDER BY p.id_preg;
 
 /* VISTA PARA LA VISUALIZACIÓN DE RESPUESTAS */
 CREATE VIEW vistaRespuestas AS
-SELECT u.nombre "usuario", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg", cv.voto "votos"
+SELECT u.nombre "usuario", u.puntuacion "valoracion", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg", cv.voto "votos"
 FROM USUARIO u, RESPUESTA r, RESPONDER rr, PREGUNTA p, countVotos cv
 WHERE u.id_usu = rr.id_usu
 AND r.id_res = rr.id_res
@@ -174,11 +174,11 @@ INSERT INTO `CATEGORIA`(`nombre`) VALUES ('Aeroespacio');
 INSERT INTO `CATEGORIA`(`nombre`) VALUES ('Parques aeronauticos');
 INSERT INTO `CATEGORIA`(`nombre`) VALUES ('Seguridad Aerea');
 
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Pedro','Gonzalez','pedro@gmail.com','pedro');
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Pepe','Fernandez','pepe@gmail.com','pepe');
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Angel','Rodriguez','angel@gmail.com','angel');
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Mauro','Arambarri','mauro@gmail.com','mauro');
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Kike','Garcia','kike@gmail.com','kike');
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Pedro','Gonzalez','pedro@gmail.com','pedro',3);
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Pepe','Fernandez','pepe@gmail.com','pepe',4);
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Angel','Rodriguez','angel@gmail.com','angel',2);
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Mauro','Arambarri','mauro@gmail.com','mauro',5);
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Kike','Garcia','kike@gmail.com','kike',1);
 INSERT INTO `USUARIO`(`nombre`, `email`, `contrasenia`) VALUES ('Albatxu', 'albatxu@gmail.com', 'Hola1234');
 
 INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué es la regla Paretto y dónde podría aplicarse este princicpio?','No había conocido esta ley hasta el día de hoy, pero imagino que su aplicación en la meteorología aeronáutica tiene que ver con la utilización de una escala meteorológica menor (mesoescala e incluso microescala) que son aquellas escalas en la que están los fenómenos que afectan a la aeronavegación (tormentas, downburst, microburst, etc). Tienen una extensión y una duración menor que la escala sinóptica (serían el 20 de esa ley, pero generarían el 80% de los problemas que afectan a la navegación aérea).','1',7);

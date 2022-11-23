@@ -233,6 +233,7 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 footer #direccion {
     grid-area: direccion;
@@ -494,11 +495,7 @@ footer #mapa {
     direction: rtl;
     unicode-bidi: bidi-override;
 }
-.clasificacion label:hover,
-.clasificacion label:hover ~ label {
-    color: orange;
-    cursor: pointer;
-} 
+
 .clasificacion input[type="radio"]:checked ~ label {
     color: orange;
 }
