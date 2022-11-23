@@ -15,7 +15,8 @@ se cierra el navegador.Esta fecha de caducidad debe estar en hora UTC(Greenwich)
 
 
 //Evento para acceder a la cookie:
-let emailC = document.getElementById('btn-login').addEventListener('click',guardarCookie);
+//let saveEmail  = document.getElementById('btn-login').addEventListener('click',guardarCookie);
+let savePerfil = document.getElementById('guardarPerfil').addEventListener('click',guardarCookie); 
 
 
 //Al llamar a createCookie() hay que darle tres datos: el nombre y el valor de la cookie y el número de días que debe permanecer activa. 
@@ -54,10 +55,16 @@ function getCookie(nombre){
 
 function guardarCookie() {
     //debugger;
-    let co =document.getElementsByName('email')[0].value;
+    let coE = document.getElementsByName('pemail')[0].value;
+    let coN = document.getElementsByName('pnombre')[0].value;
+    let coA = document.getElementsByName('papellidos')[0].value;
+    console.log(coE);
+    console.log(coN);
+    console.log(coA);
+    console.log(crearCookie("Email",coE,30));
+    console.log(crearCookie("Nombre ",coN,30));
+    console.log(crearCookie("Apellido",coA,30));
 
-    console.log(co);
-    console.log(crearCookie("email",co,30));
 }
 
 function borrarCookie(nombre) {

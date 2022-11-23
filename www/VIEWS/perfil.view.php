@@ -43,8 +43,10 @@
     
     </div>
 
- 
     <script src="../JS/perfil.js"></script>
+    <script src="../JS/cookies.js"></script>
+
+<noscript>El navegador no soporta JavaScript</noscript>
 </div>
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>
