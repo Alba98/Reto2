@@ -5,10 +5,8 @@
 
 //Evento para acceder a la cookie:
 
-
-
+let nombreC = document.getElementsByClassName('inputs').addEventListener('click',guardarCookie);
 let emailC = document.getElementById('btn-login').addEventListener('click',guardarCookie);
-
 
 
 
@@ -41,6 +39,7 @@ function getCookie(nombre){
 function guardarCookie() {
     //debugger;
     let co =document.getElementsByName('email')[0].value;
+
     console.log(co);
     console.log(setCookie("email",co,30));
 }
