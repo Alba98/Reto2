@@ -13,19 +13,21 @@
         $buscar = isset($_GET['buscar']) ? $_GET['buscar'] : null;
 
         switch ($order) {
+            // case orden
+            //     if($categoria) {
+            //         if($buscar)
+            //             busqueda + categoria + orden
+            //         else
+            //             categoria + orden
+            //     }
+            //     else{
+            //         if($buscar)
+            //             busqueda + orden
+            //         else
+            //             orden
+            //     }
+            // break
             case 'masVistas':
-                    // if($categoria) {
-                    //     if($buscar)
-                    //         busqueda + categoria + orden
-                    //     else
-                    //         categoria + orden
-                    // }
-                    // else{
-                    //     if($buscar)
-                    //         busqueda + orden
-                    //     else
-                    //         orden
-                    // }
                 if($categoria) {
                     if($buscar)
                         $preguntas = getPreguntasMasVistasCategoriaBuscar($dbh, $categoria, $buscar);

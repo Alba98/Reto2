@@ -32,13 +32,7 @@ cargarPregunta()
                 cargarCategoria(datosCategoria);
             });
 
-            if(urlParams.has('categoria')) {    
-                console.log(urlParams.get('categoria'));
-                document.getElementById("categoria").value = urlParams.get('categoria');
-            
-                console.log(document.getElementById("categoria"));
-                console.log(document.getElementById("categoria").value);
-            }
+            cargarBusqueda();
         }
     }
 );

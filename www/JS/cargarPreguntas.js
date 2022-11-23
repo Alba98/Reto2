@@ -28,7 +28,7 @@ function getBuscar() {
 }
 
 function getCategoria() { 
-    if(urlParams.has('categoria')) 
+    if(urlParams.has('categoria') && urlParams.get('categoria') != 0) 
         return '&categoria='+urlParams.get('categoria');
     // if(categoria.value != 0)
     //     return '&categoria='+categoria.value;

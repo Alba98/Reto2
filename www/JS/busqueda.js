@@ -11,11 +11,7 @@ function cargarBusqueda() {
     }
 
     if(urlParams.has('categoria')) {    
-        console.log(urlParams.get('categoria'));
         document.getElementById("categoria").value = urlParams.get('categoria');
-    
-        console.log(document.getElementById("categoria"));
-        console.log(document.getElementById("categoria").value);
     }
 
     if(urlParams.has('order')) {
@@ -23,3 +19,5 @@ function cargarBusqueda() {
     }
 
 }
+
+cargarBusqueda();
