@@ -520,12 +520,21 @@ function insertUsuario ($dbh,$datosUsuario){
 
 function insertRespuesta($dbh,$datosRespuesta){
     try {
-        //insertar respuesta 
-        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg)
-                               VALUES (:descripcion,:id_preg)");
-
-        $stmt->execute($datosRespuesta);
-
+        if (isset($_POST['archivo'])) {
+            $revisar = getimagesize($_FILES["archivo"]["tmp_name"]);
+            if($revisar !== false){
+                $image = $_FILES['archivo']['tmp_name'];
+                $imgContenido = addslashes(file_get_contents($image));
+                $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg,archivo)
+                               VALUES (:descripcion,:id_preg,'$imgContenido')");
+                $stmt->execute($datosRespuesta);
+        }
+        } else {
+            //insertar respuesta 
+            $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg)
+            VALUES (:descripcion,:id_preg)");
+            $stmt->execute($datosRespuesta);
+        }
         //insertar en responder 
         $stmt_ = $dbh->prepare("INSERT INTO RESPONDER(id_usu,id_res)
                                 VALUES (:usuario, :respuesta)");
@@ -542,10 +551,23 @@ function insertRespuesta($dbh,$datosRespuesta){
 
 function insertPregunta($dbh, $datosPregunta){
     try {
+        /*
+        $nombre_archivo = $_FILES['parchivo']['name'];
+        $tipo_archivo = $_FILES['parchivo']['type'];
+        $tamagno_archivo = $_FILES['parchivo']['size'];
+
+
+        $revisar = getimagesize($_FILES["parchivo"]["tmp_name"]);
+        $image = $_FILES['parchivo']['tmp_name'];
+        $imgContenido = addslashes(file_get_contents($image));
+        $stmt = $dbh->prepare("INSERT INTO PREGUNTA(titulo,detalle,id_cat,archivo)
+                        VALUES (:titulo, :detalle, :categoria, :img)");
+        $datosPregunta['img'] = $imgContenido;
+        $stmt->execute($datosPregunta); */
+
         //insertar pregunta 
         $stmt = $dbh->prepare("INSERT INTO PREGUNTA(titulo,detalle,id_cat)
-                               VALUES (:titulo, :detalle, :categoria)");
-
+        VALUES (:titulo, :detalle, :categoria)");
         $stmt->execute($datosPregunta);
 
         //insertar en preguntar 

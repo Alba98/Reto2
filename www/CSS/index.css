@@ -227,6 +227,7 @@ footer {
     box-shadow: -10px -5px 10px rgba(0, 0, 0, 0.5);
 }
 #redessociales{
+    cursor: pointer;
     width: 200px;
     height: 50px;
     display: flex;
@@ -431,7 +432,7 @@ footer #mapa {
 .atributos {
     grid-area: atributos;
 }
-.perfil {
+.perfil, output {
     width: 140px;
 }
 .stats {
@@ -461,7 +462,7 @@ footer #mapa {
     justify-self: center;
 }
 .nums {
-    color: white;
+    color: black;
     margin-top: 5%;
     padding-bottom: 10%;
     font-size:1.2em;

@@ -7,8 +7,8 @@
  
                     <h3>CONOCENOS </h3>
                     
-                    <a class="enlace" id="nuestrosProyectos" href="#">Nuestros proyecos</a>
-                    <a class="enlace" id="quienesSomos" href="#">¿Quienés sómos?</a>
+                    <a class="enlace" id="nuestrosProyectos" href="https://wat2022.wordpress.com/">Nuestros proyecos</a>
+                    <a class="enlace" id="quienesSomos" href="https://wat2022.wordpress.com/">¿Quienés sómos?</a>
                     <a id="terminos" href="#">Términos y condiciones</a>
                     <a id="privacidad" href="#">Aviso de privacidad</a>
                     <a id="cookies" href="#">Política de cookies</a>

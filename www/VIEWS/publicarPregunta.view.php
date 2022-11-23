@@ -27,7 +27,7 @@
                 </div> 
                 <div class="der end">
                     <label for="archivo">Subir archivo</label>
-                    <input class="inputs" type="file" name="archivo" id="archivo">
+                    <input class="inputs" type="file" name="parchivo" id="archivo">
                 </div>
                 <div  class="formulario">
                     <div  class="izq">
