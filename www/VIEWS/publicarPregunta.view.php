@@ -40,6 +40,8 @@
         </div>
         <script src="../JS/categoria.js"></script>
         <script src="../JS/preguntar.js"></script>
+
+        <noscript>El navegador no soporta JavaScript</noscript>
     </div>
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>

@@ -27,6 +27,7 @@
     <script src="JS/cargarRespuestas.js"></script>
     <!-- Formulario publicar pregunta -->
     <script src="JS/responder.js"></script>
+    <noscript>El navegador no soporta JavaScript</noscript>
     <br><br>
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>

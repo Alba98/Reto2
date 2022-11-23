@@ -55,7 +55,7 @@ body * {
 /* formularios */
 .formulario{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 30% 30%;
     grid-template-rows: auto auto;
     grid-template-areas:
         "izq der";
@@ -78,6 +78,11 @@ body * {
     border: 1px solid white;
     border-radius: 5px;
 }
+.formulario input {
+    padding: 1%;
+    border: 1px solid white;
+    border-radius: 5px;
+}
 .formulario input[type='file'] {
     width: 80%;
     cursor: pointer;
@@ -86,8 +91,7 @@ body * {
 }
 .formulario input[type='submit'], input[type='button'], input[type='reset']{
     background-color: var(--menuBotones);
-    border: 1px solid white;
-    border-radius: 5px;
+
     color: white;
     padding: 10px;
     cursor: pointer;
@@ -97,9 +101,6 @@ body * {
     cursor: pointer;
     background-color: var(--menuBotones);
     padding: 1px;
-    border: 1px solid #ffffff;
-    border-radius: 5px;
-
 }
 .formulario .perfil {
     width: 140px;
@@ -122,7 +123,7 @@ a:visited {
     position: sticky;
     top: 0px;
     z-index: 5;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 10px var(--sombra);
 }
 #logo-menu {
     display: flex;
@@ -335,7 +336,7 @@ footer #mapa {
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-.login button:hover{
+#inicioSesion button:hover{
 	background: var(--grullo);
 }
 .registro{
@@ -346,7 +347,6 @@ footer #mapa {
 	transition: .8s ease-in-out;
 }
 .registro label{
-	color: var(--paleSilver);
 	transform: scale(.6);
 	margin: 50px;
 }
@@ -354,6 +354,7 @@ footer #mapa {
 	transform: translateY(-90%);
 }
 #chk:checked ~ .registro label{
+    color: var(--paleSilver);
 	transform: scale(1);
     padding-top: 20px;	
 }
@@ -689,10 +690,14 @@ footer #mapa {
         border-radius: 5px;
         color: white;
     }
+    .formulario {
+        display: flex;
+        flex-direction: column;
+    }
     .formulario .der {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-self: flex-start;
     }
     .formulario input[type='submit'] {
         margin-bottom: 15px;

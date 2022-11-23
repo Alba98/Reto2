@@ -41,17 +41,12 @@
                 <input type="button" value="EDITAR PERFIL" id="editar">
             </div>
         </form>
-    
-<<<<<<< HEAD
     </div> 
-=======
-    </div>
 
->>>>>>> todasCookies
     <script src="../JS/perfil.js"></script>
     <script src="../JS/cookies.js"></script>
 
-<noscript>El navegador no soporta JavaScript</noscript>
+    <noscript>El navegador no soporta JavaScript</noscript>
 </div>
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>
