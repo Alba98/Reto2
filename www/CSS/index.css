@@ -320,7 +320,7 @@ footer #mapa {
 	outline: none;
 	border-radius: 5px;
 }
-#inicioSesion input[type='button']{
+#inicioSesion button, #inicioSesion input[type='button']{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -337,7 +337,7 @@ footer #mapa {
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-#inicioSesion button:hover{
+#inicioSesion button:hover, #inicioSesion input[type='button']:hover{
 	background: var(--grullo);
 }
 .registro{
