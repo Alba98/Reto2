@@ -45,8 +45,6 @@ function getCookie(nombre){
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-
-
 //Almacenamos la cokie
 function guardarCookie(nombre) {
     let coE = document.getElementsByName('pemail')[0].value;

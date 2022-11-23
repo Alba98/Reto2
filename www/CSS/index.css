@@ -104,6 +104,11 @@ body * {
 .formulario .perfil {
     width: 140px;
 }
+.formulario textarea{
+    resize: none;
+    width: 100%;
+    height: 7rem;
+}
 /****************************** HEADER ****************************************/
 
 #menu a {
