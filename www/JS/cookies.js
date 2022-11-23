@@ -15,7 +15,8 @@ se cierra el navegador.Esta fecha de caducidad debe estar en hora UTC(Greenwich)
 
 
 //Evento para acceder a la cookie:
-let emailC = document.getElementById('btn-login').addEventListener('click',guardarCookie);
+//let saveEmail  = document.getElementById('btn-login').addEventListener('click',guardarCookie);
+let savePerfil = document.getElementById('guardarPerfil').addEventListener('click',guardarCookie); 
 
 
 //Al llamar a createCookie() hay que darle tres datos: el nombre y el valor de la cookie y el número de días que debe permanecer activa. 
