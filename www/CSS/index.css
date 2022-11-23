@@ -320,7 +320,7 @@ footer #mapa {
 	outline: none;
 	border-radius: 5px;
 }
-#inicioSesion button{
+#inicioSesion input[type='button']{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
