@@ -40,18 +40,9 @@ function crearCookie(nombre,valor,dias){
 
 //Aqui leemos la cookie
 function getCookie(nombre){
-    let buscarCookie = nombre + "=";
-    let crear_cookie  = document.cookie.split(';');
-    for (let i=0; i<crear_cookie.length;i++){
-        let c = crear_cookie[i];
-        while ( c.charAt(0) == ' '){
-            c = c.substring(1,c.length); 
-            if (c.indexOf(nameEQ) == 0){
-                return c.substring(buscarCookie.length,c.length);
-            }
-        }
-        return null;    
-    } 
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${nombre}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
 
@@ -60,14 +51,20 @@ function getCookie(nombre){
 function guardarCookie(nombre) {
     //debugger;
     let emailLogin = document.getElementsByName('remail')[0].value;
-    console.log(crearCookie("Email Login",emailLogin,30));
+    crearCookie("Email Login",emailLogin,30);
   
 }
-
 //Borramos la cookie 
-function borrarCookie(nombre) {
-    guardarCookie(nombre,"",-1);
+function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+        var cookie = cookies[i];
+        var eqPos = cookie.indexOf("=");
+        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
 }
-borrarCookie(nombre);
+deleteAllCookies()
 
 
