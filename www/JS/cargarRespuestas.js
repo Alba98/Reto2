@@ -5,7 +5,7 @@
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 
 
-async function cargarRespuesta() {
+async function cargarRespuesta(id_preg) {
     let respuesta = await fetch(API_URL + '?funcion=getRespuestas&id='+id_preg); // con '?' separamos la ruta de los parametros
                         /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
    

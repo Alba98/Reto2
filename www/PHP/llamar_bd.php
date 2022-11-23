@@ -13,66 +13,131 @@
         $buscar = isset($_GET['buscar']) ? $_GET['buscar'] : null;
 
         switch ($order) {
+            // case orden
+            //     if($categoria) {
+            //         if($buscar)
+            //             busqueda + categoria + orden
+            //         else
+            //             categoria + orden
+            //     }
+            //     else{
+            //         if($buscar)
+            //             busqueda + orden
+            //         else
+            //             orden
+            //     }
+            // break
             case 'masVistas':
-                if($categoria)
-                    $preguntas = getPreguntasMasVistasCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMasVistas($dbh);
-
-                    // if($categoria) {
-                    //     if($buscar)
-                    //         busqueda + categoria + orden
-                    //     else
-                    //         categoria + orden
-                    // }
-                    // else{
-                    //     if($buscar)
-                    //         busqueda + orden
-                    //     else
-                    //         orden
-                    // }
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMasVistasCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMasVistasCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMasVistasBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMasVistas($dbh); 
+                }
                 break;
             case 'menosVistas':
-                if($categoria)
-                    $preguntas = getPreguntasMenosVistasCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMenosVistas($dbh);
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMenosVistasCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMenosVistasCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMenosVistasBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMenosVistas($dbh); 
+                }
                 break;
             case 'masVotadas':
-                if($categoria)
-                    $preguntas = getPreguntasMasLikeCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMasLike($dbh);
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMasLikeCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMasLikeCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMasLikeBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMasLike($dbh); 
+                }
                 break;
             case 'menosVotadas':
-                if($categoria)
-                    $preguntas = getPreguntasMenosLikeCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMenosLike($dbh);
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMenosLikeCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMenosLikeCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMenosLikeBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMenosLike($dbh); 
+                }
                 break;
             case 'masRespuestas':
-                if($categoria)
-                    $preguntas = getPreguntasMasRespuestasCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMasRespuestas($dbh);
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMasRespuestasCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMasRespuestasCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMasRespuestasBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMasRespuestas($dbh); 
+                }
                 break;
             case 'menosRespuestas':
-                if($categoria)
-                    $preguntas = getPreguntasMenosRespuestasCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMenosRespuestas($dbh);
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMenosRespuestasCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMenosRespuestasCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMenosRespuestasBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMenosRespuestas($dbh); 
+                }
                 break;
             case 'masRecientes':
-                if($categoria)
-                    $preguntas = getPreguntasMasRecientesCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMasRecientes($dbh);
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMasRecientesCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMasRecientesCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMasRecientesBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMasRecientes($dbh); 
+                }
                 break;
             case 'menosRecientes':
-                if($categoria)
-                    $preguntas = getPreguntasMenosRecientesCategoria($dbh, $categoria);
-                else
-                    $preguntas = getPreguntasMenosRecientes($dbh);
+                if($categoria) {
+                    if($buscar)
+                        $preguntas = getPreguntasMenosRecientesCategoriaBuscar($dbh, $categoria, $buscar);
+                    else
+                        $preguntas = getPreguntasMenosRecientesCategoria($dbh, $categoria);
+                }
+                else {
+                   if($buscar)
+                       $preguntas = getPreguntasMenosRecientesBuscar($dbh, $buscar); //
+                   else
+                       $preguntas = getPreguntasMenosRecientes($dbh); 
+                }
                 break;
             default:
                 if($categoria) {

@@ -31,6 +31,8 @@ cargarPregunta()
             resultadoPromesa.forEach(datosCategoria => {
                 cargarCategoria(datosCategoria);
             });
+
+            cargarBusqueda();
         }
     }
 );
