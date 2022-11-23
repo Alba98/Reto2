@@ -146,7 +146,7 @@ GROUP BY r.id_res;
 
 /* VISTA PARA LA VISUALIZACIÓN PREGUNTAS */
 CREATE VIEW vistaPreguntas AS
-SELECT u.nombre "usuario", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos", c.id_cat "id_cat", cl.like "likes", cr.respuestas "respuestas"
+SELECT u.nombre "usuario", u.puntuacion "valoracion", p.titulo "titulo", c.nombre "categoria", p.fecha "fecha", p.id_preg "id_preg", p.detalle "detalle", p.visto "vistos", c.id_cat "id_cat", cl.like "likes", cr.respuestas "respuestas"
 FROM USUARIO u, PREGUNTA p, CATEGORIA c, PREGUNTAR pr, countLikes cl, countRespuestas cr
 WHERE u.id_usu = pr.id_usu
 AND p.id_cat = c.id_cat
@@ -157,7 +157,7 @@ ORDER BY p.id_preg;
 
 /* VISTA PARA LA VISUALIZACIÓN DE RESPUESTAS */
 CREATE VIEW vistaRespuestas AS
-SELECT u.nombre "usuario", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg", cv.voto "votos"
+SELECT u.nombre "usuario", u.puntuacion "valoracion", r.descripcion "descripcion", r.id_res "id_res", p.id_preg "id_preg", cv.voto "votos"
 FROM USUARIO u, RESPUESTA r, RESPONDER rr, PREGUNTA p, countVotos cv
 WHERE u.id_usu = rr.id_usu
 AND r.id_res = rr.id_res
