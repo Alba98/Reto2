@@ -432,7 +432,7 @@ footer #mapa {
 .atributos {
     grid-area: atributos;
 }
-.perfil {
+.perfil, output {
     width: 140px;
 }
 .stats {

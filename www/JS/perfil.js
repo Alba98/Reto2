@@ -9,6 +9,7 @@ document.getElementById("contra2").addEventListener("focusout", matchPassword);
 document.getElementById("nombre").addEventListener("focusout", validarNombre);
 document.getElementById("apellidos").addEventListener("focusout", validarApellidos);
 document.getElementById("email").addEventListener("focusout", validarEmail);
+document.getElementById('foto').addEventListener('change', handleFileSelect, false);
 //document.getElementById("guardarPerfil").addEventListener("click", validarFormulario);
 
 function edit() {
@@ -66,28 +67,51 @@ function validarEmail() {
     }
 }
 
-/* PRUEBA LOCAL STORAGE */
-document.getElementById('foto').addEventListener("change",imgPerfil);
+/* GUARDAR LA IMAGEN EN LOCALSTORAGE */
+function handleFileSelect(evt) {
+    
+    var files = evt.target.files; // FileList object
+    localStorage.removeItem('img'); // Para que no hayan 2 imagenes
 
-var bannerImage = document.getElementById('foto');
-var imgData = getBase64Image(bannerImage);
-localStorage.setItem('imgPerfil', imgData);
+    // Loop through the FileList and render image files as thumbnails.
+    for (var i = 0, f; f = files[i]; i++) {
 
-function getBase64Image(img) {
-    var canvas = document.createElement("canvas");
-    canvas.width = img.width;
-    canvas.height = img.height;
+      // Solo procesa imagenes.
+      if (!f.type.match('image.*')) {
+        continue;
+      }
 
-    var ctx = canvas.getContext("2d");
-    ctx.drawImage(img, 0, 0);
+      var reader = new FileReader();
 
-    var dataURL = canvas.toDataURL("image/png");
+      // Closure to capture the file information.
+      reader.onload = (function(theFile) {
+        return function(e) {
+          // Creamos un span con la imagen
+          var span = document.createElement('span');
+          span.innerHTML = ['<img id="fperfilnueva" class="perfil" src="', e.target.result,
+            '"/>'
+          ].join('');
 
-    return dataURL.replace(/^data:image\/(png|jpg);base64,/, "");
-}
+          document.getElementById('list').insertBefore(span, null);
+          localStorage.setItem('img', e.target.result);
+        };
+      })(f);
 
-function imgPerfil() {
-    var dataImage = localStorage.getItem('imgPerfil');
-    bannerImage = document.getElementById('fotoperfil');
-    bannerImage.src = "data:image/png;base64," + dataImage;
-}
+      // Read in the image file as a data URL.
+      reader.readAsDataURL(f);
+      document.getElementById('fotoperfil').hidden = true;
+    }
+  }
+
+  // Si tenenemos una imagen en LocalStorage...
+  if (localStorage.img) {
+    var span = document.createElement('span');
+    span.innerHTML += ['<img class="perfil" src="', localStorage.img,
+      '"/>'
+    ].join('');
+
+    document.getElementById('list').insertBefore(span, null);
+  } else {
+    // Ocultamos la imagen por defecto del usuario
+    document.getElementById('fotoperfil').hidden = false;
+  }

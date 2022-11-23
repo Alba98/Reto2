@@ -57,7 +57,8 @@ ALTER TABLE `PREGUNTA`
 CREATE TABLE `RESPUESTA` (
   `id_res` int NOT NULL,
   `descripcion` text CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NOT NULL,
-  `id_preg` int NOT NULL
+  `id_preg` int NOT NULL,
+  `archivo` longblob NULL
 );
 
 ALTER TABLE `RESPUESTA`
