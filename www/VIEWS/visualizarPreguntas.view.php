@@ -30,5 +30,7 @@
 <script src="JS/busqueda.js"></script>
 <script src="JS/cargarPreguntas.js"></script>
 
+<noscript>El navegador no soporta JavaScript</noscript>
+
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>

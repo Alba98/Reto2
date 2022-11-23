@@ -520,21 +520,12 @@ function insertUsuario ($dbh,$datosUsuario){
 
 function insertRespuesta($dbh,$datosRespuesta){
     try {
-        if (isset($_POST['archivo'])) {
-            $revisar = getimagesize($_FILES["archivo"]["tmp_name"]);
-            if($revisar !== false){
-                $image = $_FILES['archivo']['tmp_name'];
-                $imgContenido = addslashes(file_get_contents($image));
-                $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg,archivo)
-                               VALUES (:descripcion,:id_preg,'$imgContenido')");
-                $stmt->execute($datosRespuesta);
-        }
-        } else {
-            //insertar respuesta 
-            $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg)
-            VALUES (:descripcion,:id_preg)");
-            $stmt->execute($datosRespuesta);
-        }
+        //insertar respuesta 
+        $stmt = $dbh->prepare("INSERT INTO RESPUESTA(descripcion,id_preg)
+                               VALUES (:detalle,:id_preg)");
+
+        $stmt->execute($datosRespuesta);
+
         //insertar en responder 
         $stmt_ = $dbh->prepare("INSERT INTO RESPONDER(id_usu,id_res)
                                 VALUES (:usuario, :respuesta)");

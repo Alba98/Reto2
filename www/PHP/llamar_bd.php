@@ -227,7 +227,7 @@
             if ($_GET['id_preg'] != "" && $_GET['detalle'] != "") {
                 $data = array (
                     "id_preg" => $_GET['id_preg'],
-                    "detalle" => $_GET['detalle'],
+                    "detalle" => $_GET['detalle']
                     // "archivo" => $_GET['archivo']
                 );
                 insertRespuesta($dbh, $data);

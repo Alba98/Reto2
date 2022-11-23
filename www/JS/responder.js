@@ -10,7 +10,7 @@ var detalleIncorrecto = document.getElementById("detalleIncorrecto");
 
 //Eventos
 botonResponder.addEventListener("click", validarResponder);
-iDetalle.addEventListener("focusout", validarDetalle);
+// iDetalle.addEventListener("focusout", validarDetalle);
 
 function validarResponder() {
     try {
@@ -21,7 +21,8 @@ function validarResponder() {
             if (resultadoPromesa.mensaje) { 
                 console.error(resultadoPromesa);
             } else {
-                console.log(resultadoPromesa);
+                var form = document.getElementById('responderForm');
+                if(form) form.submit();
             }
         });
     } catch (error) {
@@ -36,17 +37,20 @@ function validarDetalle() {
     } else {
         iDetalle.focus();
         detalleIncorrecto.hidden = false;
+        throw "Detalle vacio";
     }
 }
 
 async function enviarRespuesta() {
-    debugger
+    console.log('/PHP/API_get.php' 
+    + '?funcion=enviarRespuesta'
+    + '&id_preg='+id_preg
+    + '&detalle='+iDetalle.value);
     let respuesta = await fetch('/PHP/API_get.php' 
                                 + '?funcion=enviarRespuesta'
-                                + '&id_preg='+'1'
+                                + '&id_preg='+id_preg
                                 + '&detalle='+iDetalle.value
-                                );
-    debugger                      
+                                );                    
     if (respuesta.ok) {
         return respuesta.json();
     } else {

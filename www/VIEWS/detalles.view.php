@@ -1,10 +1,11 @@
 <?php require('VIEWS/PARTIALS/header.php') ?>
 
     <div class="zonaPregunta"></div>
-    <div class="zonaRespuestas"></div>
+    <div class="zonaRespuestas">
+    </div>
     <div class="zonaPublicarRespuesta">
         <div class="recuadro">
-            <form method="post" action="#" class="formulario">
+            <form method="post" action="?accion=detalles" class="formulario" id="responderForm">
                 <div class="izq">
                     <h2>RESPONDER</h2><br>
                     <label for="detalleR">Detalle:</label>
@@ -18,7 +19,7 @@
                     <label for="archivo">Subir archivo</label>
                     <input class="inputs" type="file" name="archivo" id="archivo">
                 </div> 
-                <input class="inputs" type="submit" value="Responder" id="responder">
+                <input class="inputs" type="button" value="Responder" id="responder">
             </form>
         </div>
     </div>
@@ -27,6 +28,7 @@
     <script src="JS/cargarRespuestas.js"></script>
     <!-- Formulario publicar pregunta -->
     <script src="JS/responder.js"></script>
+    <noscript>El navegador no soporta JavaScript</noscript>
     <br><br>
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>
