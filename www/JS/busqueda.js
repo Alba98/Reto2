@@ -17,7 +17,6 @@ function cargarBusqueda() {
     if(urlParams.has('order')) {
         orden.value = urlParams.get('order');
     }
-
 }
 
 cargarBusqueda();

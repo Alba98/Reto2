@@ -2,7 +2,7 @@
 
     <div class="preguntar">
         <div class="recuadro">
-            <form method="post" action="?accion=preguntas" class="formulario">
+            <form method="post" action="?accion=preguntas" class="formulario" id="responderForm">
                 <div class="izq">
                     <h2>PREGUNTAR A OTROS USUARIOS</h2><br>
                     <label for="usuario">Usuario</label>
@@ -16,7 +16,6 @@
                     <label for="categoria">Categoria</label>
                     <select class="inputs" name="categoria" id="categoria">
                         <option value="0">- SELECIONE UNA -</option>
-                        <!-- <?php   // optionsCategoria() ?>  -->
                     </select>
                     <b style="color:red" id="categoriaIncorrecto" hidden>Escoja una categoria</b>
                     <br><br>
@@ -32,7 +31,7 @@
                 <div  class="formulario">
                     <div  class="izq">
                         <br>
-                        <input class="inputs" type="submit" value="Enviar" id="preguntar"> 
+                        <input class="inputs" type="button" value="Enviar" id="preguntar"> 
                     </div>
                 </div>
                 

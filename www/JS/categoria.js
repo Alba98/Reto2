@@ -32,7 +32,8 @@ cargarPregunta()
                 cargarCategoria(datosCategoria);
             });
 
-            cargarBusqueda();
+            if (typeof cargarBusqueda === 'function') //unction is defined
+                cargarBusqueda();
         }
     }
 );
