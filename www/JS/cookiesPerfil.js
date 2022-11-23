@@ -53,6 +53,8 @@ function guardarCookie(nombre) {
     (crearCookie("Email",coE,30));
     (crearCookie("Nombre ",coN,30));
     (crearCookie("Apellido",coA,30));
+
+    console.log(document.cookie);
 }
 
 //Borramos la cookie 
@@ -66,5 +68,5 @@ function deleteAllCookies() {
         document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
     }
 }
-deleteAllCookies();
+//deleteAllCookies();
 
