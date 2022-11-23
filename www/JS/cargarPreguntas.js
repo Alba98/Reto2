@@ -2,6 +2,11 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
+
+/*La mayoría del código es identíco en el archivo cargarPregunta.js , por lo que la mayoría de la documentación
+se recoge en ese script.*/
+
+
 // let categoria = document.getElementById("categoria")
 
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
@@ -89,16 +94,18 @@ function cargarLayoutPregunta(datosPregunta) {
     </div>
 </div>`;
 
-    // obtenemos el boton para añadir un evento click
+    //Obtenemos el boton para añadir un evento click
     let respuestasBoton = pregunta.getElementsByClassName('res')[0];
     respuestasBoton.addEventListener('click', (e) => {
-        // establece el id_preg dentro del localStorage
-        localStorage.setItem("idPregunta", datosPregunta.id_preg); //obtenemos datosPregunta de la api y obtenemos el la
+    //Establece el id_preg dentro del localStorage
+    //Obtenemos datosPregunta de la API y obtenemos el id de la pregunta
+        localStorage.setItem("idPregunta", datosPregunta.id_preg);
     });
 
     contenedorPregunta.appendChild(pregunta);
 }
 
+//Funcion para cargar los detalles de la pregunta desde la vista creada en la BBDD
 cargarPreguntas()
     .then( function(resultadoPromesa) {
         if (resultadoPromesa.mensaje) { // != undefined

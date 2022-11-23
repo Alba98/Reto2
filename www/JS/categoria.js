@@ -3,8 +3,7 @@
  **/
 
 async function cargarPregunta() {
-    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=getCategorias') // con '?' separamos la ruta de los parametros
-                        /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=getCategorias');
    
     if (respuesta.ok) {
         return respuesta.json();
