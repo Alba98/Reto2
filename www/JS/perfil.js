@@ -10,7 +10,7 @@ document.getElementById("nombre").addEventListener("focusout", validarNombre);
 document.getElementById("apellidos").addEventListener("focusout", validarApellidos);
 document.getElementById("email").addEventListener("focusout", validarEmail);
 document.getElementById('foto').addEventListener('change', handleFileSelect, false);
-document.getElementById('his').addEventListener('click',verHistorial);
+document.getElementById('his').addEventListener("click",verHistorial);
 
 //document.getElementById("guardarPerfil").addEventListener("click", validarFormulario);
 
@@ -244,7 +244,7 @@ function verHistorial(e){
     const transaction = db.transaction('historial','readwrite');
     const objectStore = transaction.objectStore('historial');
     const request = objectStore.getAll();
-
+    console.log(indexedDB);
     request.onsuccess = (e) => {
         let preguntas = e.target.result;
 

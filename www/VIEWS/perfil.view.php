@@ -42,9 +42,12 @@
                 <input type="button" value="VER HISTORIAL" id="his">
             </div>
         </form>
+        
     </div> 
-    <script src="../JS/cookiesPerfil.js"></script>    
+    <div class='historial-preguntas'><div>
 
+    <script src="../JS/cookiesPerfil.js"></script>    
+    <script src="../JS/perfil.js"></script>
     <noscript>El navegador no soporta JavaScript</noscript>
 </div>
 <script src="../JS/perfil.js"></script>
