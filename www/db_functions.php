@@ -704,7 +704,7 @@ function deletePreguntaById($dbh, $id){
 function userLogin($email,$pass){
     try{
         $db = connect();
-        $stmt = $db->prepare("SELECT id_usu FROM USUARIO WHERE email=:email AND contrasenia=:pass"); 
+        $stmt = $db->prepare("SELECT id_usu, nombre, apellidos, email FROM USUARIO WHERE email=:email AND contrasenia=:pass"); 
         $data = array(
             "email" => $email,
             "pass" => $pass
@@ -715,6 +715,9 @@ function userLogin($email,$pass){
         $db = null;
         if($count){
             $_SESSION['id_usu']=$datos->id_usu; // Guardamos en sesión el id del usuario
+            setcookie('Nombre',$datos->nombre);
+            setcookie('Email',$datos->email);
+            setcookie('Apellido',$datos->apellidos);
             return true;
         }
         else {
@@ -730,13 +733,14 @@ function userLogin($email,$pass){
 function userRegistration($nombre,$email,$pass){
     try{
         $db = connect();
-        $stmt = $db->prepare("SELECT id_usu FROM USUARIO WHERE email=:email AND contrasenia=:pass"); 
+        $stmt = $db->prepare("SELECT id_usu, nombre, apellidos, email FROM USUARIO WHERE email=:email AND contrasenia=:pass"); 
         $data = array(
             "email" => $email,
             "pass" => $pass
         );
         $stmt->execute($data);
         $count=$stmt->rowCount();
+        
         if($count<1) {
             $stmt = $db->prepare("INSERT INTO USUARIO(nombre,contrasenia,email) VALUES (:nombre,:pass,:email)");
             $data = array(
@@ -747,6 +751,9 @@ function userRegistration($nombre,$email,$pass){
             $stmt->execute($data);
             $uid=$db->lastInsertId(); // Ultimo id insertado
             $_SESSION['id_usu']=$uid;
+            setcookie('Nombre',$nombre);
+            setcookie('Email',$email);
+            setcookie('Apellido'," ");
             return true;
         }
         else {

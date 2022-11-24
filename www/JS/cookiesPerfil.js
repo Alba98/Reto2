@@ -51,7 +51,7 @@ function guardarCookie(nombre) {
     let coN = document.getElementsByName('pnombre')[0].value;
     let coA = document.getElementsByName('papellidos')[0].value;
     (crearCookie("Email",coE,30));
-    (crearCookie("Nombre ",coN,30));
+    (crearCookie("Nombre",coN,30));
     (crearCookie("Apellido",coA,30));
 
     console.log(document.cookie);
