@@ -114,11 +114,14 @@
     </div>
 
     <div class="registro">
-    <form method="POST" action="../index.php">
-            <label class="inputs" for="chk" aria-hidden="true">Registro</label>
-            <input class="inputs" type="text" name="rnombre" placeholder="Nombre de usuario" required="">
-            <input class="inputs" type="email" name="remail" placeholder="Email" required="">
-            <input class="inputs" type="password" name="rpswd" placeholder="Contraseña" required="" id="loginPassword">
+    <form method="POST" action="../index.php" id="registroForm">
+    <label class="inputs" for="chk" aria-hidden="true">Registro</label>
+            <input class="inputs" type="text" name="rnombre" id="rnombre" placeholder="Nombre de usuario" required="">
+            <b style="color:red;margin-left:15%" id="nombreIncorrecto" hidden>Nombre no puede estar vacio</b>
+            <input class="inputs" type="email" name="remail" id="remail"placeholder="Email" required="">
+            <b style="color:red;margin-left:15%" id="emailIncorrecto" hidden>Email no puede estar vacio</b>
+            <input class="inputs" type="password" name="rpswd" id="loginPassword" placeholder="Contraseña" required="">
+
            <!--
             <span id="credencialesContrasenia">
                 <p>

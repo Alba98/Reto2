@@ -64,8 +64,17 @@ function getVistaPreguntas($dbh) {
 }
 
 function getVistaPreguntasPorUsuario($dbh, $id_usuario) {
-    $stmt = $dbh->prepare("SELECT v.* FROM vistaPreguntas v, USUARIO u WHERE v.usuario = u.nombre AND u.nombre = :id");
-    $stmt->setFetchMode(PDO::FETCH_ASSOC);
+    $stmt = $dbh->prepare("SELECT * FROM vistaPreguntas v WHERE v.id_usu = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
+    $stmt->execute([
+        ':id' => $id_usuario
+    ]);
+    return $stmt->fetchAll();
+}
+
+function getVistaRespuestasPorUsuario($dbh, $id_usuario) {
+    $stmt = $dbh->prepare("SELECT v.* FROM vistaRespuestas v, USUARIO u WHERE v.usuario = u.nombre AND u.nombre = :id");
+    $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute([
         ':id' => $id_usuario
     ]);
@@ -429,35 +438,6 @@ function getPreguntasMenosRecientesCategoriaBuscar($dbh, $categoria, $buscar) {
     return $stmt->fetchAll();
 }
 
-function getPreguntasTodosFiltros($dbh){
-    $consulta  = "SELECT * 
-        FROM vistaPreguntas 
-        WHERE titulo LIKE" + '%'.$buscar.'%' +
-        "AND id_cat = :id_cat
-        ORDER BY " + orderBy();
-    $stmt = $dbh->prepare($consulta);
-   
-    $stmt->setFetchMode(PDO::FETCH_OBJ);
-    $stmt->execute($data);
-    return $stmt->fetchAll();
-}
-
-function orderBy() {
-    if (isset($_GET['order'])) {
-        if ($_GET['order'] == "masvistas") {
-            return "vistos DESC";
-        } elseif ($_GET['order'] == "menosvistas") {
-            return "vistos";
-        } elseif ($_GET['order'] == "masvotadas") {
-            return "votos DESC";
-        } elseif ($_GET['order'] == "menosvotadas") {
-            return "votos";
-        } else {
-            return "fecha";
-        }
-    }
-}
-
 /*************************************************************************************/
 function countRespuestas($dbh,$id_preg) {
     $stmt = $dbh->prepare("SELECT * FROM countRespuestas WHERE id_preg = :id");
@@ -645,6 +625,20 @@ function borrarVoto($dbh,$id_preg) {
         $data = array (
             "usuario" => $_SESSION['id_usu'],
             "respuesta" => $id_preg
+        );
+        $stmt->execute($data);
+    } catch(Exception $e) {
+        echo 'Exception -> ';
+        var_dump($e->getMessage());
+    }
+}
+
+function updatePuntuacion($dbh, $id_usuario, $puntuacion) {
+    try {
+        $stmt = $dbh->prepare("UPDATE USUARIO SET puntuacion = :puntuacion WHERE id_usu = :id_usuario");
+        $data = array (
+            "id_usuario" => $id_usuario,
+            "puntuacion" => $puntuacion
         );
         $stmt->execute($data);
     } catch(Exception $e) {
