@@ -39,7 +39,7 @@
                 <img src="../RECURSOS/IMAGES/user.png" alt="Foto de perfil" class="perfil" id="fotoperfil" hidden><br><br>
                 <input class="inputs" type="file" name="pfoto" id="foto" disabled><br><br>
                 <input type="button" value="EDITAR PERFIL" id="editar">
-                <input type="button" value="VER HISTORIAL" id="his">
+                <input type="button" value="HISTORIAL PREGUNTAS" id="his">
             </div>
         </form>
         
