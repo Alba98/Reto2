@@ -123,7 +123,7 @@ function handleFileSelect(evt) {
 
 const API_URL = '/PHP/API_get.php';
 async function cargarPreguntasUsuario(id_usuario) {
-  let respuesta = await fetch(API_URL + '?funcion=getPreguntasUsuario&usuario=' + id_usuario) // con '?' separamos la ruta de los parametros
+  let respuesta = await fetch(API_URL + '?funcion=getPreguntasUsuario&id=' + id_usuario) // con '?' separamos la ruta de los parametros
                       /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
  
   if (respuesta.ok) {
