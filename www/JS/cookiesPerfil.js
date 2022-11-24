@@ -13,9 +13,9 @@ se cierra el navegador.Esta fecha de caducidad debe estar en hora UTC(Greenwich)
 
 
 //Evento para acceder a la cookie:
-let saveLogin  = document.getElementById('btn-login')
-if (saveLogin) {
-    saveLogin.addEventListener('click',guardarCookie);
+let savePerfil  = document.getElementById('guardarPerfil')
+if (savePerfil) {
+    savePerfil.addEventListener('click',guardarCookie);
 }
 
 //let savePerfil = document.getElementById('guardarPerfil').addEventListener('click',guardarCookie); 
