@@ -46,7 +46,7 @@ function cargarLayout(datosPregunta) {
             </div>
             <div class='user'>
                 <h3 class='titulousuario' id='titulousuario'>${datosPregunta.usuario}</h3>
-                <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de pergil'>
+                <img class='perfil' src='../RECURSOS/IMAGES/user.png' alt='Foto de perfil'>
                 <form>
                 <p class='clasificacion'>
                     <input id='radio1' type='radio' name='estrellas' value='5' disabled ${setValoracion(datosPregunta.valoracion,5)}>

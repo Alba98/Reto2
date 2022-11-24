@@ -417,6 +417,7 @@ footer #mapa {
     grid-template-columns: repeat(3,1fr);
     grid-template-areas:
     "user info atributos";
+    grid-gap: 1%;
 }
 .respuesta{
     grid-template-columns: 20% 30% 50%;
@@ -435,19 +436,27 @@ footer #mapa {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding: 3%;
 }
 .atributos {
     grid-area: atributos;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50% 35%;
+    grid-template-areas: 
+        "stats"
+        "res";
 }
 .perfil, output {
     width: 140px;
 }
 .stats {
-    display: grid;
-    grid-template-columns: repeat(3,2fr);
-    grid-template-areas: 
-    ". . ."
-    "res res res";
+    grid-area: stats;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
     gap: 15%;
 }
 .iconos {
@@ -472,7 +481,7 @@ footer #mapa {
     color: black;
     margin-top: 5%;
     padding-bottom: 10%;
-    font-size:1.2em;
+    font-size:0.9rem;
     overflow: hidden;
 }
 .botones {
@@ -653,14 +662,6 @@ footer #mapa {
         justify-content: center;
         align-items: center;
     }
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(3,auto);
-        grid-template-areas: 
-        ". . ."
-        "res res res";
-        gap: 12%;
-    }
     .iconos {
         margin-top: 15%;
     }
@@ -676,11 +677,6 @@ footer #mapa {
         color: white;
         cursor: pointer;
         text-decoration: none;
-    }
-    .nums {
-        color: white;
-        font-size:0.9em;
-
     }
     .botones {
         font-size: 20px;
@@ -713,7 +709,5 @@ footer #mapa {
         grid-template-areas:
         "votos user"
         "info info";
-        /* flex-direction: column;
-        justify-content: center; */
     }
 }
