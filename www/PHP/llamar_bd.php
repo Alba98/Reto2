@@ -163,7 +163,7 @@
     function api_GetPreguntasUsuario() {
         global $dbh;
 
-        $preguntas = getVistaPreguntasPorUsuario($dbh, $_GET['usuario']);
+        $preguntas = getVistaPreguntasPorUsuario($dbh, $_SESSION[ "id_usu"]);
 
         return $preguntas;
     }
@@ -242,5 +242,50 @@
                 insertRespuesta($dbh, $data);
             }
         }  
+    }
+
+    function api_actualizarPuntuaciones() {
+        global $dbh;
+        $usuarios = getAll($dbh, "USUARIO");
+        foreach ($usuarios as $usuario) { 
+            api_actualizarPuntuacion($usuario);
+        }
+
+    }
+
+    function api_actualizarPuntuacion($id_usuario) {
+        global $dbh;
+        $preguntas = getVistaPreguntasPorUsuario($dbh, $id_usuario);
+        $respuestas = getVistaRespuestasPorUsuario($dbh, $id_usuario);
+
+        //variables para el calculo
+        $n_preguntas = 0;
+        $n_likes = 0;
+        $n_vistos = 0;
+ 
+        $n_respuestas = 0;
+        $n_votos = 0;
+ 
+        foreach ($preguntas as $pregunta) { 
+            $n_preguntas += 1;
+            $n_likes += $pregunta->likes;
+            $n_vistos += $pregunta->vistos;
+        }
+ 
+        foreach ($respuestas as $respuesta) { 
+            $n_respuestas += 1;
+            $n_votos += $respuesta->votos;
+        }
+ 
+        $puntuacion = 0;
+ 
+        if($n_preguntas >= 5) $puntuacion += 1;
+        if($n_vistos >= 10) $puntuacion += 1;
+        if($n_likes >= 5) $puntuacion += 1;
+ 
+        if($n_respuestas >= 5) $puntuacion += 1;
+        if($n_votos >= 5) $puntuacion += 1;
+
+        updatePuntuacion($dbh, $id_usuario, $puntuacion);
     }
 ?>
