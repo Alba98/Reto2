@@ -32,16 +32,12 @@
         if (isset($_GET['accion'])) {
             switch ($_GET['accion']) {
                 case 'preguntar':
-                    $dbh = connect();
-                    $infousuario = getUsuario($dbh);
                     require('VIEWS/publicarPregunta.view.php');
                     break;
                 case 'detalles':
                     require('VIEWS/detalles.view.php');
                     break;
                 case 'perfil':
-                    $dbh = connect();
-                    $infousuario = getUsuario($dbh);
                     require('VIEWS/perfil.view.php');
                     break;
                 case 'cerrarsesion':
