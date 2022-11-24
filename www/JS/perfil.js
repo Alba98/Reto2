@@ -137,7 +137,7 @@ async function cargarPreguntasUsuario(id_usuario) {
 
 
 function cargarLayoutPregunta(datosPregunta) {
-  let contenedorPregunta = document.getElementsByClassName("uwu")[0];
+  let contenedorPregunta = document.getElementsByClassName("historial-preguntas")[0];
   let pregunta = document.createElement('div');
   pregunta.classList.add('pregunta');
   pregunta.classList.add('recuadro');
