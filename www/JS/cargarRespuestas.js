@@ -81,6 +81,8 @@ cargarRespuesta(id_preg)
 async function insertarVoto(id_res) {
     let respuesta = await fetch('/PHP/API_get.php' + '?funcion=insertarVoto&id='+id_res)
     if (respuesta.ok) {
+        var form = document.getElementById('responderForm');
+        if(form) form.submit();
         return respuesta.json();
     } else {
         return {
@@ -92,6 +94,8 @@ async function insertarVoto(id_res) {
 async function borrarVoto(id_res) {
     let respuesta = await fetch('/PHP/API_get.php' + '?funcion=borrarVoto&id='+id_res)
     if (respuesta.ok) {
+        var form = document.getElementById('responderForm');
+        if(form) form.submit();
         return respuesta.json();
     } else {
         return {
