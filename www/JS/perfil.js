@@ -252,7 +252,9 @@ function verHistorial(e){
           cargarLayoutPregunta(pregunta);
         }
     };
+    document.getElementById('his').disabled=true;
   }
+
 }
 
 
