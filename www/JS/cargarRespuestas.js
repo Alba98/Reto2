@@ -55,7 +55,6 @@ function cargarLayoutRespuesta(datosRespuesta) {
                     </form>
                 </div>
                 <div class='info'>
-                    <b class=''>SOLUCIÓN</b>
                     <div class='descripcion recuadro'>
                         <p> ${datosRespuesta.descripcion} </p>
                     </div>

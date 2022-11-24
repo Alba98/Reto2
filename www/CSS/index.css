@@ -436,12 +436,13 @@ footer #mapa {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding: 3%;
 }
 .atributos {
     grid-area: atributos;
     display: grid;
     grid-template-columns: auto;
-    grid-template-rows: 70% 29%;
+    grid-template-rows: 50% 35%;
     grid-template-areas: 
         "stats"
         "res";
