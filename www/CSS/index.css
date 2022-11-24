@@ -439,19 +439,23 @@ footer #mapa {
 }
 .atributos {
     grid-area: atributos;
-    justify-content: center;
-    align-items: center;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 70% 29%;
+    grid-template-areas: 
+        "stats"
+        "res";
 }
 .perfil, output {
     width: 140px;
 }
 .stats {
-    display: grid;
-    grid-template-columns: repeat(3,2fr);
-    grid-template-rows: repeat(2,auto);
-    grid-template-areas: 
-    ". . ."
-    "res res res";
+    grid-area: stats;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
     gap: 15%;
 }
 .iconos {
@@ -657,7 +661,6 @@ footer #mapa {
         justify-content: center;
         align-items: center;
     }
-
     .iconos {
         margin-top: 15%;
     }

@@ -44,7 +44,7 @@
         </form>
         
     </div> 
-    <div class='historial-preguntas'><div>
+    <div class='historial-preguntas'></div>
 
     <script src="../JS/cookiesPerfil.js"></script>    
     <script src="../JS/perfil.js"></script>

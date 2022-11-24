@@ -1,8 +1,25 @@
 <?php
     require ('../db_functions.php');
 
+    //variable global con la conexion BBDD
     $dbh = connect();
 
+    // funcion para obtner respuestas con filtros: siguiendo esta estructura 
+    //
+    // case orden
+    //     if($categoria) {
+    //         if($buscar)
+    //             busqueda + categoria + orden
+    //         else
+    //             categoria + orden
+    //     }
+    //     else{
+    //         if($buscar)
+    //             busqueda + orden
+    //         else
+    //             orden
+    //     }
+    // break
     function api_getPreguntas(){
         global $dbh;
 
@@ -13,20 +30,7 @@
         $buscar = isset($_GET['buscar']) ? $_GET['buscar'] : null;
 
         switch ($order) {
-            // case orden
-            //     if($categoria) {
-            //         if($buscar)
-            //             busqueda + categoria + orden
-            //         else
-            //             categoria + orden
-            //     }
-            //     else{
-            //         if($buscar)
-            //             busqueda + orden
-            //         else
-            //             orden
-            //     }
-            // break
+           
             case 'masVistas':
                 if($categoria) {
                     if($buscar)
@@ -160,6 +164,7 @@
         return $preguntas;
     }
 
+    // funcion para obtner las preguntas del usuario actual
     function api_GetPreguntasUsuario() {
         global $dbh;
 
@@ -168,7 +173,7 @@
         return $preguntas;
     }
 
-
+    // funcion para obtner todas las preguntas
     function api_getPregunta(){
         global $dbh;
 
@@ -177,6 +182,7 @@
         return $preguntas;
     }
 
+    // funcion para obtner todas las respuestas
     function api_getRespuestas(){
         global $dbh;
 
@@ -185,36 +191,43 @@
         return $preguntas;
     }
 
+    // funcion para anadir visto a una pregunta
     function api_actualizarVisto(){
         global $dbh;
         updateVisto($dbh, $_GET["id"]);
     }
 
+    // funcion para anadir like a una pregunta
     function api_actualizarLike(){
         global $dbh;
         insertarLike($dbh, $_GET["id"]);
     }
 
+    // funcion para borrar like a una pregunta
     function api_borrarLike(){
         global $dbh;
         borrarLike($dbh, $_GET["id"]);
     }
 
+    // funcion para anadir voto a una respuesta
     function api_actualizarVoto(){
         global $dbh;
         insertarVoto($dbh, $_GET["id"]);
     }
 
+    // funcion para borrar voto a una respuesta
     function api_borrarVoto(){
         global $dbh;
         borrarVoto($dbh, $_GET["id"]);
     }
 
+    // funcion para obtener todas las categorias
     function api_getCategorias(){
         global $dbh;
         return getAll($dbh, "CATEGORIA");;
     }
 
+    // funcion para insertar una pregunta
     function api_enviarPregunta(){
         global $dbh;
         if (isset($_GET['titulo']) && isset($_GET['categoria']) && isset($_GET['detalle']) ) { // && isset($_GET['archivo'])
@@ -230,6 +243,7 @@
         }       
     }
 
+    // funcion para insertar una respuesta
     function api_enviarRespuesta(){
         global $dbh;
         if (isset($_GET['id_preg']) && isset($_GET['detalle']) ) { // && isset($_GET['archivo'])
@@ -244,6 +258,7 @@
         }  
     }
 
+    // funcion para actualizar la puntuacion de todos los usuarios
     function api_actualizarPuntuaciones() {
         global $dbh;
         $usuarios = getAll($dbh, "USUARIO");
@@ -253,6 +268,7 @@
 
     }
 
+    // funcion para actualizar la puntuacion de un usuario concreto
     function api_actualizarPuntuacion($id_usuario) {
         global $dbh;
         $preguntas = getVistaPreguntasPorUsuario($dbh, $id_usuario);

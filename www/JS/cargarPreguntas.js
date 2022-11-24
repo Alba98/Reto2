@@ -84,19 +84,26 @@ function cargarLayoutPregunta(datosPregunta) {
 <div class='atributos'>
     <div class='stats'>
         <div class='iconos'>
-            <button class='botones'><i class='fa-solid fa-thumbs-up'></i></button>
-            <b class='nums'>${datosPregunta.likes} LIKE</b>
+            <i class='fa-solid fa-thumbs-up'></i>
+            <br>
+            <b class='nums'>${datosPregunta.likes}</b>
+            <b>LIKE</b>
         </div>
         <div class='iconos'>
-            <button class='botones'><i class='fa-brands fa-teamspeak'></i></button>
-            <b class='nums'>${datosPregunta.respuestas} RES</b>
+            <i class='fa-brands fa-teamspeak'></i>
+            <br>
+            <b class='nums'>${datosPregunta.respuestas}</b>
+            <b>RES</b>
         </div>
         <div class='iconos'>
-            <button class='botones'><i class='fa-solid fa-eye'></i></button>
-            <b class='nums'>${datosPregunta.vistos} VISTO</b>
+            <i class='fa-solid fa-eye'></i>
+            <br>
+            <b class='nums'>${datosPregunta.vistos}</b>
+            <b>VISTO</b>
         </div>
-        <a class='res' href='?accion=detalles' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Detalle</a>
     </div>
+    <a class='res' href='?accion=detalles' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Detalle</a>
+   
 </div>`;
 
     //Obtenemos el boton para añadir un evento click
