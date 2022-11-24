@@ -174,40 +174,50 @@ INSERT INTO `CATEGORIA`(`nombre`) VALUES ('Aeroespacio');
 INSERT INTO `CATEGORIA`(`nombre`) VALUES ('Parques aeronauticos');
 INSERT INTO `CATEGORIA`(`nombre`) VALUES ('Seguridad Aerea');
 
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Pedro','Gonzalez','pedro@gmail.com','pedro',3);
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Pepe','Fernandez','pepe@gmail.com','pepe',4);
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Angel','Rodriguez','angel@gmail.com','angel',2);
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Mauro','Arambarri','mauro@gmail.com','mauro',5);
-INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`,`puntuacion`) VALUES ('Kike','Garcia','kike@gmail.com','kike',1);
-INSERT INTO `USUARIO`(`nombre`, `email`, `contrasenia`) VALUES ('Albatxu', 'albatxu@gmail.com', 'Hola1234');
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Fernando','Gonzalez','fernandi@gmail.com','fernando');
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Pepe','Fernandez','pepe@gmail.com','pepe');
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Angel','Rodriguez','angel@gmail.com','angel');
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Mauro','Arambarri','mauro@gmail.com','mauro');
+INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Kike','Garcia','kike@gmail.com','kike');
 
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué es la regla Paretto y dónde podría aplicarse este princicpio?','No había conocido esta ley hasta el día de hoy, pero imagino que su aplicación en la meteorología aeronáutica tiene que ver con la utilización de una escala meteorológica menor (mesoescala e incluso microescala) que son aquellas escalas en la que están los fenómenos que afectan a la aeronavegación (tormentas, downburst, microburst, etc). Tienen una extensión y una duración menor que la escala sinóptica (serían el 20 de esa ley, pero generarían el 80% de los problemas que afectan a la navegación aérea).','1',7);
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué problemas puede causar una tormenta en los alrededores de un aeropuerto?','Un avión en la aproximación final puede encontrar una fuerte ascendencia debida a la parte exterior del torbellino horizontal creado por rebote del "downburst". Quizá la reacción del piloto sea la de bajar el morro del avión, lo cual no puede ser más desaconsejable, ya que inmediatamente se encontrará la intensa corriente descendente y con tal presentación del avión, las consecuencias pueden ser fatales.','2',31);
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué significa VNE? ¿Qué pasa si no se cumple?','No debe confundirse el "downburst" con el tornado; son fenómenos de extensión parecida y a veces efectos similares, pero hay una diferencia esencial: en el "downburst" las corrientes son descendentes, mientras que en el tornado se combinan ascendentes y en espiral. Acaso para la pequeña aviación revistan especial peligrosidad los procedentes de las tormentas secas por ser mas difíciles de localizar y en buena parte de los casos casi imposible identificar visualmente.','3',21);
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Por qué es importante el pronóstico del viento en un aeropuerto?','La turbulencia por cortante de viento (o cizalladura del viento) se produce cuando hay un cambio brusco en la velocidad y/o dirección del viento. A grandes alturas este tipo de turbulencia se denomina CAT (Turbulencia en aire claro) y se asocia en general a la corriente en chorro. No se asocia a nubosidad de allí su nombre y por lo tanto no puede reconocerse a simple vista.','4',56);
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué significa "alternate"?','La turbulencia mecánica se debe a los torbellinos que se generan en el aire al chocar con diferentes obstáculos en la superficie. Puede verse incrementada en el caso de aire inestable y también debido a la presencia de una barrera orográfica. Las ondas de montaña generan turbulencia moderada o severa y su manifestación visible son los altocúmulos lenticulares que se forman en esas ondas.','5',3);
-
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('test', 'sdfasdf', 2, 1);
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('test test', 'sdfdsf', 1, 1);
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('test test test', 'dsfadsf', 1, 2);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué es la regla Paretto y dónde podría aplicarse este princicpio?','No había conocido esta ley hasta el día de hoy, pero imagino que su aplicación en la meteorología aeronáutica tiene que ver con la utilización de una escala meteorológica menor (mesoescala e incluso microescala) que son aquellas escalas en la que están los fenómenos que afectan a la aeronavegación (tormentas, downburst, microburst, etc). Tienen una extensión y una duración menor que la escala sinóptica (serían el 20 de esa ley, pero generarían el 80% de los problemas que afectan a la navegación aérea).',1,7);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué problemas puede causar una tormenta en los alrededores de un aeropuerto?','Un avión en la aproximación final puede encontrar una fuerte ascendencia debida a la parte exterior del torbellino horizontal creado por rebote del "downburst". Quizá la reacción del piloto sea la de bajar el morro del avión, lo cual no puede ser más desaconsejable, ya que inmediatamente se encontrará la intensa corriente descendente y con tal presentación del avión, las consecuencias pueden ser fatales.',2,31);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué significa VNE? ¿Qué pasa si no se cumple?','No debe confundirse el "downburst" con el tornado; son fenómenos de extensión parecida y a veces efectos similares, pero hay una diferencia esencial: en el "downburst" las corrientes son descendentes, mientras que en el tornado se combinan ascendentes y en espiral. Acaso para la pequeña aviación revistan especial peligrosidad los procedentes de las tormentas secas por ser mas difíciles de localizar y en buena parte de los casos casi imposible identificar visualmente.',3,21);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Por qué es importante el pronóstico del viento en un aeropuerto?','La turbulencia por cortante de viento (o cizalladura del viento) se produce cuando hay un cambio brusco en la velocidad y/o dirección del viento. A grandes alturas este tipo de turbulencia se denomina CAT (Turbulencia en aire claro) y se asocia en general a la corriente en chorro. No se asocia a nubosidad de allí su nombre y por lo tanto no puede reconocerse a simple vista.',4,56);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué significa "alternate"?','La turbulencia mecánica se debe a los torbellinos que se generan en el aire al chocar con diferentes obstáculos en la superficie. Puede verse incrementada en el caso de aire inestable y también debido a la presencia de una barrera orográfica. Las ondas de montaña generan turbulencia moderada o severa y su manifestación visible son los altocúmulos lenticulares que se forman en esas ondas.',5,3);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Están todos los vuelos del planeta controlados por radar?','Lo que se intenta arreglar mediante radares extra, helipuertos, etcétera. Lo mismo ocurre en otros países, interesados en erradicarlo para evitar accidentes y, también, aviones clandestinos.',1,9);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Puede un rayo alcanzar a un avión y hacerlo caer?','Eso sí, cuando ocurre, se revisa bien el avión por si acaso, especialmente la zona delantera.',3,2);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Por qué las ventanillas son redondas?','Por puro aerodinamismo. El Havilland Comet, que fue el primer avión comercial, tenía ventanas cuadradas y, tras accidentes varios, algunos mortales, se vio que fue un importante error de diseño. Todo debido a que la presión dentro y fuera de la cabina afecta a las esquinas de las ventanas cuadradas, provocando fallas estructurales.',2,1);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Por qué no están alineadas las ventanillas y los asientos?','Además, el pequeño agujero ubicado en la parte baja de las ventanas ayuda a regular la presión que la ventana resiste, y asegura que sean los paneles exteriores los que se rompen en caso de emergencia.',4,3);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Una turbulencia puede ser suficientemente fuerte como para abatir un avión?','Se trata de una armonización casi imposible de conseguir, ya que los aviones tienen un diseño específico en su fuselaje que implica, claro, a las ventanillas. Mientras que el diseño de este depende de las constructoras, el interior permite mayores cambios por las compañías.',5,8);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Qué pasa si todos los motores del avión se rompen o apagan al mismo tiempo?','De hecho, el aparato se convertiría en un planeador y haría justo eso: planear hasta el aeropuerto o zona específica de aterrizaje más cercana.',1,11);
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`) VALUES ('¿Es verdad que los aviones tiran los desechos del baño en el aire?','suelen ser restos que no se han derretido bien de una gotera o fuga, no de un avión en perfecto funcionamiento.',1,14);
 
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('La regla o ley de Paretto (la Regla del 80/20) significa que el 20% de algo es esencial y el 80% es trivial. El 20% de los defectos causan el 80% de los problemas, el 20% del trabajo consume el 80% del tiempo y los recursos. La regla del 80/20 también se aplica a las ventas (el 20% de los clientes produce el 80% de los beneficios; o el 20% de los vendedores realiza el 80% de las ventas) o a cualquier otra cosa (el 20% del diario trae el 80% de las noticias importantes, o que el 20% de los empleados causan el 80% de los problemas).',1);
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Las aeronaves que llegan o parten del aeropuerto podrían encontrarse con granizo, engelamiento, turbulencia e incluso en casos extremos con fuertes descendentes (microrráfagas o downburst: macroburst o microburst) que podrían tener graves consecuencias. Las llamadas en inglés "downburst" al llegar al suelo se extienden con violencia. No sólo se forman los temidos "downburst" en las fases de comienzo del estado de madurez de un proceso tormentoso, es decir, en el llamado "reventón" en muchos países de habla hispana, sino que también se pueden presentar en tormentas secas.',1);
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('VNE es la velocidad de nunca exceder. Se marca con una línea roja en muchos indicadores de velocidad aérea y varía en cada aeronave. Exceder VNE da lugar a una pérdida de control e incluso puede producir fallas estructurales. No es seguro volar en o cerca de VNE en condiciones de turbulencia.',2);
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Cambios en la dirección o velocidad del viento tienen implicancias directas en las operaciones del aeródromo. De acuerdo a la dirección del viento se define qué cabecera de pista se empleará en las operaciones de despegue y aterrizaje. Además, las aeronaves tienen limitaciones respecto de la componente de viento cruzado (que a su vez varían si la pista está seca o mojada).',3);
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Significa alternativa, o aeropuerto de alternativa. En los planes de vuelo se establecen de antemano a qué aeropuertos se va a dirigir la aeronave en caso de que el aeropuerto de destino se encuentre cerrado o en caso de que la aeronave tenga algún problema y no pueda llegar al aeropuerto de destino. El aeropuerto de alternativa a seleccionar para cualquier destino,deberá garantizar con la mayor probabilidad de éxito el aterrizaje en caso que el aeropuerto de destino se encuentre bajo mínimos, contemplando las limitaciones de techo y visibilidad (no de distancia de vuelo) de la categoría que reviste el piloto.',4);
-INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Se usa el QNH. EL QNH es la presión al nivel del mar deducida de la existente en el aeródromo, considerando la atmósfera en condiciones estándar. La utilidad de esta presión de referencia se debe a que en las cartas de navegación y de aproximación a los aeródromos, las altitudes se indican respecto al nivel del mar. Con esta presión de referencia, al despegar o aterrizar el altímetro debería indicar la altitud real del aeródromo.',1);
-
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Se usa el QNH. EL QNH es la presión al nivel del mar deducida de la existente en el aeródromo, considerando la atmósfera en condiciones estándar. La utilidad de esta presión de referencia se debe a que en las cartas de navegación y de aproximación a los aeródromos, las altitudes se indican respecto al nivel del mar. Con esta presión de referencia, al despegar o aterrizar el altímetro debería indicar la altitud real del aeródromo.',2);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('No. Al contrario, hay muchas zonas llamadas de sombra. Las principales son los océanos, pero también en grandes desiertos e incluso en países con mucha orografía.',6);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('No. La fabricación actual de los aviones impide que el aparato se caiga por el impacto de un rayo. De hecho, es relativamente frecuente que los rayos choquen con un avión, pero las aeronaves no se ven afectadas (mínimo hay un reporte anual de este suceso).',7);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Hay personas que han visto caer agua azul petrificada, como la que se usa en los retretes, pero suelen ser restos que no se han derretido bien de una gotera o fuga',9);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('No. Solo ha ocurrido una vez en la historia de la aviación que un aparato se precipitara por culpa de una turbulencia y fue debido a una suma de varios factores, además de sobrevolar una zona que estaba prohibida.',10);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Aunque la posibilidad de que ocurra es extremadamente baja (y solo se recuerda un caso en toda la historia de la aviación), los propios pilotos mantienen la calma.',11);
+INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('No. De hecho, es imposible que los retretes se vacíen en el aire porque la válvula que permite realizar esa acción está ubicada en el exterior del aparato. Hay personas que han visto caer agua azul petrificada, como la que se usa en los retretes,',12);
 
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1,1);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (2,2);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (3,3);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (4,4);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (5,5);
-
-INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1, 6);
-INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1, 7);
-INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1, 8);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1,6);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (4,7);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (2,8);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (3,9);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (4,10);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (5,11);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1,12);
 
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (1,1);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,2);
@@ -215,6 +225,12 @@ INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (3,3);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (4,4);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,5);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,6);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (1,7);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (3,8);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (4,9);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,10);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,11);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,12);
 
 INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (1,1);
 INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (2,1);
@@ -222,9 +238,22 @@ INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (3,1);
 INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (1,2);
 INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (1,3);
 INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (2,2);
+INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (5,4);
+INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (3,2);
+INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (5,9);
+INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (4,12);
+INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (4,4);
+INSERT INTO `VOTAR`(`id_usu`,`id_res`) VALUES (2,4);
+
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (1,1);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (2,3);
-INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (2,4);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (2,10);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (4,2);
-INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (3,1);
-
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (3,9);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (2,8);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (4,7);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (4,12);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (1,5);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (3,5);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (5,11);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (5,2);
