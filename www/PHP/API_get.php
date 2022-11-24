@@ -46,6 +46,7 @@
             break;
     }
 
+    //cargar el header en formato JSON y implementarle el array de datos
     header('Content-Type', 'application/json');
     echo json_encode($respuesta);
 ?>
