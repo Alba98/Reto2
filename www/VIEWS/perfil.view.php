@@ -39,14 +39,14 @@
                 <img src="../RECURSOS/IMAGES/user.png" alt="Foto de perfil" class="perfil" id="fotoperfil" hidden><br><br>
                 <input class="inputs" type="file" name="pfoto" id="foto" disabled><br><br>
                 <input type="button" value="EDITAR PERFIL" id="editar">
+                <input type="button" value="VER HISTORIAL" id="his">
             </div>
         </form>
     </div> 
-
-    <script src="../JS/perfil.js"></script>
-    <script src="../JS/cookies.js"></script>
+    <script src="../JS/cookiesPerfil.js"></script>    
 
     <noscript>El navegador no soporta JavaScript</noscript>
 </div>
+<script src="../JS/perfil.js"></script>
 
 <?php require('VIEWS/PARTIALS/footer.php') ?>

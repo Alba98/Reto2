@@ -20,7 +20,7 @@
                     <b style="color:red" id="categoriaIncorrecto" hidden>Escoja una categoria</b>
                     <br><br>
                     <label for="detalle">Detalle</label>
-                    <textarea class="inputs" name="detalle" id="detalle" cols="50" rows="10" maxlength="500" ></textarea>
+                    <textarea class="inputs" name="detalle" id="detalle"></textarea>
                     <br> 
                     <b style="color:red" id="detalleIncorrecto" hidden>Detalle no puede estar vacio</b>
                 </div> 

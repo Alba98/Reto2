@@ -160,6 +160,15 @@
         return $preguntas;
     }
 
+    function api_GetPreguntasUsuario() {
+        global $dbh;
+
+        $preguntas = getVistaPreguntasPorUsuario($dbh, $_GET['usuario']);
+
+        return $preguntas;
+    }
+
+
     function api_getPregunta(){
         global $dbh;
 

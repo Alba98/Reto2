@@ -104,10 +104,5 @@ async function borrarVoto(id_res) {
 
 
 
-
-
-
-
-
  
 

@@ -23,7 +23,7 @@
                 </div>
                 <ul id="menu-principal">
                     <li><a href="?accion=preguntar">Preguntar <i class="fa-solid fa-circle-question"></i></a></li>
-                    <li><a href="?accion=perfil">Perfil <i class="fa-solid fa-user-graduate"></i></a></li>
+                    <li><a href="?accion=perfil" id="historialIndex">Perfil <i class="fa-solid fa-user-graduate"></i></a></li>
                     <li><a href="?accion=cerrarsesion"><i class="fa-solid fa-right-from-bracket"></i></a></li>
                 </ul>
             </nav>
@@ -43,4 +43,4 @@
                 </ul>
             </div>
         <div id="main">
-   
+      

@@ -119,14 +119,25 @@
             <input class="inputs" type="text" name="rnombre" placeholder="Nombre de usuario" required="">
             <input class="inputs" type="email" name="remail" placeholder="Email" required="">
             <input class="inputs" type="password" name="rpswd" placeholder="Contraseña" required="" id="loginPassword">
+           <!--
+            <span id="credencialesContrasenia">
+                <p>
+                La cadena debe contener al menos 1 carácter alfabético en minúscula.<br>
+                La cadena debe contener al menos 1 carácter alfabético en mayúscula.<br>
+                La cadena debe contener al menos 1 carácter alfabético en mayúscula.<br>
+                La cadena debe contener al menos un carácter especial, pero estamos escapando de los caracteres RegEx reservados para evitar conflictos.<br>
+                La cadena debe tener ocho caracteres o más.
+                </p>    
+            </span>
+            -->
             <b style="color:red;margin-left:15%" id="passIncorrecta" hidden>Formato de contraseña invalido</b>
             <button id="btn-registrar">Registrarse</button>
         </form>
     </div>
     <script src="../JS/loginValidacion.js"></script>
-    <script src="../JS/cookies.js"></script>
+    <script src="../JS/cookiesLogin.js"></script>
 
     <noscript>El navegador no soporta JavaScript</noscript>
 </div>
-
 <?php require('VIEWS/PARTIALS/footer.php') ?>
+

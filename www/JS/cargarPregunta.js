@@ -2,14 +2,17 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
+
+
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 const API_URL = '/PHP/API_get.php';
 
+// Con la siguiente funcion cargamos cada layout de los detalles de las preguntas con su correspondiente id de la BBDD      
+ //El await espera al resultado de la promesa que devuelve la funcion asincrona              
 async function cargarPregunta(id_preg) {
-    let respuesta = await fetch(API_URL + '?funcion=getDetallesPregunta&id='+id_preg) // con '?' separamos la ruta de los parametros
-                        /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
+    let respuesta = await fetch(API_URL + '?funcion=getDetallesPregunta&id='+id_preg)// con '?' separamos la ruta de los parametros    
     if (respuesta.ok) {
-        return respuesta.json();
+        return respuesta.json(); //Si la respuesta es correcta convertimos a datos JSON.
     } else {
         return {
             mensaje: 'Error en el servidor',
@@ -23,10 +26,15 @@ function setValoracion(valoracion,num) {
     } else return "";
 }
 
+/***************************************************************************
+Usamos la interfaz DOM poque representa cómo el navegador lee documentos HTML. 
+Permite que el lenguaje JavaScript manipule, estructure y diseñe su sitio web. 
+***************************************************************************/
+
+//Funcion cargar vista de los detalles de la pregunta:
 function cargarLayout(datosPregunta) {
     let contenedorPregunta = document.getElementsByClassName("zonaPregunta")[0];
     let pregunta = document.createElement('div');
-
     pregunta.classList.add('detalles');
     pregunta.classList.add('recuadro');
 
@@ -66,11 +74,9 @@ function cargarLayout(datosPregunta) {
 
     contenedorPregunta.appendChild(pregunta);
 
-    // Añadir el id pregunta al formulario de respuesta
-    // <input id="pregId" name="pregId" type="hidden" value="${datosPregunta.id_preg}"></input>
+    //Añadimos el id  de la pregunta al formulario de respuesta:
     let contenedorResponder = document.getElementsByClassName("izq")[0];
-    
-    var input = document.createElement("input");
+     var input = document.createElement("input");
     input.setAttribute("type", "hidden");
     input.setAttribute("name", "pregId");
     input.setAttribute("id", "pregId");
@@ -79,8 +85,11 @@ function cargarLayout(datosPregunta) {
     contenedorResponder.appendChild(input);
 }
 
+//Usamos el almacenacimiento local 'localStorage' porque los datos almacenados en el navegador persistirán incluso después de que se cierre la ventana del navegador:
+//El método getItem() de la interfaz localStorage devuelve el valor de la clave cuyo nombre se le pasa por parámetro:
 let id_preg = localStorage.getItem('idPregunta');
 cargarPregunta(id_preg)
+//La respuesta del servidor la recibimos como parámetro en la función que indicamos para ejecutar en el caso positivo, then():
     .then( function(resultadoPromesa) {
         if (resultadoPromesa.mensaje) { // != undefined
             console.error(resultadoPromesa);
@@ -90,7 +99,6 @@ cargarPregunta(id_preg)
     }
 );
  
-
 async function insertarLike(id_preg) {
     let respuesta = await fetch('/PHP/API_get.php' + '?funcion=insertarLike&id='+id_preg)
     if (respuesta.ok) {
