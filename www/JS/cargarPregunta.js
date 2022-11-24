@@ -102,6 +102,8 @@ cargarPregunta(id_preg)
 async function insertarLike(id_preg) {
     let respuesta = await fetch('/PHP/API_get.php' + '?funcion=insertarLike&id='+id_preg)
     if (respuesta.ok) {
+        var form = document.getElementById('responderForm');
+        if(form) form.submit();
         return respuesta.json();
     } else {
         return {
@@ -113,6 +115,8 @@ async function insertarLike(id_preg) {
 async function borrarLike(id_preg) {
     let respuesta = await fetch('/PHP/API_get.php' + '?funcion=borrarLike&id='+id_preg)
     if (respuesta.ok) {
+        var form = document.getElementById('responderForm');
+        if(form) form.submit();
         return respuesta.json();
     } else {
         return {

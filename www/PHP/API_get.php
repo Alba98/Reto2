@@ -49,6 +49,9 @@
             break;
     }
 
+    //cada vez que se realice una accion actualizar las puntuaciones de los usuarios
+    api_actualizarPuntuaciones();
+
     //cargar el header en formato JSON y implementarle el array de datos
     header('Content-Type', 'application/json');
     echo json_encode($respuesta);
