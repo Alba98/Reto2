@@ -248,7 +248,7 @@
         global $dbh;
         $usuarios = getAll($dbh, "USUARIO");
         foreach ($usuarios as $usuario) { 
-            api_actualizarPuntuacion($usuario);
+            api_actualizarPuntuacion($usuario->id_usu);
         }
 
     }
