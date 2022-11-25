@@ -6,7 +6,7 @@
 var botonRegitro = document.getElementById("btn-registrar");
 var iNombre = document.getElementById("rnombre");
 var iEmail = document.getElementById("remail");
-var iPassword = document.getElementById("loginPassword");
+var iPassword = document.getElementById("rPassword");
 
 // Texto incorrecto
 var nombreIncorrecto = document.getElementById("nombreIncorrecto");
@@ -72,8 +72,17 @@ function validarEmail() {
 }
 
 // Boton del ojo, mostraremos el campo de la contraseña
-function mostrarContrasena(){
+function mostrarContrasenaLogin(){
     var tipo = document.getElementById("pass");
+    if(tipo.type == "password"){
+        tipo.type = "text";
+    }else{
+        tipo.type = "password";
+    }
+}
+
+function mostrarContrasenaRegistro(){
+    var tipo = document.getElementById("rPassword");
     if(tipo.type == "password"){
         tipo.type = "text";
     }else{
