@@ -13,7 +13,10 @@
                 //echo '<p style="color:green">Inicio de sesión hecho correctamente</p>';
                 header("Location: index.php?accion=preguntas", TRUE, 301);
                 exit();
-            } else echo '<p style="color:red">Contraseña o email no validos</p>';
+            } else {
+                header("Location: index.php?accion=error&problema=login", TRUE, 301);
+                exit();
+            }
         }
        
         // Registrarse
@@ -23,7 +26,13 @@
                 //echo '<p style="color:green">Registro hecho correctamente</p>';
                 header("Location: index.php?accion=preguntas", TRUE, 301);
                 exit();
-            } else echo '<p style="color:red">Fallo al registrar</p>';
+            } else {
+                header("Location: index.php?accion=error&problema=registro", TRUE, 301);
+                exit();
+            }
+        }
+        else if(isset($_GET['accion']) && $_GET['accion'] == 'error') {
+            require('VIEWS/error.view.php');
         }
         else {
             require('VIEWS/login.view.php');
@@ -32,21 +41,20 @@
         if (isset($_GET['accion'])) {
             switch ($_GET['accion']) {
                 case 'preguntar':
-                    $dbh = connect();
-                    $infousuario = getUsuario($dbh);
                     require('VIEWS/publicarPregunta.view.php');
                     break;
                 case 'detalles':
                     require('VIEWS/detalles.view.php');
                     break;
                 case 'perfil':
-                    $dbh = connect();
-                    $infousuario = getUsuario($dbh);
                     require('VIEWS/perfil.view.php');
                     break;
                 case 'cerrarsesion':
                     cerrarSesion();
                     require('VIEWS/login.view.php');
+                    break;
+                case 'error':
+                    require('VIEWS/error.view.php');
                     break;
                 default:
                     require('VIEWS/visualizarPreguntas.view.php');

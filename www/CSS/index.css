@@ -1,9 +1,7 @@
 :root {
     --grullo: #ABA194;
     --paleSilver: #BDB6AF;
-   
     --menuBotones: #7871AA;
-
     --fondo: #e5e7e8;
     --recuadro: #D8DDDE;
     --hover: rgb(133, 174, 218);
@@ -43,8 +41,6 @@ body * {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    place-items: center; */
     background: var(--fondo) fixed;
 }
 .recuadro {
@@ -57,7 +53,7 @@ body * {
 /* formularios */
 .formulario{
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: 30% 30%;
     grid-template-rows: auto auto;
     grid-template-areas:
         "izq der";
@@ -80,6 +76,11 @@ body * {
     border: 1px solid white;
     border-radius: 5px;
 }
+.formulario input {
+    padding: 1%;
+    border: 1px solid white;
+    border-radius: 5px;
+}
 .formulario input[type='file'] {
     width: 80%;
     cursor: pointer;
@@ -88,8 +89,7 @@ body * {
 }
 .formulario input[type='submit'], input[type='button'], input[type='reset']{
     background-color: var(--menuBotones);
-    border: 1px solid white;
-    border-radius: 5px;
+
     color: white;
     padding: 10px;
     cursor: pointer;
@@ -99,15 +99,16 @@ body * {
     cursor: pointer;
     background-color: var(--menuBotones);
     padding: 1px;
-    border: 1px solid white;
-    border-radius: 5px;
-
 }
 .formulario .perfil {
     width: 140px;
 }
+.formulario textarea{
+    resize: none;
+    width: 100%;
+    height: 7rem;
+}
 /****************************** HEADER ****************************************/
-
 #menu a {
     text-decoration: none;
     color: var(--fondo);
@@ -124,12 +125,18 @@ a:visited {
     position: sticky;
     top: 0px;
     z-index: 5;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0px 5px 10px var(--sombra);
 }
 #logo-menu {
     display: flex;
     height: 40px;
     margin: 10px 20px;
+}
+#menu span{
+   color:white;
+   font-size: 2rem;
+   padding-top:3px;
+   margin-left: 10px;
 }
 #menu-principal {
     display: flex;
@@ -222,11 +229,13 @@ footer {
     box-shadow: -10px -5px 10px rgba(0, 0, 0, 0.5);
 }
 #redessociales{
+    cursor: pointer;
     width: 200px;
     height: 50px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 footer #direccion {
     grid-area: direccion;
@@ -269,9 +278,7 @@ footer #mapa {
     background-color: var(--hover);
     cursor: pointer;
 }
-
 /******************************** LOGIN *************************************/
-
 #inicioSesion{
 	width: 350px;
 	height: 500px;
@@ -279,11 +286,14 @@ footer #mapa {
 	background: var(--paleSilver);
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
-    /* align-self: center; */
     margin: auto auto;
 }
 #inicioSesion #chk{
 	display: none;
+}
+#inicioSesion .ojo{
+    height: 30px;
+    font-size: 15px;
 }
 .login{
 	position: relative;
@@ -312,7 +322,7 @@ footer #mapa {
 	outline: none;
 	border-radius: 5px;
 }
-#inicioSesion button{
+#inicioSesion button, #inicioSesion input[type='button']{
 	width: 60%;
 	height: 40px;
 	margin: 10px auto;
@@ -322,14 +332,14 @@ footer #mapa {
 	background: var(--menuBotones);
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 20px;
+	margin-top: 15px;
 	outline: none;
 	border: none;
 	border-radius: 5px;
 	transition: .2s ease-in;
 	cursor: pointer;
 }
-.login button:hover{
+#inicioSesion button:hover, #inicioSesion input[type='button']:hover{
 	background: var(--grullo);
 }
 .registro{
@@ -340,7 +350,6 @@ footer #mapa {
 	transition: .8s ease-in-out;
 }
 .registro label{
-	color: var(--paleSilver);
 	transform: scale(.6);
 	margin: 50px;
 }
@@ -348,6 +357,7 @@ footer #mapa {
 	transform: translateY(-90%);
 }
 #chk:checked ~ .registro label{
+    color: var(--paleSilver);
 	transform: scale(1);
     padding-top: 20px;	
 }
@@ -355,7 +365,6 @@ footer #mapa {
 	transform: scale(.6);
 }
 /****************************** VISUALIZACION PREGUNTAS ****************************************/
-
 .visualizacion {
     width: 100vw;
 }
@@ -404,6 +413,7 @@ footer #mapa {
     grid-template-columns: repeat(3,1fr);
     grid-template-areas:
     "user info atributos";
+    grid-gap: 1%;
 }
 .respuesta{
     grid-template-columns: 20% 30% 50%;
@@ -415,6 +425,7 @@ footer #mapa {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: var(--grullo);
 }
 .info {
@@ -422,19 +433,22 @@ footer #mapa {
     display: flex;
     flex-direction: column;
     text-align: center;
+    padding: 3%;
 }
 .atributos {
     grid-area: atributos;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     
 }
-.perfil {
+.perfil, output {
     width: 140px;
 }
 .stats {
-    display: grid;
-    grid-template-columns: repeat(3,2fr);
-    grid-template-areas: 
-    ". . ."
-    "res res res";
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
     gap: 15%;
 }
 .iconos {
@@ -445,8 +459,8 @@ footer #mapa {
 }
 .res {
     margin-left: 10px;
-    grid-area: res;
     padding: 5% 10%;
+    text-align: center;
     background: var(--menuBotones);
     border: 1px solid white;
     border-radius: 5px;
@@ -454,29 +468,17 @@ footer #mapa {
     cursor: pointer;
     text-decoration: none;
     justify-self: center;
+    width: fit-content;
+    align-self: center;
 }
 .nums {
-    color: white;
+    color: black;
     margin-top: 5%;
     padding-bottom: 10%;
-    font-size:1.2em;
+    font-size:0.9rem;
     overflow: hidden;
 }
-.botones {
-    overflow: hidden;
-    font-size: 2.5rem;
-    padding-top: 10%;
-    padding-bottom: 20%;
-    padding-left: 25%;
-    padding-right: 25%;
-    background: var(--grullo);
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-}
-
 /* Estilo valoraciones */
-  
 .clasificacion input[type="radio"] {
     display: none;
 }
@@ -488,27 +490,17 @@ footer #mapa {
     direction: rtl;
     unicode-bidi: bidi-override;
 }
-.clasificacion label:hover,
-.clasificacion label:hover ~ label {
-    color: orange;
-    cursor: pointer;
-} 
 .clasificacion input[type="radio"]:checked ~ label {
     color: orange;
 }
-
 /****************************** DETALLE PREGUNTA ****************************************/
-
 .detalles {
     display: grid;
     grid-template-columns: 20% 30% 50%;
     grid-template-areas:
     "votos user info";
 }
-.detalles i {
-    font-size: 70px;
-}
-.respuestas i {
+.detalles i, .respuesta i  {
     font-size: 70px;
 }
 .like,.like:link,.like:visited {
@@ -536,10 +528,7 @@ footer #mapa {
     margin: 4% 0%;
     max-width: 700px;
 }
-
 /****************************** PERFIL ****************************************/
-
-/*Formulario cambio de contraseña*/
 #cambiarPASS {
     display: none;
     margin: 2% 0%;
@@ -550,9 +539,14 @@ footer #mapa {
     border: 1px solid rgb(16, 15, 15);
     border-radius: 5px;
 }
-
+/****************************** ERROR ****************************************/
+.errores {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /****************************** MEDIA ****************************************/
-
 @media only screen and (min-width: 1920px) {
     #menu-principal li a {
         font-size: 1.1rem;
@@ -596,7 +590,6 @@ footer #mapa {
         display: flex;
     }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 950px) {
     footer #mapa {
         max-width: 200px;
@@ -626,7 +619,6 @@ footer #mapa {
         display: none;
     }
 }
-
 @media only screen and (max-width: 360px) {
     #menu-h,
     #menu-h-principal{
@@ -636,7 +628,6 @@ footer #mapa {
         display: none;
     }
 }
-
 @media screen and (max-width: 760px) {
     .pregunta, .respuesta {
         display: flex;
@@ -644,49 +635,17 @@ footer #mapa {
         justify-content: center;
         align-items: center;
     }
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(3,auto);
-        grid-template-areas: 
-        ". . ."
-        "res res res";
-        gap: 12%;
-    }
-    .iconos {
-        margin-top: 15%;
-    }
-    .res {
-        grid-area: res;
-        padding-top: 5%;
-        padding-bottom: 5%;
-        padding-left: 18%;
-        padding-right: 18%;
-        background: var(--menuBotones);
-        border: 1px solid white;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-        text-decoration: none;
-    }
-    .nums {
-        color: white;
-        font-size:0.9em;
-
-    }
-    .botones {
-        font-size: 20px;
-        padding: 10%;
-        padding-left: 25%;
-        padding-right: 25%;
-        background: var(--grullo);
-        border: 1px solid white;
-        border-radius: 5px;
-        color: white;
+    .atributos {
+        width: 50%;
+    } 
+    .formulario {
+        display: flex;
+        flex-direction: column;
     }
     .formulario .der {
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        align-self: flex-start;
     }
     .formulario input[type='submit'] {
         margin-bottom: 15px;
@@ -700,7 +659,5 @@ footer #mapa {
         grid-template-areas:
         "votos user"
         "info info";
-        /* flex-direction: column;
-        justify-content: center; */
     }
 }

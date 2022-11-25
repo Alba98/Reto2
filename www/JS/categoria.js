@@ -2,10 +2,10 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
+
+//Esperamos a que cargue la pregunta después de haber seleccionado la categoria:
 async function cargarPregunta() {
-    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=getCategorias') // con '?' separamos la ruta de los parametros
-                        /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
-   
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=getCategorias');
     if (respuesta.ok) {
         return respuesta.json();
     } else {
@@ -15,22 +15,26 @@ async function cargarPregunta() {
     }
 }
 
+//Cargamos la categoria seleccionada desde el menú de opciones:
 function cargarCategoria(datosCategoria) {
     let selectCategoria = document.getElementById("categoria");
     var nuevaOption = document.createElement("option");
-    nuevaOption.text = datosCategoria.nombre;
-    nuevaOption.value = datosCategoria.id_cat;
+        nuevaOption.text = datosCategoria.nombre;
+        nuevaOption.value = datosCategoria.id_cat;
     selectCategoria.appendChild(nuevaOption);
 }
 
+
 cargarPregunta()
     .then( function(resultadoPromesa) {
-        if (resultadoPromesa.mensaje) { // != undefined
+        if (resultadoPromesa.mensaje){ // != undefined
             console.error(resultadoPromesa);
-        } else {
+        }else {
             resultadoPromesa.forEach(datosCategoria => {
                 cargarCategoria(datosCategoria);
             });
+        if (typeof cargarBusqueda === 'function') //unction is defined
+                cargarBusqueda();
         }
     }
 );

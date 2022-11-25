@@ -15,26 +15,25 @@ var detalleIncorrecto = document.getElementById("detalleIncorrecto");
 
 //Eventos
 botonPreguntar.addEventListener("click", validar);
-iTitulo.addEventListener("focusout", validarTitulo);
-iCategoria.addEventListener("focusout", validarCategoria);
-iDetalle.addEventListener("focusout", validarDetalle);
 
+
+//Funcion que valida los detalles de la pregunta:
 function validar() {
     try {
         validarTitulo();
         validarCategoria();
         validarDetalle();
-        // validarArchivo();
-        
-        enviarPregunta().then( function(resultadoPromesa) {
+       
+     enviarPregunta().then( function(resultadoPromesa) {
             if (resultadoPromesa.mensaje) { 
                 console.error(resultadoPromesa);
             } else {
-                console.log(resultadoPromesa);
+                var form = document.getElementById('responderForm');
+                if(form) form.submit();
             }
         });
     } catch (error) {
-        console.log(error.mensaje);
+        console.log(error);
     }
 }
 
@@ -44,7 +43,7 @@ function validarTitulo() {
     } else {
         iTitulo.focus();
         tituloIncorrecto.hidden = false;
-        throw new Error("Titulo");
+        throw "Titulo vacio";
     }
 }
 
@@ -54,7 +53,7 @@ function validarCategoria() {
     } else {
         iCategoria.focus();
         categoriaIncorrecto.hidden = false;
-        throw new Error("Categoria");
+        throw "Categoria vacio";
     }
 }
 
@@ -64,10 +63,10 @@ function validarDetalle() {
     } else {
         iDetalle.focus();
         detalleIncorrecto.hidden = false;
-        throw new Error("Detalle");
+        throw "Detalle vacio";
     }
 }
-
+//A través de esta funcion el usuario envia la pregunta:
 async function enviarPregunta() {
     let respuesta = await fetch('/PHP/API_get.php' 
                                 + '?funcion=enviarPregunta'

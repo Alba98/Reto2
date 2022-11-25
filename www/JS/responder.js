@@ -2,16 +2,15 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
+//Variables globales:
 var botonResponder = document.getElementById("responder");
 var iDetalle = document.getElementById("detalleR");
-
-// Texto incorrecto
 var detalleIncorrecto = document.getElementById("detalleIncorrecto");
 
 //Eventos
 botonResponder.addEventListener("click", validarResponder);
-iDetalle.addEventListener("focusout", validarDetalle);
 
+//Funcion que valida el cuadro de texto para responder:
 function validarResponder() {
     try {
         validarDetalle();
@@ -21,14 +20,15 @@ function validarResponder() {
             if (resultadoPromesa.mensaje) { 
                 console.error(resultadoPromesa);
             } else {
-                console.log(resultadoPromesa);
+                var form = document.getElementById('responderForm');
+                if(form) form.submit();
             }
         });
     } catch (error) {
         console.log(error.mensaje);
     }
 }
-
+//Funcion que valida el detalle de la pregunta
 function validarDetalle() {
     console.log("validarDetalle")
     if(iDetalle.value) {
@@ -36,17 +36,20 @@ function validarDetalle() {
     } else {
         iDetalle.focus();
         detalleIncorrecto.hidden = false;
+        throw "Detalle vacio";
     }
 }
 
 async function enviarRespuesta() {
-    debugger
+    console.log('/PHP/API_get.php' 
+    + '?funcion=enviarRespuesta'
+    + '&id_preg='+id_preg
+    + '&detalle='+iDetalle.value);
     let respuesta = await fetch('/PHP/API_get.php' 
                                 + '?funcion=enviarRespuesta'
-                                + '&id_preg='+'1'
+                                + '&id_preg='+id_preg
                                 + '&detalle='+iDetalle.value
-                                );
-    debugger                      
+                                );                    
     if (respuesta.ok) {
         return respuesta.json();
     } else {
