@@ -17,6 +17,13 @@ let savePerfil  = document.getElementById('guardarPerfil')
 if (savePerfil) {
     savePerfil.addEventListener('click',guardarCookie);
 }
+/*
+let cerrarSesionCookie  = document.getElementById('cerrarSesion')
+if (cerrarSesionCookie) {
+    cerrarSesionCookie.addEventListener('click',deleteCookies);
+}
+*/
+
 
 //let savePerfil = document.getElementById('guardarPerfil').addEventListener('click',guardarCookie); 
 
@@ -38,14 +45,14 @@ function crearCookie(nombre,valor,dias){
 }//Cookie creada. 
 
 
-//Aqui leemos la cookie
+//La siguiente funcion obtiene el valor de una cookie usando el nombre de la cookie.
 function getCookie(nombre){
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${nombre}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
-//Almacenamos la cokie
+//Almacenamos la cookie después de haber accido a los eventos del formulario del registro:
 function guardarCookie(nombre) {
     let coE = document.getElementsByName('pemail')[0].value;
     let coN = document.getElementsByName('pnombre')[0].value;
@@ -53,20 +60,19 @@ function guardarCookie(nombre) {
     (crearCookie("Email",coE,30));
     (crearCookie("Nombre",coN,30));
     (crearCookie("Apellido",coA,30));
-
     console.log(document.cookie);
 }
 
-//Borramos la cookie 
-function deleteAllCookies() {
-    var cookies = document.cookie.split(";");
 
-    for (var i = 0; i < cookies.length; i++) {
-        var cookie = cookies[i];
-        var eqPos = cookie.indexOf("=");
-        var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
-        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    }
+//Borramos la cookie desde PHP al cerrar sesion:
+/*
+//Borramos la cookie 
+function deleteCookies() {
+    document.cookie = "Email=; max-age=0";
+    document.cookie = "Nombre=; max-age=0";
+    document.cookie = "Apellido=; max-age=0";
+    
 }
-//deleteAllCookies();
+*/
+
 

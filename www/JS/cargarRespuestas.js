@@ -4,10 +4,11 @@
 
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 
+/*La mayoría del código es identíco en el archivo cargarPregunta.js , por lo que la mayoría de la documentación
+se recoge en ese script.*/
 
 async function cargarRespuesta(id_preg) {
-    let respuesta = await fetch(API_URL + '?funcion=getRespuestas&id='+id_preg); // con '?' separamos la ruta de los parametros
-                        /*El await espera al resultado de la promesa que devuelve la funcion asincrona*/
+    let respuesta = await fetch(API_URL + '?funcion=getRespuestas&id='+id_preg);
    
     if (respuesta.ok) {
         return respuesta.json();

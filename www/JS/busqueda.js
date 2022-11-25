@@ -1,8 +1,6 @@
 /**
  * @author    GRUPO 1 <wat2022.wordpress.com>
  */
-
-
 //Variables Globales:
 let buscar = document.getElementById("buscar");
 let categoria = document.getElementById("categoria");

@@ -769,4 +769,8 @@ function userRegistration($nombre,$email,$pass){
 // CERRAR SESIÓN
 function cerrarSesion() {
     unset($_SESSION[ "id_usu"]);
+    setcookie('Nombre',NULL,-1);
+    setcookie('Email', NULL,-1);
+    setcookie('Apellido',NULL,-1);
+    
 }
