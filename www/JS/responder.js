@@ -2,16 +2,15 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
+//Variables globales:
 var botonResponder = document.getElementById("responder");
 var iDetalle = document.getElementById("detalleR");
-
-// Texto incorrecto
 var detalleIncorrecto = document.getElementById("detalleIncorrecto");
 
 //Eventos
 botonResponder.addEventListener("click", validarResponder);
-// iDetalle.addEventListener("focusout", validarDetalle);
 
+//Funcion que valida el cuadro de texto para responder:
 function validarResponder() {
     try {
         validarDetalle();
@@ -29,7 +28,7 @@ function validarResponder() {
         console.log(error.mensaje);
     }
 }
-
+//Funcion que valida el detalle de la pregunta
 function validarDetalle() {
     console.log("validarDetalle")
     if(iDetalle.value) {

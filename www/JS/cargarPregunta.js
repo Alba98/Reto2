@@ -2,8 +2,6 @@
  * @author    GRUPO 1 <wat2022.wordpress.com>
  **/
 
-
-
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 const API_URL = '/PHP/API_get.php';
 
@@ -99,19 +97,20 @@ cargarPregunta(id_preg)
     }
 );
  
+//Funcion que inserta likes por cada pregunta a través del parámetro id_preg
 async function insertarLike(id_preg) {
-    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=insertarLike&id='+id_preg)
+    let respuesta = await fetch('/PHP/API_get.php' + '?funcion=insertarLike&id='+id_preg) 
     if (respuesta.ok) {
         var form = document.getElementById('responderForm');
-        if(form) form.submit();
-        return respuesta.json();
+        if(form) form.submit(); //El método submit() envía el formulario (lo mismo que hacer clic en el botón Enviar).
+        return respuesta.json();//Si la respuesta es correcta convertimos a datos JSON.
     } else {
         return {
             mensaje: 'Error en el servidor',
         };
     }
 }
-
+//Funcion que borra likes por cada pregunta a través del parámetro id_preg
 async function borrarLike(id_preg) {
     let respuesta = await fetch('/PHP/API_get.php' + '?funcion=borrarLike&id='+id_preg)
     if (respuesta.ok) {

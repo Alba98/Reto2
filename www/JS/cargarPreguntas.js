@@ -7,7 +7,7 @@
 se recoge en ese script.*/
 
 
-// let categoria = document.getElementById("categoria")
+//let categoria = document.getElementById("categoria")
 
 //Vamos a guardar la URL (no es la ruta de los archivos , si no del HTTP)
 const API_URL = '/PHP/API_get.php';

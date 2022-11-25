@@ -15,18 +15,16 @@ var detalleIncorrecto = document.getElementById("detalleIncorrecto");
 
 //Eventos
 botonPreguntar.addEventListener("click", validar);
-// iTitulo.addEventListener("focusout", validarTitulo);
-// iCategoria.addEventListener("focusout", validarCategoria);
-// iDetalle.addEventListener("focusout", validarDetalle);
 
+
+//Funcion que valida los detalles de la pregunta:
 function validar() {
     try {
         validarTitulo();
         validarCategoria();
         validarDetalle();
-        // validarArchivo();
-
-        enviarPregunta().then( function(resultadoPromesa) {
+       
+     enviarPregunta().then( function(resultadoPromesa) {
             if (resultadoPromesa.mensaje) { 
                 console.error(resultadoPromesa);
             } else {
@@ -68,7 +66,7 @@ function validarDetalle() {
         throw "Detalle vacio";
     }
 }
-
+//A través de esta funcion el usuario envia la pregunta:
 async function enviarPregunta() {
     let respuesta = await fetch('/PHP/API_get.php' 
                                 + '?funcion=enviarPregunta'

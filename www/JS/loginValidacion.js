@@ -28,7 +28,7 @@ function validarFormulario() {
         console.log(error);
     }
 }
-
+//Funcion para validar la constraseña:
 function validarPassword() {
     //Datos de entrada:
     let pass = iPassword.value;
@@ -50,7 +50,7 @@ function validarPassword() {
         throw "Problemas contraseña";
     }
 }
-
+//Funcion para validar el nombre:
 function validarNombre() {
     if(iNombre.value) {
         nombreIncorrecto.hidden = true;
@@ -60,7 +60,7 @@ function validarNombre() {
         throw "Nombre vacio";
     }
 }
-
+//Funcion para validar el email:
 function validarEmail() {
     if(iEmail.value) {
         emailIncorrecto.hidden = true;

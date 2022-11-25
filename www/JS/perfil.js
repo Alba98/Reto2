@@ -12,20 +12,19 @@ document.getElementById("email").addEventListener("focusout", validarEmail);
 document.getElementById('foto').addEventListener('change', handleFileSelect, false);
 document.getElementById('his').addEventListener("click",verHistorial);
 
-//document.getElementById("guardarPerfil").addEventListener("click", validarFormulario);
-
+//Funcion que activa el boton de editar perfil:
 function edit() {
     let inputs = document.getElementsByClassName("inputs");
     for (let x = 0; x < inputs.length; x++) {
         inputs[x].disabled = false;
     }
 }
-
+//Funcion que muestra una ventana dentro del propio boton de cambiar contraseña en el apartado de editar el perfil:
 function mostrarMenu(){
     let menu = document.getElementById("cambiarPASS");
     menu.classList.toggle("shown");
 }
-
+//Funcion que comprueba si el cambio de contraseñas se realiza correctamente:
 function matchPassword(){
     let pass1 = document.getElementById("contra1").value;
     let pass2 = document.getElementById("contra2").value;
@@ -35,7 +34,7 @@ function matchPassword(){
         document.getElementById("passIncorrecta").hidden = true;
     }
 }
-
+//Funcion que valida el nombre:
 function validarNombre() {
     let nom = document.getElementById('nombre').value;
     let exRegName  =  new RegExp (/^[A-Z]{1}[a-z]+$/);
@@ -46,7 +45,7 @@ function validarNombre() {
         document.getElementById("nombreIncorrecto").hidden = true;
     }
 }
-
+//Funcion que valida los apellidos:
 function validarApellidos() {
     let apellido = document.getElementById('apellidos').value;
     let exRegName  =  new RegExp (/^[A-Z]{1}[a-z]+$/);
@@ -57,7 +56,7 @@ function validarApellidos() {
         document.getElementById("apellidosIncorrectos").hidden = true;
     }
 }
-
+//Funcion que valida el email:
 function validarEmail() {
     let email = document.getElementById('email').value;
     let exRegEmail =  new RegExp ('^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$');
@@ -75,7 +74,7 @@ function handleFileSelect(evt) {
     var files = evt.target.files; // FileList object
     localStorage.removeItem('img'); // Para que no hayan 2 imagenes
 
-    // Loop through the FileList and render image files as thumbnails.
+    //Obtiene la FileList y renderiza los archivos de imagen como miniaturas.
     for (var i = 0, f; f = files[i]; i++) {
 
       // Solo procesa imagenes.
@@ -85,7 +84,7 @@ function handleFileSelect(evt) {
 
       var reader = new FileReader();
 
-      // Closure to capture the file information.
+      // Cierre para capturar la información del archivo.
       reader.onload = (function(theFile) {
         return function(e) {
           // Creamos un span con la imagen
@@ -99,7 +98,7 @@ function handleFileSelect(evt) {
         };
       })(f);
 
-      // Read in the image file as a data URL.
+      // Lee el archivo de imagen como una URL de datos.
       reader.readAsDataURL(f);
       document.getElementById('fotoperfil').hidden = true;
     }
@@ -131,13 +130,13 @@ async function cargarPreguntasUsuario(id_usuario) {
       };
   }
 }
-
+//Funcion para valorar:
 function setValoracion(valoracion,num) {
   if (valoracion == num) {
       return "checked";
   } else return "";
 }
-
+//Funcion para cargar el layout:
 function cargarLayoutPregunta(datosPregunta) {
   let contenedorPregunta = document.getElementsByClassName("historial-preguntas")[0];
   let pregunta = document.createElement('div');
@@ -207,7 +206,6 @@ function cargarLayoutPregunta(datosPregunta) {
 //Mostrar historial con IndexedDB.Es una manera de almacenar datos de manera persistente en el navegador
 
 /*Creamos la base de datos a través del objeto indexedDB*/
-
 let db;
 const indexedDB = window.indexedDB; //desciende del objeto window
 if(indexedDB){
@@ -221,16 +219,19 @@ if(indexedDB){
     db = request.result;
     console.log('OPEN',db);
 
-    // cargar los datos si no existen
+    //Cargar los datos si no existen:
     cargarPreguntasUsuario(getCookie('Nombre')).then((listaPreguntas) => {
+      /*
+      Todas las operaciones sobre una base de datos indexada funcionan a través de una transacción:
+      Recibe dos parametros,el almacen dónde vamos a trabajar y el modo, en este caso lectura y escritura.
+      */
       const transaction = db.transaction('historial','readwrite');
       const objectStore = transaction.objectStore('historial');
-
+      //Iteramos la pregunta y la añadimos a nuestro objeto:
       for (let pregunta of listaPreguntas) {
         objectStore.add(pregunta);
       }
-
-      transaction.commit();
+      transaction.commit();//confirma la transacción si se llama en una transacción activa.
     });
   }
   /*Comprobamos si la base de datos existe o tiene que ser creada a través del método onupgradeneeded()*/
@@ -239,29 +240,33 @@ if(indexedDB){
     console.log('CREATE',db);
     /*Crear almacén de objetos con el método crearObjectStorage()*/
     const objectStore = db.createObjectStore('historial', {
+      //devuelve la ruta clave de este almacén de objetos.
       keyPath: 'id_preg'
     });
   }
+  //Si no funciona :
   request.onerror=(error)=>{
      console.log('ERROR',error);
   }
 
 }
-
+//Funcion para mostrar la pregunta que ha realizado el usuario en el apartado del perfil:
 function verHistorial(e){
-  if(indexedDB){
+  if(indexedDB){ //Si existe la base de datos entonces..
+    //Nos devuelve un bjeto de tipo transaccion
     const transaction = db.transaction('historial','readwrite');
+    //Dentro de este objeto tenemos el método objectStore y este método recibe el almacen
     const objectStore = transaction.objectStore('historial');
+    //Recibir todos los datos
     const request = objectStore.getAll();
     console.log(indexedDB);
     request.onsuccess = (e) => {
-        let preguntas = e.target.result;
-
-        for (let pregunta of preguntas) {
-          cargarLayoutPregunta(pregunta);
-        }
+        let preguntas = e.target.result;//El resultado del request
+          for (let pregunta of preguntas) {
+            cargarLayoutPregunta(pregunta);
+          }
     };
-    document.getElementById('his').disabled=true;
+    document.getElementById('his').disabled=true; //De esta forma no se repite la misma pregunta cada vez que pulsamos el boton ver-historial
   }
 
 }
