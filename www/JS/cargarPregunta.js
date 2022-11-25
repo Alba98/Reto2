@@ -66,7 +66,7 @@ function cargarLayout(datosPregunta) {
                 <p><b>Fecha de publicación:</b> ${datosPregunta.fecha}</p>
                 <p><b>Departamento:</b> ${datosPregunta.categoria}</p>
                 <div class='descripcion recuadro'>
-                    ${datosPregunta.detalle}
+                   <p> ${datosPregunta.detalle} </p>
                 </div>
             </div>`;
 
