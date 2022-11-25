@@ -109,7 +109,7 @@
             </div>
             <input class="inputs" type="email"    name="email" placeholder="Email"  required="">
             <input class="inputs" type="password" name="pswd" placeholder="Contraseña" id="pass" required="">
-            <button type="button" onclick="mostrarContrasena()" value="&#128065;" class="ojo"><i class="fa-solid fa-eye"></i></button>
+            <button type="button" onclick="mostrarContrasenaLogin()" value="&#128065;" class="ojo"><i class="fa-solid fa-eye"></i></button>
             <button id="btn-login">Login</button>
         </form>
     </div>
@@ -121,9 +121,10 @@
             <b style="color:red;margin-left:15%" id="nombreIncorrecto" hidden>Nombre no puede estar vacio</b>
             <input class="inputs" type="email" name="remail" id="remail"placeholder="Email" required="">
             <b style="color:red;margin-left:15%" id="emailIncorrecto" hidden>Email no puede estar vacio</b>
-            <input class="inputs" type="password" name="rpswd" id="loginPassword" placeholder="Contraseña" required="">
+            <input class="inputs" type="password" name="rpswd" id="rPassword" placeholder="Contraseña" required="">
             <b style="color:red;margin-left:15%" id="passIncorrecta" hidden>Formato de contraseña invalido</b>
-            <button id="btn-registrar">Registrarse</button>
+            <button type="button" onclick="mostrarContrasenaRegistro()" value="&#128065;" class="ojo"><i class="fa-solid fa-eye"></i></button>
+            <input type="button" value="Registrarse" id="btn-registrar"> 
         </form>
     </div>
     <script src="../JS/loginValidacion.js"></script>
