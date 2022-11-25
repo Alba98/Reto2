@@ -539,6 +539,13 @@ footer #mapa {
     border: 1px solid rgb(16, 15, 15);
     border-radius: 5px;
 }
+/****************************** ERROR ****************************************/
+.errores {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 /****************************** MEDIA ****************************************/
 @media only screen and (min-width: 1920px) {
     #menu-principal li a {
