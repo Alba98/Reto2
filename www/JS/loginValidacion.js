@@ -70,3 +70,13 @@ function validarEmail() {
         throw "Email vacio";
     }
 }
+
+// Boton del ojo, mostraremos el campo de la contraseña
+function mostrarContrasena(){
+    var tipo = document.getElementById("pass");
+    if(tipo.type == "password"){
+        tipo.type = "text";
+    }else{
+        tipo.type = "password";
+    }
+}

@@ -298,6 +298,10 @@ footer #mapa {
 #inicioSesion #chk{
 	display: none;
 }
+#inicioSesion .ojo{
+    height: 30px;
+    font-size: 15px;
+}
 .login{
 	position: relative;
 	width:100%;
@@ -335,7 +339,7 @@ footer #mapa {
 	background: var(--menuBotones);
 	font-size: 1em;
 	font-weight: bold;
-	margin-top: 20px;
+	margin-top: 15px;
 	outline: none;
 	border: none;
 	border-radius: 5px;

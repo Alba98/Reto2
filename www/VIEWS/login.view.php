@@ -108,7 +108,8 @@
                 </div>
             </div>
             <input class="inputs" type="email"    name="email" placeholder="Email"  required="">
-            <input class="inputs" type="password" name="pswd" placeholder="Contraseña" required="">
+            <input class="inputs" type="password" name="pswd" placeholder="Contraseña" id="pass" required="">
+            <button type="button" onclick="mostrarContrasena()" value="&#128065;" class="ojo"><i class="fa-solid fa-eye"></i></button>
             <button id="btn-login">Login</button>
         </form>
     </div>
@@ -121,18 +122,6 @@
             <input class="inputs" type="email" name="remail" id="remail"placeholder="Email" required="">
             <b style="color:red;margin-left:15%" id="emailIncorrecto" hidden>Email no puede estar vacio</b>
             <input class="inputs" type="password" name="rpswd" id="loginPassword" placeholder="Contraseña" required="">
-
-           <!--
-            <span id="credencialesContrasenia">
-                <p>
-                La cadena debe contener al menos 1 carácter alfabético en minúscula.<br>
-                La cadena debe contener al menos 1 carácter alfabético en mayúscula.<br>
-                La cadena debe contener al menos 1 carácter alfabético en mayúscula.<br>
-                La cadena debe contener al menos un carácter especial, pero estamos escapando de los caracteres RegEx reservados para evitar conflictos.<br>
-                La cadena debe tener ocho caracteres o más.
-                </p>    
-            </span>
-            -->
             <b style="color:red;margin-left:15%" id="passIncorrecta" hidden>Formato de contraseña invalido</b>
             <button id="btn-registrar">Registrarse</button>
         </form>
