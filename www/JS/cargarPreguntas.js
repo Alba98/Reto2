@@ -90,7 +90,7 @@ function cargarLayoutPregunta(datosPregunta) {
             <b>LIKE</b>
         </div>
         <div class='iconos'>
-            <i class='fa-brands fa-teamspeak'></i>
+            <i class="fa-sharp fa-solid fa-comments"></i>
             <br>
             <b class='nums'>${datosPregunta.respuestas}</b>
             <b>RES</b>
@@ -102,6 +102,7 @@ function cargarLayoutPregunta(datosPregunta) {
             <b>VISTO</b>
         </div>
     </div>
+    <br>
     <a class='res' href='?accion=detalles' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Detalle</a>
    
 </div>`;

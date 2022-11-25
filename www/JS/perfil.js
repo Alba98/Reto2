@@ -189,6 +189,7 @@ function cargarLayoutPregunta(datosPregunta) {
             <b>VISTO</b>
         </div>
     </div>
+    <br>
     <a class='res' href='?accion=detalles' onclick=\"actualizarVisto('${datosPregunta.id_preg}')\">Detalle</a>
 </div>`;
 

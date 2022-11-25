@@ -41,8 +41,6 @@ body * {
     width: 100%;
     display: flex;
     flex-direction: column;
-    /* justify-content: center;
-    place-items: center; */
     background: var(--fondo) fixed;
 }
 .recuadro {
@@ -111,7 +109,6 @@ body * {
     height: 7rem;
 }
 /****************************** HEADER ****************************************/
-
 #menu a {
     text-decoration: none;
     color: var(--fondo);
@@ -135,7 +132,6 @@ a:visited {
     height: 40px;
     margin: 10px 20px;
 }
-
 #menu span{
    color:white;
    font-size: 2rem;
@@ -282,9 +278,7 @@ footer #mapa {
     background-color: var(--hover);
     cursor: pointer;
 }
-
 /******************************** LOGIN *************************************/
-
 #inicioSesion{
 	width: 350px;
 	height: 500px;
@@ -292,7 +286,6 @@ footer #mapa {
 	background: var(--paleSilver);
 	border-radius: 10px;
 	box-shadow: 5px 20px 50px #000;
-    /* align-self: center; */
     margin: auto auto;
 }
 #inicioSesion #chk{
@@ -372,7 +365,6 @@ footer #mapa {
 	transform: scale(.6);
 }
 /****************************** VISUALIZACION PREGUNTAS ****************************************/
-
 .visualizacion {
     width: 100vw;
 }
@@ -433,6 +425,7 @@ footer #mapa {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     color: var(--grullo);
 }
 .info {
@@ -444,23 +437,18 @@ footer #mapa {
 }
 .atributos {
     grid-area: atributos;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: 50% 35%;
-    grid-template-areas: 
-        "stats"
-        "res";
+    display: flex;
+    flex-direction: column;
+    justify-content: center;     
 }
 .perfil, output {
     width: 140px;
 }
 .stats {
-    grid-area: stats;
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-
     gap: 15%;
 }
 .iconos {
@@ -471,8 +459,8 @@ footer #mapa {
 }
 .res {
     margin-left: 10px;
-    grid-area: res;
     padding: 5% 10%;
+    text-align: center;
     background: var(--menuBotones);
     border: 1px solid white;
     border-radius: 5px;
@@ -480,6 +468,8 @@ footer #mapa {
     cursor: pointer;
     text-decoration: none;
     justify-self: center;
+    width: fit-content;
+    align-self: center;
 }
 .nums {
     color: black;
@@ -488,21 +478,7 @@ footer #mapa {
     font-size:0.9rem;
     overflow: hidden;
 }
-.botones {
-    overflow: hidden;
-    font-size: 2.5rem;
-    padding-top: 10%;
-    padding-bottom: 20%;
-    padding-left: 25%;
-    padding-right: 25%;
-    background: var(--grullo);
-    border: 1px solid white;
-    border-radius: 5px;
-    color: white;
-}
-
 /* Estilo valoraciones */
-  
 .clasificacion input[type="radio"] {
     display: none;
 }
@@ -514,23 +490,17 @@ footer #mapa {
     direction: rtl;
     unicode-bidi: bidi-override;
 }
-
 .clasificacion input[type="radio"]:checked ~ label {
     color: orange;
 }
-
 /****************************** DETALLE PREGUNTA ****************************************/
-
 .detalles {
     display: grid;
     grid-template-columns: 20% 30% 50%;
     grid-template-areas:
     "votos user info";
 }
-.detalles i {
-    font-size: 70px;
-}
-.respuestas i {
+.detalles i, .respuesta i  {
     font-size: 70px;
 }
 .like,.like:link,.like:visited {
@@ -558,10 +528,7 @@ footer #mapa {
     margin: 4% 0%;
     max-width: 700px;
 }
-
 /****************************** PERFIL ****************************************/
-
-/*Formulario cambio de contraseña*/
 #cambiarPASS {
     display: none;
     margin: 2% 0%;
@@ -572,9 +539,7 @@ footer #mapa {
     border: 1px solid rgb(16, 15, 15);
     border-radius: 5px;
 }
-
 /****************************** MEDIA ****************************************/
-
 @media only screen and (min-width: 1920px) {
     #menu-principal li a {
         font-size: 1.1rem;
@@ -618,7 +583,6 @@ footer #mapa {
         display: flex;
     }
 }
-
 @media only screen and (min-width: 768px) and (max-width: 950px) {
     footer #mapa {
         max-width: 200px;
@@ -648,7 +612,6 @@ footer #mapa {
         display: none;
     }
 }
-
 @media only screen and (max-width: 360px) {
     #menu-h,
     #menu-h-principal{
@@ -658,7 +621,6 @@ footer #mapa {
         display: none;
     }
 }
-
 @media screen and (max-width: 760px) {
     .pregunta, .respuesta {
         display: flex;
@@ -666,32 +628,9 @@ footer #mapa {
         justify-content: center;
         align-items: center;
     }
-    .iconos {
-        margin-top: 15%;
-    }
-    .res {
-        grid-area: res;
-        padding-top: 5%;
-        padding-bottom: 5%;
-        padding-left: 18%;
-        padding-right: 18%;
-        background: var(--menuBotones);
-        border: 1px solid white;
-        border-radius: 5px;
-        color: white;
-        cursor: pointer;
-        text-decoration: none;
-    }
-    .botones {
-        font-size: 20px;
-        padding: 10%;
-        padding-left: 25%;
-        padding-right: 25%;
-        background: var(--grullo);
-        border: 1px solid white;
-        border-radius: 5px;
-        color: white;
-    }
+    .atributos {
+        width: 50%;
+    } 
     .formulario {
         display: flex;
         flex-direction: column;
