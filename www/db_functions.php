@@ -717,7 +717,11 @@ function userLogin($email,$pass){
             $_SESSION['id_usu']=$datos->id_usu; // Guardamos en sesión el id del usuario
             setcookie('Nombre',$datos->nombre);
             setcookie('Email',$datos->email);
-            setcookie('Apellido',$datos->apellidos);
+            if ($datos->apellidos == null) {
+                setcookie('Apellido'," ");
+            } else {
+                setcookie('Apellido',$datos->apellidos);
+            }
             return true;
         }
         else {
