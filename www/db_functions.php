@@ -73,7 +73,7 @@ function getVistaPreguntasPorUsuario($dbh, $id_usuario) {
 }
 
 function getVistaRespuestasPorUsuario($dbh, $id_usuario) {
-    $stmt = $dbh->prepare("SELECT v.* FROM vistaRespuestas v, USUARIO u WHERE v.usuario = u.nombre AND u.nombre = :id");
+    $stmt = $dbh->prepare("SELECT * FROM vistaRespuestas v WHERE v.id_usu = :id");
     $stmt->setFetchMode(PDO::FETCH_OBJ);
     $stmt->execute([
         ':id' => $id_usuario

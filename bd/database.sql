@@ -182,7 +182,7 @@ INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Ma
 INSERT INTO `USUARIO`(`nombre`, `apellidos`, `email`, `contrasenia`) VALUES ('Kike','Garcia','kike@gmail.com','kike');
 INSERT INTO `USUARIO`(`nombre`, `email`, `contrasenia`) VALUES ('Amaia','amaia@gmail.com','amaia');
 
-INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`,`fecha`) VALUES ('¿Qué es la regla Paretto y dónde podría aplicarse este princicpio?','No había conocido esta ley hasta el día de hoy, pero imagino que su aplicación en la meteorología aeronáutica tiene que ver con la utilización de una escala meteorológica menor (mesoescala e incluso microescala) que son aquellas escalas en la que están los fenómenos que afectan a la aeronavegación (tormentas, downburst, microburst, etc). Tienen una extensión y una duración menor que la escala sinóptica (serían el 20 de esa ley, pero generarían el 80% de los problemas que afectan a la navegación aérea).',1,7, '2022-11-4 21:25:32');
+INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`,`fecha`) VALUES ('¿Qué es la regla Paretto y dónde podría aplicarse este princicpio?','No había conocido esta ley hasta el día de hoy, pero imagino que su aplicación en la meteorología aeronáutica tiene que ver con la utilización de una escala meteorológica menor (mesoescala e incluso microescala) que son aquellas escalas en la que están los fenómenos que afectan a la aeronavegación (tormentas, downburst, microburst, etc). Tienen una extensión y una duración menor que la escala sinóptica (serían el 20 de esa ley, pero generarían el 80% de los problemas que afectan a la navegación aérea).',1,8, '2022-11-4 21:25:32');
 INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`,`fecha`) VALUES ('¿Qué problemas puede causar una tormenta en los alrededores de un aeropuerto?','Un avión en la aproximación final puede encontrar una fuerte ascendencia debida a la parte exterior del torbellino horizontal creado por rebote del "downburst". Quizá la reacción del piloto sea la de bajar el morro del avión, lo cual no puede ser más desaconsejable, ya que inmediatamente se encontrará la intensa corriente descendente y con tal presentación del avión, las consecuencias pueden ser fatales.',2,31, '2022-11-14 22:25:32');
 INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`,`fecha`) VALUES ('¿Qué significa VNE? ¿Qué pasa si no se cumple?','No debe confundirse el "downburst" con el tornado; son fenómenos de extensión parecida y a veces efectos similares, pero hay una diferencia esencial: en el "downburst" las corrientes son descendentes, mientras que en el tornado se combinan ascendentes y en espiral. Acaso para la pequeña aviación revistan especial peligrosidad los procedentes de las tormentas secas por ser mas difíciles de localizar y en buena parte de los casos casi imposible identificar visualmente.',3,21, '2022-11-15 15:25:32');
 INSERT INTO `PREGUNTA`(`titulo`, `detalle`, `id_cat`,`visto`,`fecha`) VALUES ('¿Por qué es importante el pronóstico del viento en un aeropuerto?','La turbulencia por cortante de viento (o cizalladura del viento) se produce cuando hay un cambio brusco en la velocidad y/o dirección del viento. A grandes alturas este tipo de turbulencia se denomina CAT (Turbulencia en aire claro) y se asocia en general a la corriente en chorro. No se asocia a nubosidad de allí su nombre y por lo tanto no puede reconocerse a simple vista.',4,56, '2022-11-20 11:25:32');
@@ -214,7 +214,7 @@ INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Aunque la posibilidad 
 INSERT INTO `RESPUESTA`(`descripcion`,`id_preg`) VALUES ('Uno de los mayores problemas durante una tormenta es el aterrizaje. El Internet está lleno de videos que muestran cómo los aviones quedan atrapados en corrientes y son movidos de un lado a otro por los vientos cruzados durante el aterrizaje.',2);
 
 
-INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1,1);
+INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (6,1);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (2,2);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (3,3);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (4,4);
@@ -226,17 +226,16 @@ INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (3,9);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (4,10);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (5,11);
 INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (1,12);
-INSERT INTO `PREGUNTAR`(`id_usu`, `id_preg`) VALUES (6,13);
 
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (1,1);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,2);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (3,3);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (4,4);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,5);
-INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,6);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (6,6);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (1,7);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (3,8);
-INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (4,9);
+INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (6,9);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,10);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (5,11);
 INSERT INTO `RESPONDER`(`id_usu`, `id_res`) VALUES (2,12);
@@ -273,7 +272,7 @@ INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (4,9);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (5,9);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (1,9);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (2,9);
-INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (6,1);
+INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (5,1);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (6,2);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (6,3);
 INSERT INTO `GUSTAR`(`id_usu`,`id_preg`) VALUES (6,4);
